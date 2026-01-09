@@ -1,21 +1,6 @@
-import { useState, useEffect } from 'react';
 import './Footer.css';
 
 export default function Footer() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Calculate parallax offset (adjust multiplier for speed)
-  const parallaxOffset = scrollY * 0.3; 
-
   return (
     <footer className="footer">
       <div className="footer-circle">
@@ -23,7 +8,7 @@ export default function Footer() {
           <h3 className="footer-heading">Connect with me!</h3>
           <div className="footer-links">
             <a 
-              href="https://www.linkedin.com/in/sharleenwang/" 
+              href="https://www.linkedin.com/in/your-profile" 
               target="_blank" 
               rel="noopener noreferrer"
               className="footer-link"
@@ -31,7 +16,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a 
-              href="mailto:shar010588@gmail.com" 
+              href="mailto:your.email@example.com" 
               className="footer-link"
             >
               Email

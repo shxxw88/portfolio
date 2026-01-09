@@ -1,88 +1,40 @@
-import { useState, useEffect, useRef } from 'react';
 import Sphere from './Sphere';
 import './Hero.css';
 
 export default function Hero() {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [spherePositions, setSpherePositions] = useState([
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 }
-  ]);
-  const sphereRefs = useRef([]);
-
-  useEffect(() => {
-    const moveCursor = (e) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-      
-      // Check distance to each sphere and move them away if too close
-      sphereRefs.current.forEach((sphere, index) => {
-        if (!sphere) return;
-        
-        const rect = sphere.getBoundingClientRect();
-        const sphereCenterX = rect.left + rect.width / 2;
-        const sphereCenterY = rect.top + rect.height / 2;
-        
-        const deltaX = sphereCenterX - e.clientX;
-        const deltaY = sphereCenterY - e.clientY;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        
-        // If cursor is within 120px of sphere center
-        if (distance < 120) {
-          const angle = Math.atan2(deltaY, deltaX);
-          const pushDistance = 120 - distance;
-          const pushX = Math.cos(angle) * pushDistance * 2;
-          const pushY = Math.sin(angle) * pushDistance * 2;
-          
-          setSpherePositions(prev => {
-            const newPositions = [...prev];
-            newPositions[index] = {
-              x: pushX,
-              y: pushY
-            };
-            return newPositions;
-          });
-        } else {
-          // Slowly return to original position
-          setSpherePositions(prev => {
-            const newPositions = [...prev];
-            newPositions[index] = {
-              x: prev[index].x * 0.95,
-              y: prev[index].y * 0.95
-            };
-            return newPositions;
-          });
-        }
-      });
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-    return () => window.removeEventListener('mousemove', moveCursor);
-  }, []);
-
   const spheres = [
     { 
       initialTop: '15%', 
       initialRight: '20%', 
       color: 'green',
       animationName: 'floatRandom1',
-      duration: '35s'
+      duration: '20s'
     },
     { 
       initialTop: '60%', 
       initialLeft: '15%', 
       color: 'orange',
       animationName: 'floatRandom2',
-      duration: '40s'
+      duration: '20s'
     },
     { 
       initialBottom: '20%', 
       initialRight: '25%', 
       color: 'blue',
       animationName: 'floatRandom3',
-      duration: '30s'
+      duration: '20s'
     }
   ];
+
+  const handleSphereClick = (color) => {
+    console.log(`Clicked ${color} sphere!`);
+    alert(`You clicked the ${color} sphere!`);
+    // Add your click handler logic here
+    // For example: 
+    // - Navigate to a project page
+    // - Open a modal
+    // - Trigger an animation
+  };
 
   return (
     <section className="hero">
@@ -91,25 +43,20 @@ export default function Hero() {
         {spheres.map((sphere, index) => (
           <div
             key={index}
-            className="sphere-wrapper"
+            className="sphere-wrapper clickable"
             style={{
               position: 'absolute',
               top: sphere.initialTop,
               left: sphere.initialLeft,
               right: sphere.initialRight,
               bottom: sphere.initialBottom,
-              animation: `${sphere.animationName} ${sphere.duration} ease-in-out infinite`
+              animation: `${sphere.animationName} ${sphere.duration} ease-in-out infinite`,
+              pointerEvents: 'auto',
+              cursor: 'pointer'
             }}
+            onClick={() => handleSphereClick(sphere.color)}
           >
-            <div
-              ref={el => sphereRefs.current[index] = el}
-              style={{
-                transform: `translate(${spherePositions[index].x}px, ${spherePositions[index].y}px)`,
-                transition: 'transform 0.1s ease-out'
-              }}
-            >
-              <Sphere size={90} color={sphere.color} />
-            </div>
+            <Sphere size={90} color={sphere.color} />
           </div>
         ))}
       </div>
