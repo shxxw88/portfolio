@@ -11,7 +11,7 @@ export default function FeaturedWorks() {
     {
       id: 1,
       title: 'Scaffold',
-      description: 'AI powered grant matching and application assistant app for trades students and apprentices in British Columbia.  ',
+      description: 'AI powered grant matching and application assistant app for trades students and apprentices in British Columbia.',
       details: 'Scaffold is a native iOS app that simplifies grant discovery, eligibility, and creates tailored application drafts based on the user\'s profile.',
       role: 'Project Management',
       tools: ['UX/UI', 'iOS Development'],
