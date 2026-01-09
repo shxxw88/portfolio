@@ -2,15 +2,16 @@
   padding: 2.5rem 0 3rem;
   position: sticky;
   top: 0;
-  background-color: var(--color-bg);
+  background-color: transparent;  /* Change from var(--color-bg) to transparent */
   z-index: 100;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 .header.scrolled {
-  border-bottom-color: var(--color-border);
+
+  padding: 1.5rem 0;
 }
+
 
 .nav {
   display: flex;
@@ -26,6 +27,7 @@
   position: relative;
   transition: color 0.2s ease;
   letter-spacing: 0.02em;
+  padding-bottom: 0.5rem;
 }
 
 .nav-link:hover {
@@ -36,21 +38,42 @@
   color: var(--color-text);
 }
 
-.nav-link.active::before {
+.nav-link.active::after {
   content: '';
   position: absolute;
-  left: -0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   width: 6px;
   height: 6px;
   background-color: var(--color-accent);
   border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.header.scrolled .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header.scrolled .nav-link:hover {
+  color: white;
+}
+
+.header.scrolled .nav-link.active {
+  color: white;
+}
+
+.header.scrolled .nav-link.active::after {
+  background-color: white;
 }
 
 @media (max-width: 768px) {
   .header {
     padding: 1.5rem 0 2rem;
+  }
+  
+  .header.scrolled {
+    padding: 1rem 0;
   }
   
   .nav {

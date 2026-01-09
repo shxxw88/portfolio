@@ -1,0 +1,263 @@
+.about-background .custom-cursor {
+  background-color: white;
+}
+
+.about-page {
+  background-color: #C4D82E;
+  padding: 4rem 3rem 8rem 3rem;  /* Add horizontal padding */
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.about-background {
+  background-color: #C4D82E;
+  min-height: 100vh;
+  width: 100%;
+}
+
+ /* Intro Section */
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin: 0 8rem;
+  z-index: 1;
+}
+
+.intro-heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.intro-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* Section Layout */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 0 8rem;
+  z-index: 1;
+}
+
+.section-left {
+  display: flex;
+  align-items: flex-start;
+}
+
+.section-heading {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.section-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.tools-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Education Items */
+.education-item {
+  margin-bottom: 2rem;
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
+.floating-dots {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;  /* Changed from 1 to 0 to put behind text */
+}
+
+.dot {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Different sizes and positions */
+.dot-1 {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  right: 15%;
+  animation: floatRandom1 20s ease-in-out infinite;
+}
+
+.dot-2 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  right: 10%;
+  animation: floatRandom2 25s ease-in-out infinite;
+}
+
+.dot-3 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 10%;
+  animation: floatRandom3 18s ease-in-out infinite;
+}
+
+.dot-4 {
+  width: 100px;
+  height: 100px;
+  bottom: 35%;
+  left: 25%;
+  animation: floatRandom4 22s ease-in-out infinite;
+}
+
+.dot-5 {
+  width: 100px;
+  height: 100px;
+  top: 25%;
+  left: 50%;
+  animation: floatRandom5 24s ease-in-out infinite;
+}
+
+/* Random floating animations - each dot has different path */
+@keyframes floatRandom1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100px, 80px);
+  }
+  50% {
+    transform: translate(120px, -60px);
+  }
+  75% {
+    transform: translate(-80px, 100px);
+  }
+}
+
+@keyframes floatRandom2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(90px, -70px);
+  }
+  40% {
+    transform: translate(-110px, 50px);
+  }
+  60% {
+    transform: translate(60px, 90px);
+  }
+  80% {
+    transform: translate(-70px, -80px);
+  }
+}
+
+@keyframes floatRandom3 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(100px, 100px);
+  }
+  66% {
+    transform: translate(-90px, -70px);
+  }
+}
+
+@keyframes floatRandom4 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-120px, -90px);
+  }
+  50% {
+    transform: translate(80px, 110px);
+  }
+  75% {
+    transform: translate(100px, -60px);
+  }
+}
+
+@keyframes floatRandom5 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-70px, 90px);
+  }
+  40% {
+    transform: translate(110px, -50px);
+  }
+  60% {
+    transform: translate(-100px, -80px);
+  }
+  80% {
+    transform: translate(60px, 70px);
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 2rem 0 4rem;
+    gap: 3rem;
+  }
+  
+  .about-intro,
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .intro-heading {
+    font-size: 2rem;
+  }
+  
+  .section-heading {
+    font-size: 1.25rem;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .education-item {
+    margin-bottom: 1.5rem;
+  }
+}
