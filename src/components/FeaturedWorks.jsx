@@ -12,13 +12,21 @@ export default function FeaturedWorks() {
       id: 1,
       title: 'Scaffold',
       description: 'AI powered grant matching and application assistant app for trades students and apprentices in British Columbia.',
-      details: 'Scaffold is a native iOS app that simplifies grant discovery, eligibility, and creates tailored application drafts based on the user\'s profile.',
-      role: 'Project Management',
-      tools: ['UX/UI', 'iOS Development'],
-      image: '/project-scaffold.png',
+      details: '',
+      skills: ['Project Management', 'UX/UI Design', 'Front-end development'],
+      image: '/images/scaffold-cover.png',
       category: 'UX/UI'
-    }
-    // Add more projects here
+    },
+    {
+      id: 2,
+      title: 'Picki',
+      description: 'Event planning app that helps friend groups decide faster. Everyone suggests ideas, Picki randomly picks one for less debating, more doing.',
+      details: '',
+      skills: ['UX/UI design', 'User testing', 'Wireframe & Prototype'],
+      image: '/images/picki-cover.png',
+      category: 'UX/UI'
+    },
+    
   ];
 
   const filteredProjects = activeFilter === 'Featured' 

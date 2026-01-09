@@ -10,31 +10,38 @@ export default function ProjectCard({ project }) {
         
         <p className="project-details">{project.details}</p>
         
-        <div className="project-meta">
-          <div className="meta-item">
-            <span className="meta-label">Project Management</span>
-            <span className="meta-value">{project.role}</span>
-          </div>
-          <div className="meta-item">
-            <span className="meta-label">Tools</span>
-            <span className="meta-value">{project.tools.join(' • ')}</span>
-          </div>
+        <div className="project-skills">
+          {project.skills && project.skills.map((skill, index) => (
+            <span key={index} className="skill-tag">{skill}</span>
+          ))}
         </div>
         
         <a href="#" className="project-link">
-          Read case study
+          Case study coming soon!
         </a>
       </div>
       
       <div className="project-image">
-        <div className="image-placeholder">
-          {/* Project mockup/screenshot goes here */}
-          <div className="phone-mockups">
-            <div className="phone-mockup phone-1"></div>
-            <div className="phone-mockup phone-2"></div>
-            <div className="phone-mockup phone-3"></div>
+        {project.image ? (
+          <div className="image-container">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="project-img"
+            />
+            <div className="image-overlay">
+              <span className="overlay-text">Case study coming soon!</span>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="image-placeholder">
+            <div className="phone-mockups">
+              <div className="phone-mockup phone-1"></div>
+              <div className="phone-mockup phone-2"></div>
+              <div className="phone-mockup phone-3"></div>
+            </div>
+          </div>
+        )}
       </div>
     </article>
   );
