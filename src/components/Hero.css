@@ -3,15 +3,33 @@
   min-height: 70vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   width: 100%;
+}
+
+.hero-spheres {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sphere-wrapper {
+  z-index: 0;
 }
 
 .hero-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 4rem;
   width: 100%;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-left {
@@ -32,11 +50,10 @@
 
 .hero-description {
   max-width: 100%;
-  font-size: 1rem;
 }
 
 .hero-title {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   line-height: 1.7;
   color: var(--color-text);
   margin-bottom: 0.75rem;
@@ -46,11 +63,6 @@
   color: var(--color-accent);
   font-weight: 600;
   font-size: 1.3rem;
-  /* background: linear-gradient(120deg, rgba(196, 216, 46, 0.2) 0%, rgba(196, 216, 46, 0.2) 100%); */
-  /* background-size: 100% 40%;
-  background-repeat: no-repeat;
-  background-position: 0 85%; */
-
 }
 
 .hero-subtitle {
@@ -70,6 +82,63 @@
     transform: translateY(0);
   }
 }
+
+/* Sphere floating animations - EXTREME 1000px+ movement with rotation */
+@keyframes floatRandom1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-800px, 600px) rotate(72deg);
+  }
+  40% {
+    transform: translate(900px, -700px) rotate(144deg);
+  }
+  60% {
+    transform: translate(-700px, 800px) rotate(216deg);
+  }
+  80% {
+    transform: translate(1000px, -600px) rotate(288deg);
+  }
+}
+
+@keyframes floatRandom2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  16% {
+    transform: translate(850px, -900px) rotate(60deg);
+  }
+  33% {
+    transform: translate(-1000px, 650px) rotate(120deg);
+  }
+  50% {
+    transform: translate(700px, 950px) rotate(180deg);
+  }
+  66% {
+    transform: translate(-900px, -800px) rotate(240deg);
+  }
+  83% {
+    transform: translate(1000px, 700px) rotate(300deg);
+  }
+}
+
+@keyframes floatRandom3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(950px, 1000px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-1000px, -900px) rotate(180deg);
+  }
+  75% {
+    transform: translate(850px, -950px) rotate(270deg);
+  }
+}
+
+
 
 @media (max-width: 968px) {
   .hero-container {

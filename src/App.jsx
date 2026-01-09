@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import FeaturedWorks from './components/FeaturedWorks';
 import './App.css';
+import Footer from './components/Footer';
 
 function App() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -25,6 +26,7 @@ function App() {
       <Header />
       <Hero />
       <FeaturedWorks />
+      <Footer />
     </div>
   );
 }

@@ -24,14 +24,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin: 0 8rem;
+  margin: 0 12rem;
   z-index: 1;
 }
 
 .intro-heading {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: -0.02em;
 }
 
 .intro-text {
@@ -45,7 +44,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin: 0 8rem;
+  margin: 0 12rem;
   z-index: 1;
 }
 
@@ -55,9 +54,8 @@
 }
 
 .section-heading {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
 }
 
 .section-right {
@@ -70,6 +68,14 @@
   font-size: 0.875rem;
   line-height: 1.7;
   color: var(--color-text);
+  margin: 0;
+}
+
+.section-text-bold {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  font-weight: 600;
   margin: 0;
 }
 
@@ -109,50 +115,55 @@
   position: absolute;
   background-color: white;
   border-radius: 50%;
+  transition: transform 0.05s ease-out, opacity 0.2s ease;  /* Smooth cursor interaction */
 }
 
-/* Different sizes and positions */
+.dot:hover {
+  opacity: 0.8;  /* Slightly more visible when interacting */
+}
+
+/* Different sizes, positions, AND animations */
 .dot-1 {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   top: 10%;
   right: 15%;
   animation: floatRandom1 20s ease-in-out infinite;
 }
 
 .dot-2 {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   bottom: 20%;
   right: 10%;
   animation: floatRandom2 25s ease-in-out infinite;
 }
 
 .dot-3 {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   top: 50%;
   left: 10%;
   animation: floatRandom3 18s ease-in-out infinite;
 }
 
 .dot-4 {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   bottom: 35%;
   left: 25%;
   animation: floatRandom4 22s ease-in-out infinite;
 }
 
 .dot-5 {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   top: 25%;
   left: 50%;
   animation: floatRandom5 24s ease-in-out infinite;
 }
 
-/* Random floating animations - each dot has different path */
+/* Keep all your @keyframes animations */
 @keyframes floatRandom1 {
   0%, 100% {
     transform: translate(0, 0);
@@ -228,36 +239,5 @@
   }
   80% {
     transform: translate(60px, 70px);
-  }
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .about-page {
-    padding: 2rem 0 4rem;
-    gap: 3rem;
-  }
-  
-  .about-intro,
-  .about-section {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .intro-heading {
-    font-size: 2rem;
-  }
-  
-  .section-heading {
-    font-size: 1.25rem;
-  }
-  
-  .tools-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .education-item {
-    margin-bottom: 1.5rem;
   }
 }
