@@ -18,6 +18,7 @@ export default function Header() {
       <nav className="nav">
         <a href="/" className="nav-link active">Works</a>
         <a href="/about" className="nav-link">About</a>
+        <a href="/contact" className="nav-link">Contact</a>
       </nav>
     </header>
   );

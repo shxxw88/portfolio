@@ -15,18 +15,20 @@
 
 .nav {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.2rem;
 }
 
 .nav-link {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-light);
+  background-color: #F4F4F4;
+  border-radius: 28px;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
   position: relative;
   transition: color 0.2s ease;
-  letter-spacing: 0.02em;
   padding-bottom: 0.5rem;
 }
 
