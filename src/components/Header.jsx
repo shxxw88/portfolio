@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="nav">
-        <a href="/" className="nav-link active">Works</a>
+        <a href="/" className="nav-link">Works</a>
         <a href="/about" className="nav-link">About</a>
         <a href="/contact" className="nav-link">Contact</a>
       </nav>
