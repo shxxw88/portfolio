@@ -93,7 +93,7 @@ function About() {
                 <h1 className="intro-heading">Hey, I'm Sharleen!</h1>
               </div>
               <div className="intro-right">
-                <p className="intro-text">I am a product designer</p>
+                <p className="intro-text">I design at the intersection of art and technology by using creativity to solve problems and craft intentional, usable, and visually compelling digital experiences. </p>
               </div>
             </div>
 
@@ -103,7 +103,10 @@ function About() {
               </div>
               <div className="section-right">
                 <p className="section-text">
-                  Your about me text goes here. Tell your story and what you're passionate about.
+                My background in art history and fashion informs my design perspective, shaping how I approach visual culture, aesthetics, and meaning in functional digital products.
+                </p>
+                <p className="section-text">
+                 Outside of design, you'll probably find me hanging out with my dog, trying new restaurants, shopping a little too much and visiting art galleries for inspiration.
                 </p>
               </div>
             </div>
