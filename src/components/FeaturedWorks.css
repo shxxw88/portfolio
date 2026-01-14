@@ -45,8 +45,8 @@
   left: 50%;
   right: 0;
   width: 60%;
-  height: 1px;
-  background-color: var(--color-text);
+  height: 1.2px;
+  background-color: var(--color-accent);
 }
 
 .projects-grid {
