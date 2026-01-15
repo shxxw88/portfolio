@@ -1,17 +1,35 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Check if featured works section is in view
+      const worksSection = document.querySelector('.featured-works');
+      if (worksSection) {
+        const rect = worksSection.getBoundingClientRect();
+        const isInView = rect.top <= 200 && rect.bottom >= 200;
+        
+        if (isInView && location.pathname === '/') {
+          setActiveSection('works');
+        } else {
+          setActiveSection('');
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const scrollToFooter = (e) => {
     e.preventDefault();
@@ -24,13 +42,11 @@ export default function Header() {
   const scrollToWorks = (e) => {
     e.preventDefault();
     
-    // If on About page, navigate to home
     if (window.location.pathname === '/about') {
       window.location.href = '/';
       return;
     }
     
-    // Otherwise scroll to featured works section
     const works = document.querySelector('.featured-works');
     if (works) {
       works.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -40,9 +56,26 @@ export default function Header() {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="nav">
-        <a href="#works" className="nav-link active" onClick={scrollToWorks}>Works</a>
-        <a href="/about" className="nav-link">About</a>
-        <a href="#contact" className="nav-link" onClick={scrollToFooter}>Contact</a>
+        <a 
+          href="#works" 
+          className={`nav-link ${activeSection === 'works' ? 'active' : ''}`}
+          onClick={scrollToWorks}
+        >
+          Works
+        </a>
+        <a 
+          href="/about" 
+          className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+        >
+          About
+        </a>
+        <a 
+          href="#contact" 
+          className="nav-link" 
+          onClick={scrollToFooter}
+        >
+          Contact
+        </a>
       </nav>
     </header>
   );

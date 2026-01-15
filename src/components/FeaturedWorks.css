@@ -1,5 +1,5 @@
 .featured-works {
-  padding: 4rem 0 6rem;
+  padding: 8rem 0 6rem;
 }
 
 .works-container {
@@ -8,7 +8,7 @@
 
 .works-filters {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-bottom: 3rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
@@ -20,33 +20,41 @@
   font-weight: 500;
   color: var(--color-text-light);
   background: none;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem;
   border: none;
-  border-radius: 28px;
   cursor: pointer;
   position: relative;
   transition: color 0.2s ease;
   letter-spacing: 0.02em;
 }
 
-.filter-btn:hover {
-  color: var(--color-text);
-}
-
-.filter-btn.active {
-  color: var(--color-text);
-}
-
-.filter-btn.active::after {
+.filter-btn::after {
   content: '';
   position: absolute;
   bottom: 0.1rem;
-  transform: translateX(-50%);
   left: 50%;
-  right: 0;
-  width: 60%;
+  transform: translateX(-50%);
+  width: 0;
   height: 1.2px;
+  color: var(--color-text);
   background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.filter-btn:hover {
+  color: var(--color-accent);
+}
+
+.filter-btn:hover::after {
+  width: 80%;
+}
+
+.filter-btn.active {
+  color: var(--color-accent);
+}
+
+.filter-btn.active::after {
+  width: 80%;
 }
 
 .projects-grid {
