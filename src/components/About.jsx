@@ -1,18 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import '../App.css';
 import './About.css';
 
 function About() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [dotPositions, setDotPositions] = useState([
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 }
-  ]);
-  const dotRefs = useRef([]);
+  // const [dotPositions, setDotPositions] = useState([
+  //   { x: 0, y: 0 },
+  //   { x: 0, y: 0 },
+  //   { x: 0, y: 0 },
+  //   { x: 0, y: 0 },
+  //   { x: 0, y: 0 }
+  // ]);
+  // const dotRefs = useRef([]);
 
   useEffect(() => {
     const moveCursor = (e) => {
@@ -66,7 +67,7 @@ function About() {
   return (
     <>
       <div className="about-background">
-        {/* Floating dots */}
+        {/* Floating dots
         <div className="floating-dots">
           {[1, 2, 3, 4, 5].map((num, index) => (
             <div
@@ -77,7 +78,7 @@ function About() {
                 transform: `translate(${dotPositions[index].x}px, ${dotPositions[index].y}px)`
               }}
             ></div>
-          ))}
+          ))} */}
         </div>
         
         <div 
@@ -87,13 +88,15 @@ function About() {
         <div className="app">
           <Header />
           <section className="about-page">
-            {/* All your existing content */}
-            <div className="about-intro">
-              <div className="intro-left">
-                <h1 className="intro-heading">Hey, I'm Sharleen!</h1>
+            {/* Intro section - now matches about-section layout */}
+            <div className="about-section">
+              <div className="section-left">
+                <h2 className="section-heading">Hey, I'm Sharleen!</h2>
               </div>
-              <div className="intro-right">
-                <p className="intro-text">I design at the intersection of art and technology by using creativity to solve problems and craft intentional, usable, and visually compelling digital experiences. </p>
+              <div className="section-right">
+                <p className="section-text">
+                  I design at the intersection of art and technology by using creativity to solve problems and craft intentional, usable, and visually compelling digital experiences.
+                </p>
               </div>
             </div>
 
@@ -103,10 +106,10 @@ function About() {
               </div>
               <div className="section-right">
                 <p className="section-text">
-                My background in art history and fashion informs my design perspective, shaping how I approach visual culture, aesthetics, and meaning in functional digital products.
+                 My background in art history and fashion shapes my perspective as a designer, informing how I create functional digital products grounded in visual culture, aesthetics and meaning.
                 </p>
                 <p className="section-text">
-                 Outside of design, you'll probably find me hanging out with my dog, trying new restaurants, shopping a little too much and visiting art galleries for inspiration.
+                 Outside of design, I like to hangout at the beach probably with an ice coffee in hand (even in the winter!), explore new restaurants and shop a little too much :) 
                 </p>
               </div>
             </div>
@@ -163,8 +166,9 @@ function About() {
               </div>
             </div>
           </section>
+          <Footer />
+          
         </div>
-      </div>
     </>
   );
 }
