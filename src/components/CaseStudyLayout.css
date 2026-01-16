@@ -1,0 +1,291 @@
+.case-study-container {
+  min-height: 100vh;
+  background-color: white;
+  padding: 2rem 3rem;
+  color: var(--color-text);
+}
+
+/* Back Link */
+.back-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  text-decoration: none;
+  margin-bottom: 3rem;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+/* Hero Section */
+.case-study-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  padding: 0 2rem;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cs-hero-title {
+  font-family: 'Sen', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cs-hero-description {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 90%;
+}
+
+/* Project Info Grid */
+.cs-hero-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-heading {
+  font-family: 'Sen', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.info-text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Hero Image */
+.hero-right {
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #d9d9d9;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content Sections */
+.case-study-content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  padding: 0 2rem;
+}
+
+/* Navigation Sidebar */
+.content-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.nav-item {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-item:hover {
+  opacity: 0.6;
+}
+
+/* Main Content Area */
+.content-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.content-section {
+  scroll-margin-top: 2rem;
+}
+
+.cs-section-heading {
+  font-family: 'Sen', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+.cs-section-subheading {
+  font-family: 'Sen', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+}
+
+.cs-section-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 1rem 0;
+}
+
+.cs-section-image {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+.cs-section-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.cs-section-images-grid img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Placeholder for empty content */
+.content-placeholder {
+  width: 100%;
+  min-height: 400px;
+  background-color: #d9d9d9;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .case-study-container {
+    padding: 2rem;
+  }
+
+  .case-study-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0;
+  }
+
+  .cs-hero-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-study-content {
+    grid-template-columns: 150px 1fr;
+    gap: 2rem;
+    padding: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .case-study-container {
+    padding: 1.5rem;
+  }
+
+  .back-link {
+    margin-bottom: 2rem;
+  }
+
+  .case-study-hero {
+    gap: 2rem;
+  }
+
+  .cs-hero-title {
+    font-size: 2rem;
+  }
+
+  .cs-hero-description {
+    max-width: 100%;
+  }
+
+  .cs-hero-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .case-study-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .content-nav {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .nav-item {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+  }
+
+  .cs-section-heading {
+    font-size: 1.5rem;
+  }
+
+  .cs-section-subheading {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .case-study-container {
+    padding: 1rem;
+  }
+
+  .cs-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .cs-hero-description {
+    font-size: 0.813rem;
+  }
+
+  .info-heading,
+  .info-text {
+    font-size: 0.813rem;
+  }
+
+  .cs-section-text {
+    font-size: 0.813rem;
+  }
+}

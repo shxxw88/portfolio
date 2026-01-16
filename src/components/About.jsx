@@ -6,89 +6,82 @@ import './About.css';
 
 function About() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  // const [dotPositions, setDotPositions] = useState([
-  //   { x: 0, y: 0 },
-  //   { x: 0, y: 0 },
-  //   { x: 0, y: 0 },
-  //   { x: 0, y: 0 },
-  //   { x: 0, y: 0 }
-  // ]);
-  // const dotRefs = useRef([]);
+  const [cursorToggle, setCursorToggle] = useState(false);
+  const [isOverNavOrFooter, setIsOverNavOrFooter] = useState(false);
+  const headerRef = useRef(null);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     const moveCursor = (e) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
       
-      // Check distance to each dot and move them away if too close
-      dotRefs.current.forEach((dot, index) => {
-        if (!dot) return;
-        
-        const rect = dot.getBoundingClientRect();
-        const dotCenterX = rect.left + rect.width / 2;
-        const dotCenterY = rect.top + rect.height / 2;
-        
-        const deltaX = dotCenterX - e.clientX;
-        const deltaY = dotCenterY - e.clientY;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-        // If cursor is within 200px of dot center
-        if (distance < 200) {
-          const angle = Math.atan2(deltaY, deltaX);
-          const pushDistance = 200 - distance;
-          const pushX = Math.cos(angle) * pushDistance * 2.5;
-          const pushY = Math.sin(angle) * pushDistance * 2.5;
-          
-          setDotPositions(prev => {
-            const newPositions = [...prev];
-            newPositions[index] = {
-              x: pushX,
-              y: pushY
-            };
-            return newPositions;
-          });
-        } else {
-          // Slowly return to original position
-          setDotPositions(prev => {
-            const newPositions = [...prev];
-            newPositions[index] = {
-              x: prev[index].x * 0.95,
-              y: prev[index].y * 0.95
-            };
-            return newPositions;
-          });
+      // Check if cursor is over header or footer
+      const headerElement = headerRef.current;
+      const footerElement = footerRef.current;
+      
+      let isOverSpecialArea = false;
+      
+      if (headerElement) {
+        const headerRect = headerElement.getBoundingClientRect();
+        if (
+          e.clientX >= headerRect.left &&
+          e.clientX <= headerRect.right &&
+          e.clientY >= headerRect.top &&
+          e.clientY <= headerRect.bottom
+        ) {
+          isOverSpecialArea = true;
         }
-      });
+      }
+      
+      if (footerElement && !isOverSpecialArea) {
+        const footerRect = footerElement.getBoundingClientRect();
+        if (
+          e.clientX >= footerRect.left &&
+          e.clientX <= footerRect.right &&
+          e.clientY >= footerRect.top &&
+          e.clientY <= footerRect.bottom
+        ) {
+          isOverSpecialArea = true;
+        }
+      }
+      
+      setIsOverNavOrFooter(isOverSpecialArea);
+    };
+
+    const handleClick = () => {
+      setCursorToggle(prev => !prev);
     };
 
     window.addEventListener('mousemove', moveCursor);
-    return () => window.removeEventListener('mousemove', moveCursor);
+    window.addEventListener('click', handleClick);
+    
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      window.removeEventListener('click', handleClick);
+    };
   }, []);
 
   return (
     <>
       <div className="about-background">
-        {/* Floating dots
-        <div className="floating-dots">
-          {[1, 2, 3, 4, 5].map((num, index) => (
-            <div
-              key={num}
-              ref={el => dotRefs.current[index] = el}
-              className={`dot dot-${num}`}
-              style={{
-                transform: `translate(${dotPositions[index].x}px, ${dotPositions[index].y}px)`
-              }}
-            ></div>
-          ))} */}
-        </div>
-        
+        {/* PNG Cursor - hidden when over nav/footer */}
         <div 
-          className="custom-cursor"
+          className={`custom-cursor-png ${cursorToggle ? 'clicked' : ''} ${isOverNavOrFooter ? 'hidden' : ''}`}
           style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
         />
-        <div className="app">
-          <Header />
+        
+        {/* Circle Cursor - shown when over nav/footer */}
+        <div 
+          className={`custom-cursor ${isOverNavOrFooter ? 'visible' : ''}`}
+          style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
+        />
+        
+        <div className="app about-app">
+          <div ref={headerRef}>
+            <Header />
+          </div>
+          
           <section className="about-page">
-            {/* Intro section - now matches about-section layout */}
             <div className="about-section">
               <div className="section-left">
                 <h2 className="section-heading">Hey, I'm Sharleen!</h2>
@@ -166,9 +159,12 @@ function About() {
               </div>
             </div>
           </section>
-          <Footer />
           
+          <div ref={footerRef}>
+            <Footer />
+          </div>
         </div>
+      </div>
     </>
   );
 }

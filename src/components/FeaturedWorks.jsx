@@ -15,7 +15,8 @@ export default function FeaturedWorks() {
       details: '',
       skills: ['Project Management', 'UX/UI Design', 'Front-end development'],
       image: '/images/scaffold-cover.png',
-      category: 'UX/UI'
+      category: 'UX/UI',
+      link: '/case-study/scaffold'
     },
     {
       id: 2,
@@ -24,7 +25,8 @@ export default function FeaturedWorks() {
       details: '',
       skills: ['UX/UI design', 'User testing', 'Wireframe & Prototype'],
       image: '/images/picki-cover.png',
-      category: 'UX/UI'
+      category: 'UX/UI',
+      link: '/case-study/picki'
     },
     
   ];

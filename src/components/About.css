@@ -1,8 +1,15 @@
 .about-background .custom-cursor {
-  background-color: #C4D82E;
+  background-color: #D5E9FF;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.about-background .custom-cursor.visible {
+  opacity: 1;
 }
 
 .about-page {
+  background-color: #f5fdb8;
   padding: 4rem 3rem 8rem 3rem;
   display: flex;
   flex-direction: column;
@@ -11,6 +18,46 @@
   z-index: 1;
 }
 
+.about-background {
+  background-color: #f5fdb8;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Hide default cursor on about page */
+.about-background,
+.about-background * {
+  cursor: none !important;
+}
+
+/* Custom PNG Cursor */
+.custom-cursor-png {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  background-image: url('./cursor/luffy.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+
+.custom-cursor-png.hidden {
+  opacity: 0;
+}
+
+/* Clicked/toggled state */
+.custom-cursor-png.clicked {
+  background-image: url('./cursor/jellycat.png');
+}
+
+/* Override App container background for About page */
+.about-app {
+  background-color: transparent !important;
+}
 
 /* Intro Section */
 .about-intro {
@@ -38,7 +85,7 @@
 
 .section-heading {
   font-family: 'Sen', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
