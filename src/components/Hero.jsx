@@ -64,15 +64,17 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-left">
           <h1 className="hero-name">Sharleen Wang</h1>
+           <span className="highlight">Product Designer</span> 
         </div>
         
         <div className="hero-right">
           <div className="hero-description">
             <p className="hero-title">
-              <span className="highlight">Product Designer</span> blending creative aesthetics with user-centred thinking to design intuitive digital experiences.
+
+              <div>I bring an artist's eye and designer's mindset to every product I build.</div>
             </p>
             <p className="hero-subtitle">
-              (I also do a little bit of coding)
+              (Plus a bit of code to make it all come alive!)
             </p>
           </div>
         </div>

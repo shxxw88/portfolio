@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap');
+
 
 :root {
   --color-bg: #ffffff;
@@ -7,6 +9,7 @@
   --color-text-light: #999999;
 
   --font-family: 'Roboto Mono', monospace;
+  --font-family-alt: 'Sen', sans-serif;
 
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;

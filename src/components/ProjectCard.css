@@ -12,10 +12,11 @@
 }
 
 .project-title {
+  font-family: 'Sen', sans-serif;
   font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 .project-description {

@@ -23,8 +23,8 @@
 }
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 4rem;
   width: 100%;
   align-items: center;
@@ -34,6 +34,7 @@
 
 .hero-left {
   animation: fadeInUp 0.8s ease-out;
+  text-align: center;
 }
 
 .hero-right {
@@ -41,15 +42,17 @@
 }
 
 .hero-name {
+  font-family: 'Sen', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   line-height: 1.1;
   margin: 0;
 }
 
 .hero-description {
   max-width: 100%;
+  text-align: center;
 }
 
 .hero-title {
@@ -67,7 +70,8 @@
 
 .hero-subtitle {
   font-size: 0.875rem;
-  color: var(--color-text-light);
+  text-align: center;
+  color: var(--color-text);
   font-style: italic;
   margin: 0;
 }
