@@ -1,7 +1,19 @@
+import { useEffect } from 'react';
 import Sphere from './Sphere';
 import './Hero.css';
 
 export default function Hero() {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const nameElement = document.querySelector('.hero-name-typing');
+      if (nameElement) {
+        nameElement.classList.add('typed');
+      }
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const spheres = [
     { 
       initialTop: '15%', 
@@ -29,16 +41,11 @@ export default function Hero() {
   const handleSphereClick = (color) => {
     console.log(`Clicked ${color} sphere!`);
     alert(`You clicked the ${color} sphere!`);
-    // Add your click handler logic here
-    // For example: 
-    // - Navigate to a project page
-    // - Open a modal
-    // - Trigger an animation
   };
 
   return (
     <section className="hero">
-      {/* Floating spheres */}
+      {/* Floating spheres
       <div className="hero-spheres">
         {spheres.map((sphere, index) => (
           <div
@@ -59,28 +66,25 @@ export default function Hero() {
             <Sphere size={90} color={sphere.color} />
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="hero-container">
-        <div className="hero-left">
-          <h1 className="hero-name">Sharleen Wang</h1>
-           <span className="highlight">Product Designer</span> 
-        </div>
+        {/* Name with typing animation */}
+        <h1 className="hero-name hero-name-typing">Sharleen Wang</h1>
         
-        <div className="hero-right">
-          <div className="hero-description">
-            <p className="hero-title">
-
-              <div>I bring an artist's eye and designer's mindset to every product I build.</div>
-            </p>
-            <p className="hero-subtitle">
-              (Plus a bit of code to make it all come alive!)
-            </p>
-          </div>
+        {/* Product Designer (no animation) */}
+        <span className="hero-role highlight">Product Designer</span>
+        
+        {/* Description */}
+        <div className="hero-description">
+          <p className="hero-title">
+            I bring an artist's eye and designer's mindset to every product I build.
+          </p>
+          <p className="hero-subtitle">
+            (Plus a bit of code to make it all come alive!)
+          </p>
         </div>
       </div>
     </section>
   );
 }
-
-
