@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-links">
             <a 
-              href="https://www.linkedin.com/in/your-profile" 
+              href="https://www.linkedin.com/in/sharleenwang/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="footer-link"
@@ -31,7 +31,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a 
-              href="mailto:your.email@example.com" 
+              href="mailto:sharleenwang7@gmail.com" 
               className="footer-link"
             >
               Email
