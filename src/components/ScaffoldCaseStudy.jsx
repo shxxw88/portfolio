@@ -5,7 +5,7 @@ function ScaffoldCaseStudy() {
   const projectData = {
     title: "Scaffold",
     description: "AI powered grant matching and application assistant app for trades students and apprentices in British Columbia.",
-    role: ["Project Manager", "UX/UI Designer", "Graphic Designer"],
+    role: ["Project Manager", "UX/UI Designer"],
     duration: "3 Months",
     skills: ["Prototyping", "Front-end Development", "AI feature Integration"],
     heroImage: "/images/scaffold-hero.png"

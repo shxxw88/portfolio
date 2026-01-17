@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './CaseStudyLayout.css';
 
 function CaseStudyLayout({ 
@@ -10,10 +11,27 @@ function CaseStudyLayout({
   heroImage,
   children 
 }) {
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const moveCursor = (e) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+    return () => window.removeEventListener('mousemove', moveCursor);
+  }, []);
+
   return (
     <div className="case-study-container">
+      {/* Custom Cursor */}
+      <div 
+        className="custom-cursor"
+        style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
+      />
+      
       {/* Back Link */}
-      <Link to="/" className="back-link">back</Link>
+      <Link to="/" className="back-link">Back</Link>
 
       {/* Hero Section */}
       <section className="case-study-hero">
@@ -30,16 +48,16 @@ function CaseStudyLayout({
               ))}
             </div>
 
-            <div className="info-column">
-              <h3 className="info-heading">Duration</h3>
-              <p className="info-text">{duration}</p>
-            </div>
-
-            <div className="info-column">
+             <div className="info-column">
               <h3 className="info-heading">Skills</h3>
               {skills.map((skill, index) => (
                 <p key={index} className="info-text">{skill}</p>
               ))}
+            </div>
+
+            <div className="info-column">
+              <h3 className="info-heading">Duration</h3>
+              <p className="info-text">{duration}</p>
             </div>
           </div>
         </div>
