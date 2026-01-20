@@ -38,7 +38,7 @@
   pointer-events: none;
   z-index: 10000;
   transform: translate(-50%, -50%);
-  background-image: url('./cursor/luffy.png');
+  background-image: url('/cursor/luffy.png');
   background-size: contain;
   background-repeat: no-repeat;
   transition: opacity 0.2s ease;
@@ -51,7 +51,7 @@
 
 /* Clicked/toggled state */
 .custom-cursor-png.clicked {
-  background-image: url('./cursor/jellycat.png');
+  background-image: url('/cursor/jellycat.png');
 }
 
 /* Override App container background for About page */
