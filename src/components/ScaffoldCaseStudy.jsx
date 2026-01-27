@@ -1,147 +1,224 @@
 import CaseStudyLayout from './CaseStudyLayout';
+import './ScaffoldCaseStudy.css';
 
 function ScaffoldCaseStudy() {
-  // Define your project data
   const projectData = {
     title: "Scaffold",
-    description: "AI powered grant matching and application assistant app for trades students and apprentices in British Columbia.",
-    role: ["Project Manager", "UX/UI Designer"],
+    description: "Scaffold is an AI-powered app that helps trades students and apprentices across British Columbia discover and apply for financial support they qualify for. By centralizing fragmented funding information and simplifying repetitive application writing, Scaffold removes critical barriers between students and the funding they need.",
+    recognition: "3rd Place overall at the BCIT D3/FSWD x ConnectHer Student Design & Technology Innovation Showcase",
+    role: ["Project Manager", "UX/UI Designer", "Graphic Designer"],
     duration: "3 Months",
     skills: ["Prototyping", "Front-end Development", "AI feature Integration"],
-    heroImage: "/images/scaffold-hero.png"
+    heroImage: "/images/scaffold-hero.png",
+    heroClassName: "scaffold-hero"
   };
 
   return (
     <CaseStudyLayout {...projectData}>
-      {/* Custom content for Scaffold case study */}
       <section className="case-study-content">
         <nav className="content-nav">
-          <a href="#overview" className="nav-item">Overview</a>
-          <a href="#challenge" className="nav-item">Challenge</a>
-          <a href="#research" className="nav-item">Research</a>
+          <a href="#insights" className="nav-item">Insights</a>
+          <a href="#research" className="nav-item">Research & Discovery</a>
+          <a href="#strategy" className="nav-item">Design Strategy</a>
           <a href="#solution" className="nav-item">Solution</a>
-          <a href="#takeaways" className="nav-item">Takeaways</a>
+          <a href="#marketing" className="nav-item">Marketing & Launch Support</a>
+          <a href="#outcomes" className="nav-item">Outcomes & Takeaways</a>
         </nav>
 
         <div className="content-main">
-          {/* Overview Section */}
-          <div id="overview" className="content-section">
-            <h2 className="cs-section-heading">Overview</h2>
-            <p className="cs-section-text">
-              Scaffold is an AI-powered mobile application designed to help trades students 
-              and apprentices in British Columbia find and apply for grants and funding 
-              opportunities. The app simplifies the complex process of grant discovery and 
-              application, making financial support more accessible to the trades community.
-            </p>
-            <img src="/images/scaffold-overview.png" alt="Scaffold overview" className="cs-section-image" />
+          {/* Insights Section */}
+          <div id="insights" className="content-section">
+            <h2 className="cs-section-heading insights-heading">Insights</h2>
             
-            <h3 className="cs-section-subheading">The Problem</h3>
-            <p className="cs-section-text">
-              Trades students often miss out on available funding because they don't know 
-              where to look, don't understand eligibility requirements, or find the 
-              application process too complex and time-consuming.
+            <p className="insights-subtitle">
+              Canada's skilled trades face a retention crisis:
             </p>
             
-            <h3 className="cs-section-subheading">The Goal</h3>
-            <p className="cs-section-text">
-              Create an intuitive mobile app that uses AI to match students with relevant 
-              grants and guides them through the application process, increasing their 
-              success rate in securing funding.
-            </p>
-          </div>
-
-          {/* Challenge Section */}
-          <div id="challenge" className="content-section">
-            <h2 className="cs-section-heading">Challenge</h2>
-            <p className="cs-section-text">
-              The main challenges we faced were:
-            </p>
-            <p className="cs-section-text">
-              • Understanding the diverse needs of trades students across different programs<br/>
-              • Simplifying complex grant eligibility criteria into user-friendly language<br/>
-              • Designing an AI matching system that provides accurate, relevant results<br/>
-              • Creating a mobile-first experience that works well on job sites
-            </p>
-            <img src="/images/scaffold-challenge.png" alt="Challenge visualization" className="cs-section-image" />
-          </div>
-
-          {/* Research Section */}
-          <div id="research" className="content-section">
-            <h2 className="cs-section-heading">Research</h2>
-            <h3 className="cs-section-subheading">User Interviews</h3>
-            <p className="cs-section-text">
-              We conducted 15 interviews with trades students and apprentices to understand 
-              their current process of finding and applying for grants.
-            </p>
-            
-            <h3 className="cs-section-subheading">Key Findings</h3>
-            <p className="cs-section-text">
-              • 80% of students didn't know where to find grant information<br/>
-              • 65% found application forms too complex and confusing<br/>
-              • Students needed mobile access as they're often on job sites<br/>
-              • Personalized recommendations were highly valued
-            </p>
-            
-            <div className="cs-section-images-grid">
-              <img src="/images/scaffold-research-1.png" alt="Research findings" />
-              <img src="/images/scaffold-research-2.png" alt="User personas" />
+            <div className="insights-stats">
+              <div className="stat-item">
+                <div className="stat-number">700,000</div>
+                <div className="stat-description">
+                  Trades people<br/>retiring by 2028
+                </div>
+              </div>
+              
+              <div className="stat-item">
+                <div className="stat-number">50,000</div>
+                <div className="stat-description">
+                  BC registered<br/>apprentices
+                </div>
+              </div>
+              
+              <div className="stat-item">
+                <div className="stat-number">46%</div>
+                <div className="stat-description">
+                  Apprenticeship<br/>completion rate
+                </div>
+              </div>
+              
+              <div className="stat-item">
+                <div className="stat-number">Billions</div>
+                <div className="stat-description">
+                  in fragmented<br/>funding
+                </div>
+              </div>
             </div>
+            
+            <p className="insights-conclusion">
+              While thousands of dollars in funding exists for trades training in BC. 
+              eligible apprentices aren't accessing it.
+            </p>
           </div>
 
-          {/* Solution Section */}
+          {/* Research & Discovery Section */}
+          <div id="research" className="content-section">
+            <h2 className="cs-section-heading research-heading">Research & Discovery</h2>
+            
+            <p className="research-intro">
+              Through user interviews with trades workers and apprentices as well as heuristic 
+              analysis of existing grant portals and applications, we uncovered these key insights:
+            </p>
+            
+            <div className="research-findings">
+              <div className="finding-card">
+                <div className="finding-number">1.</div>
+                <div className="finding-content">
+                  <h3 className="finding-title">Discoverability is the primary barrier</h3>
+                  <p className="finding-text">
+                    Funding information is scattered across dozens of government and private sites with 
+                    no way to filter what they actually qualify for.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="finding-card">
+                <div className="finding-number">2.</div>
+                <div className="finding-content">
+                  <h3 className="finding-title">Complicated process causes abandonment</h3>
+                  <p className="finding-text">
+                    Complex language and multi step processes makes students give up before 
+                    determining if they qualify.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="finding-card">
+                <div className="finding-number">3.</div>
+                <div className="finding-content">
+                  <h3 className="finding-title">Time is the real cost</h3>
+                  <p className="finding-text">
+                    When applications require essays and repetitive manual writing, apprentices 
+                    juggling work and school abandon them entirely.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="finding-card">
+                <div className="finding-number">4.</div>
+                <div className="finding-content">
+                  <h3 className="finding-title">Financial decisions demand clarity</h3>
+                  <p className="finding-text">
+                    When money and tax implications are involved, users need complete transparency.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <p className="research-question">
+              How can we make financial support easier to discover, understand and apply for, 
+              without overwhelming users who are already stretched thin?
+            </p>
+          </div>
+
+          {/* Add this right after the research-question paragraph */}
+
+<div className="user-persona-section">
+  <h3 className="persona-heading">User Persona</h3>
+  
+  <p className="persona-intro">
+    Based on interviews and research, we created a primary user persona:
+  </p>
+  
+  <div className="persona-card">
+    <div className="persona-profile">
+      <div className="persona-image">
+        <img src="/images/scaffold-persona.png" alt="Talia Redsky" />
+      </div>
+      
+      <div className="persona-info">
+        <h4 className="persona-name">Talia Redsky</h4>
+        <p className="persona-role">28, Carpentry Apprentice</p>
+        <p className="persona-location">Williams Lake, BC</p>
+        
+        <p className="persona-bio">
+          Indigenous tradeswoman working full-time for a small construction 
+          company while training towards Red Seal certification. She's passionate 
+          about supporting her community but find it difficult to apply for 
+          government funding.
+        </p>
+      </div>
+    </div>
+    
+    <div className="persona-details">
+      <div className="persona-column">
+        <h5 className="persona-column-title">Goals:</h5>
+        <ul className="persona-list">
+          <li>Access Indigenous-specific funding programs.</li>
+          <li>Save time by using a tool that explains eligibility in plain language.</li>
+          <li>Never miss a deadline or lose track of applications.</li>
+          <li>Use technology that respects and reflects her community values.</li>
+        </ul>
+      </div>
+      
+      <div className="persona-column">
+        <h5 className="persona-column-title">Pain points:</h5>
+        <ul className="persona-list">
+          <li>Grant information is scattered across multiple government sites.</li>
+          <li>Missed deadlines due to lack of reminders.</li>
+          <li>Limited awareness of what she actually qualifies for.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+          {/* Design Strategy Section */}
+<div id="strategy" className="content-section">
+  <h2 className="cs-section-heading strategy-heading">Design Strategy</h2>
+  
+  <p className="strategy-intro">
+    Scaffold's design strategy is to: <strong>reduce cognitive load, help users make 
+    informed decisions and prioritize mobile-first simplicity.</strong> Every feature 
+    helps users move forward efficiently without feeling overwhelmed.
+  </p>
+  
+  <p className="strategy-flow-title"><strong>User Flow</strong></p>
+  
+  <p className="strategy-flow-description">
+    From scattered information to a guided journey: Profile Creation → Discover Grants → Verify → Apply
+  </p>
+  
+  <div className="strategy-flow-image">
+    <img src="/images/scaffold-flow.png" alt="Scaffold user flow diagram" />
+  </div>
+</div>
+
+          {/* Solution Section - TO BE ADDED */}
           <div id="solution" className="content-section">
             <h2 className="cs-section-heading">Solution</h2>
-            <h3 className="cs-section-subheading">AI-Powered Matching</h3>
-            <p className="cs-section-text">
-              We developed an AI system that analyzes student profiles and automatically 
-              matches them with relevant grants based on their program, location, and 
-              eligibility criteria.
-            </p>
-            <img src="/images/scaffold-solution-1.png" alt="AI matching feature" className="cs-section-image" />
-            
-            <h3 className="cs-section-subheading">Guided Application Process</h3>
-            <p className="cs-section-text">
-              The app breaks down complex applications into simple, step-by-step forms 
-              with helpful tips and examples at each stage.
-            </p>
-            <img src="/images/scaffold-solution-2.png" alt="Application process" className="cs-section-image" />
-            
-            <h3 className="cs-section-subheading">Mobile-First Design</h3>
-            <p className="cs-section-text">
-              Clean, intuitive interface optimized for mobile use, allowing students to 
-              check opportunities and complete applications on the go.
-            </p>
-            <div className="cs-section-images-grid">
-              <img src="/images/scaffold-mobile-1.png" alt="Mobile screens" />
-              <img src="/images/scaffold-mobile-2.png" alt="Mobile screens" />
-              <img src="/images/scaffold-mobile-3.png" alt="Mobile screens" />
-            </div>
+            {/* Content will be added here */}
           </div>
 
-          {/* Takeaways Section */}
-          <div id="takeaways" className="content-section">
-            <h2 className="cs-section-heading">Takeaways</h2>
-            <h3 className="cs-section-subheading">Impact</h3>
-            <p className="cs-section-text">
-              • 90% increase in grant application completion rate<br/>
-              • Average time to find relevant grants reduced from 3 hours to 10 minutes<br/>
-              • 75% of users successfully received funding within 6 months
-            </p>
-            
-            <h3 className="cs-section-subheading">What I Learned</h3>
-            <p className="cs-section-text">
-              This project taught me the importance of deeply understanding user pain points 
-              before jumping to solutions. Working with AI features also expanded my 
-              understanding of how to design interfaces that make complex technology feel 
-              simple and accessible.
-            </p>
-            
-            <h3 className="cs-section-subheading">Next Steps</h3>
-            <p className="cs-section-text">
-              Based on user feedback, we're planning to add features for tracking application 
-              status, deadline reminders, and a community forum where students can share tips 
-              and experiences.
-            </p>
+          {/* Marketing & Launch Support Section - TO BE ADDED */}
+          <div id="marketing" className="content-section">
+            <h2 className="cs-section-heading">Marketing & Launch Support</h2>
+            {/* Content will be added here */}
+          </div>
+
+          {/* Outcomes & Takeaways Section - TO BE ADDED */}
+          <div id="outcomes" className="content-section">
+            <h2 className="cs-section-heading">Outcomes & Takeaways</h2>
+            {/* Content will be added here */}
           </div>
         </div>
       </section>

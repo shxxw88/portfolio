@@ -76,6 +76,27 @@
   margin-top: 1rem;
 }
 
+/* Recognition Section */
+.cs-recognition {
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+}
+
+.cs-recognition-heading {
+  font-family: 'Sen', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.cs-recognition-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--color-text);
+}
+
+
 .info-column {
   display: flex;
   flex-direction: column;
@@ -101,20 +122,24 @@
   display: flex;
   align-items: flex-start;
 }
-
+/* NEW (no background - only shows for images that haven't loaded): */
 .image-placeholder {
   width: 100%;
   aspect-ratio: 16 / 10;
-  background-color: #d9d9d9;
+  background-color: transparent;  /* Changed from #d9d9d9 */
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
-.image-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* OR keep grey background but make it only show when image is missing: */
+.image-placeholder:not(:has(img)) {
+  background-color: #d9d9d9;
 }
+
+.image-placeholder:has(img) {
+  background-color: transparent;
+}
+
 
 /* Content Sections */
 .case-study-content {
