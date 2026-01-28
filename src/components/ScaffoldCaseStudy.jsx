@@ -337,17 +337,117 @@ function ScaffoldCaseStudy() {
   </div>
 </div>
 </div>
-          {/* Marketing & Launch Support Section - TO BE ADDED */}
-          <div id="marketing" className="content-section">
-            <h2 className="cs-section-heading">Marketing & Launch Support</h2>
-            {/* Content will be added here */}
-          </div>
+        {/* Marketing & Launch Support Section */}
+<div id="marketing" className="content-section">
+  <h2 className="cs-section-heading marketing-heading">Marketing & Launch Support</h2>
+  
+  <p className="marketing-intro">
+    To support the BCIT showcase and validate product-market fit, we developed Scaffold's brand identity, demo 
+    materials, promotional posters and videos targeting trades students.
+  </p>
+  
+  {/* Row 1 - Brand Identity */}
+  <div className="marketing-row marketing-full">
+    <img src="/images/scaffold-style.png" alt="Scaffold brand identity and color palette" />
+  </div>
+  
+  {/* Row 2 - Brochure and Stickers */}
+  <div className="marketing-row marketing-grid-brochure">
+    <img src="/images/scaffold-brochure.png" alt="Scaffold brochure" />
+    <img src="/images/scaffold-stickers.png" alt="Scaffold promotional stickers" />
+  </div>
+  
+  {/* Row 3 - Promo Video */}
+  <div className="marketing-row marketing-video">
+    <video autoPlay loop muted playsInline>
+      <source src="/videos/scaffold-promo.mov" type="video/mp4" />
+    </video>
+  </div>
+  
+  {/* Row 4 - Billboard and Business Cards */}
+  <div className="marketing-row marketing-grid-equal">
+    <img src="/images/scaffold-banner.png" alt="Scaffold billboard banner" />
+    <img src="/images/scaffold-signs.png" alt="Scaffold business cards" />
+  </div>
+</div>
 
-          {/* Outcomes & Takeaways Section - TO BE ADDED */}
-          <div id="outcomes" className="content-section">
-            <h2 className="cs-section-heading">Outcomes & Takeaways</h2>
-            {/* Content will be added here */}
-          </div>
+       {/* Outcomes & Takeaways Section */}
+<div id="outcomes" className="content-section">
+  {/* Outcomes Subsection */}
+  <h2 className="cs-section-heading outcomes-heading">Outcomes</h2>
+  
+  <p className="outcomes-intro">
+    After 3 months design and development, Scaffold was showcased at BCIT's D3/FSWD x 
+    ConnectHer Student Design & Technology Innovation Showcase.
+  </p>
+  
+  <p className="outcomes-intro">
+    The project was presented to distinguished judges including City of Burnaby Mayor, 
+    B.C.'s Minister of State for Artificial Intelligence and New Technology and other 
+    industry leaders.
+  </p>
+  
+  <p className="outcomes-subsection-title"><strong>Showcase Regcognition</strong></p>
+  
+  <div className="outcomes-stats">
+    <div className="outcome-stat">
+      <div className="outcome-icon">🏆</div>
+      <div className="outcome-number">3rd place overall</div>
+      <p className="outcome-description">out of 10 capstone projects.</p>
+    </div>
+    
+    <div className="outcome-stat">
+      <div className="outcome-icon">👥</div>
+      <div className="outcome-number">100+ attendees</div>
+      <p className="outcome-description">engaged with live demos, including current trades students and apprentices.</p>
+    </div>
+    
+    <div className="outcome-stat">
+      <div className="outcome-icon">✅</div>
+      <div className="outcome-number">Judges validated</div>
+      <p className="outcome-description">Scaffolds real world viability and strategic approach to systemic barriers.</p>
+    </div>
+  </div>
+  
+  <div className="outcomes-photos">
+    <img src="/images/scaffold-image1.jpg" alt="Scaffold showcase presentation" />
+    <img src="/images/scaffold-image2.JPG" alt="Scaffold showcase demo" />
+  </div>
+  
+  {/* Takeaways Subsection */}
+  <h2 className="cs-section-heading takeaways-heading">Takeaways</h2>
+  
+  <div className="takeaways-boxes">
+    <div className="takeaway-box">
+      <p className="takeaway-title"><strong>Experiencing the problems we were solving</strong></p>
+      <p className="takeaway-text">
+        While developing Scaffold, we struggled with the same fragmented grant information our users 
+        face. Manual grant ingestion with no automated web scraping pipeline became our biggest 
+        bottleneck. Validating that data fragmentation isn't just user inconvenience, it's a systemic 
+        infrastructure problem.
+      </p>
+      <p className="takeaway-subtitle"><strong>What this taught us:</strong></p>
+      <p className="takeaway-text">
+        Good design acknowledges reality. Although knowing manual ingestion is not scalable, it let 
+        us validate the core hypothesis with real users. Now we know exactly what users need, trust 
+        and what infrastructure must come next.
+      </p>
+    </div>
+    
+    <div className="takeaway-box">
+      <p className="takeaway-title"><strong>As a project manager</strong></p>
+      <p className="takeaway-text">
+        Leading a cross-functional team taught that me that effective PM work means trusting 
+        teammates and adapting quickly. I focused on creating clear goals while contributing across 
+        all roles. I trusted each team member's expertise while staying involved to facilitate 
+        alignment and fill gaps when needed. This collaborative approach showed me that the best 
+        solutions often emerged from collaborative problem solving and creative thinking. Being 
+        hands-on across all aspects helped me understand and make decisions faster when adaptability 
+        was needed.
+      </p>
+    </div>
+  </div>
+</div>
         </div>
       </section>
     </CaseStudyLayout>

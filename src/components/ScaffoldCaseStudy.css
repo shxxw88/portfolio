@@ -464,8 +464,6 @@
   margin: 1rem 0;
 }
 
-/* Add this to your ScaffoldCaseStudy.css */
-
 /* ==================== SOLUTION SECTION ==================== */
 .solution-heading {
   color: var(--color-accent);
@@ -561,7 +559,6 @@
   gap: 1rem;
 }
 
-/* Add this to your ScaffoldCaseStudy.css */
 
 /* ==================== TECHNICAL IMPLEMENTATION ==================== */
 .technical-implementation {
@@ -623,6 +620,263 @@
   font-size: 0.875rem;
 }
 
+
+/* ==================== MARKETING & LAUNCH SUPPORT ==================== */
+.marketing-heading {
+  color: var(--color-accent);
+  font-family: 'Sen', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+.marketing-intro {
+  font-size: 0.875rem;
+  margin: 0 0 3rem 0;
+}
+
+.marketing-row {
+  margin: 2rem 0;
+}
+
+/* Full width row (single image) */
+.marketing-full {
+  width: 85%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.marketing-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Grid row - Brochure and Stickers (brochure bigger) */
+.marketing-grid-brochure {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.marketing-grid-brochure img:nth-child(2) {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.marketing-grid-brochure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Grid row - Equal sizing (billboard and business cards) */
+.marketing-grid-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.marketing-grid-equal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Video row */
+.marketing-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.marketing-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Add this to your ScaffoldCaseStudy.css */
+
+/* ==================== OUTCOMES & TAKEAWAYS SECTION ==================== */
+.outcomes-heading,
+.takeaways-heading {
+  color: var(--color-accent);
+  font-family: 'Sen', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+.takeaways-heading {
+  margin-top: 4rem;
+}
+
+.outcomes-intro {
+  font-size: 0.875rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.outcomes-subsection-title {
+  font-size: 1rem;
+  margin: 2rem 0 1.5rem 0;
+  color: var(--color-accent);
+}
+
+.outcomes-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.outcome-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.outcome-icon {
+  font-size: 2rem;
+}
+
+.outcome-number {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5rem;
+}
+
+.outcome-description {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.outcome-text {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.outcomes-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.outcomes-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.outcomes-list {
+  margin: 0 0 3rem 0;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.outcomes-list li {
+  font-size: 0.875rem;
+}
+
+/* Takeaways Boxes */
+.takeaways-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.takeaway-box {
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.takeaway-title {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.takeaway-subtitle {
+  font-size: 0.875rem;
+  margin: 1rem 0 0 0;
+}
+
+.takeaway-text {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Responsive for Outcomes */
+@media (max-width: 1024px) {
+  .outcomes-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .outcomes-heading,
+  .takeaways-heading {
+    font-size: 1.5rem;
+  }
+  
+  .outcomes-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .outcome-icon {
+    font-size: 1.75rem;
+  }
+  
+  .outcome-number {
+    font-size: 1.5rem;
+  }
+  
+  .outcomes-photos {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .takeaway-box {
+    padding: 1.5rem;
+  }
+}
+
+/* Responsive for Marketing */
+@media (max-width: 768px) {
+  .marketing-grid-brochure,
+  .marketing-grid-equal {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .marketing-heading {
+    font-size: 1.5rem;
+  }
+  
+  .marketing-row {
+    margin: 1.5rem 0;
+  }
+}
 /* Responsive for Technical Implementation */
 @media (max-width: 768px) {
   .technical-box {
