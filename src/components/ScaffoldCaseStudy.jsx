@@ -202,13 +202,141 @@ function ScaffoldCaseStudy() {
     <img src="/images/scaffold-flow.png" alt="Scaffold user flow diagram" />
   </div>
 </div>
+<p className="strategy-subsection-title"><strong>Design Iterations</strong></p>
 
-          {/* Solution Section - TO BE ADDED */}
-          <div id="solution" className="content-section">
-            <h2 className="cs-section-heading">Solution</h2>
-            {/* Content will be added here */}
-          </div>
+<p className="strategy-iterations-intro">
+  Through iterative wireframing and testing, we learned that readability and simplicity was the highest 
+  priority. The final interface breaks applications into guided steps and removes unnecessary information 
+  to reduce cognitive load.
+</p>
 
+<div className="strategy-iterations-grid">
+  <div className="iteration-item">
+    <div className="iteration-image">
+      <img src="/images/scaffold-lofi.png" alt="Design iteration 1" />
+    </div>
+    <p className="iteration-caption">Low-fidelity wireframe</p>
+  </div>
+  <div className="iteration-item">
+    <div className="iteration-image">
+      <img src="/images/scaffold-midfi.png" alt="Design iteration 2" />
+    </div>
+    <p className="iteration-caption">Mid-fidelity wireframe</p>
+  </div>
+  <div className="iteration-item">
+    <div className="iteration-image">
+      <img src="/images/scaffold-hifi.png" alt="Design iteration 3" />
+    </div>
+    <p className="iteration-caption">Final design</p>
+  </div>
+</div>
+      {/* Solution Section */}
+<div id="solution" className="content-section">
+  <h2 className="cs-section-heading solution-heading">Solution</h2>
+  
+  <p className="solution-tagline">Resources exist, roadblocks don't have to.</p>
+  
+  <p className="solution-intro">
+    Scaffold helps trades students and apprentices find the funding they deserve with these core features:
+  </p>
+  
+  {/* Phone Features - One video, 3 descriptions */}
+  <div className="solution-phone-features">
+    <div className="phone-video-container">
+      <video autoPlay loop muted playsInline>
+        <source src="/videos/scaffold-application.mov" type="video/mp4" />
+      </video>
+    </div>
+    
+    <div className="phone-features-list">
+      <div className="feature-item">
+        <h3 className="feature-title">Centralized grant database with key information simplification</h3>
+        <p className="feature-text">
+          By centralizing trades grants into one searchable platform, Scaffold removes fragmentation 
+          and simplifies comparison. Critical information such as funding amount, deadlines and 
+          eligibility requirements is surfaced immediately to reduce cognitive effort.
+        </p>
+      </div>
+      
+      <div className="feature-item">
+        <h3 className="feature-title">AI-powered grant matching with smart profiles</h3>
+        <p className="feature-text">
+          Scaffold's smart profile capture key user information once and use AI-powered matching to 
+          connect applicants with grants they are most likely eligible for. Reducing guesswork and 
+          unnecessary searching.
+        </p>
+      </div>
+      
+      <div className="feature-item">
+        <h3 className="feature-title">AI application support</h3>
+        <p className="feature-text">
+          Smart application support creates application templates that align with real grant forms, 
+          allowing users to reuse and adapt responses across grants with AI-supported long-answer generation.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  {/* Desktop Feature - Separate */}
+  <div className="solution-desktop-feature">
+    <div className="desktop-feature-content">
+      <h3 className="feature-title">Desktop supplement</h3>
+      <p className="feature-text">
+        While the core experience is mobile-first, desktop acts as a supplemental environment for 
+        reviewing grant details and completing longer application responses more comfortably.
+      </p>
+    </div>
+    <div className="desktop-video-container">
+      <video autoPlay loop muted playsInline>
+        <source src="/videos/scaffold-video.mov" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+
+  {/* Add this after the desktop feature, before the closing </div> of solution section */}
+
+<div className="technical-implementation">
+  <h3 className="technical-heading">Technical Implementation</h3>
+  
+  <p className="technical-intro">
+    Scaffold's technical implementation balanced AI capabilities with user trust and mobile first needs.
+  </p>
+  
+  <div className="technical-box">
+    <div className="tech-stack">
+      <p className="tech-label"><strong>Stack:</strong></p>
+      <p className="tech-text">
+        Expo React Native, Node.js backend, Supabase database, OpenAI API for AI processing
+      </p>
+    </div>
+    
+    <div className="tech-flow">
+      <p className="tech-label"><strong>Core flow:</strong></p>
+      <ol className="tech-list">
+        <li>
+          <strong>Grant ingestion & extraction:</strong> NLP models extract raw grant text from multiple 
+          formats (PDFs, websites, portals) and creates structured metadata storage
+        </li>
+        <li>
+          <strong>User profile creation:</strong> standardized inputs collected with trade certification, 
+          training level, geographic region, demographic identifiers etc.
+        </li>
+        <li>
+          <strong>Intelligent matching:</strong> semantic analysis evaluates grant-to-profile compatibility 
+          at token level with rule based validation.
+        </li>
+        <li>
+          <strong>Application template generation:</strong> AI extracts required form components then maps 
+          to user profile data to generate contextual narrative responses using prompt engineering.
+        </li>
+        <li>
+          <strong>User facing output:</strong> filtered grants list and plain language eligibility explanations.
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+</div>
           {/* Marketing & Launch Support Section - TO BE ADDED */}
           <div id="marketing" className="content-section">
             <h2 className="cs-section-heading">Marketing & Launch Support</h2>
