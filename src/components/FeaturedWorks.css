@@ -125,6 +125,20 @@
   padding: 0 2rem;
   margin: 0;
 }
+.coming-soon-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+.coming-soon-message p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: 'Sen', sans-serif;
+}
+
 
 /* Responsive Design for Grid */
 

@@ -3,7 +3,7 @@
 /* Override hero section layout for Scaffold */
 .scaffold-hero {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 0.2rem !important;
   margin-bottom: 6rem;
   padding: 0 2rem;

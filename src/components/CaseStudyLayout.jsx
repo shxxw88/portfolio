@@ -10,7 +10,7 @@ function CaseStudyLayout({
   duration, 
   skills, 
   heroImage,
-  heroClassName,  // NEW: Custom class for hero section
+  heroClassName,
   children 
 }) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -39,7 +39,17 @@ function CaseStudyLayout({
       <section className={heroClassName || "case-study-hero"}>
         <div className="hero-left">
           <h1 className="cs-hero-title">{title}</h1>
-          <p className="cs-hero-description">{description}</p>
+          
+          {/* Updated description handling */}
+          <div className="cs-hero-description">
+            {Array.isArray(description) ? (
+              description.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))
+            ) : (
+              <p>{description}</p>
+            )}
+          </div>
 
           {/* Recognition Section (Optional) */}
           {recognition && (

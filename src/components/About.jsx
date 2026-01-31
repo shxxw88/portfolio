@@ -102,7 +102,8 @@ function About() {
                  My background in art history and fashion shapes my perspective as a designer, informing how I create functional digital products grounded in visual culture, aesthetics and meaning.
                 </p>
                 <p className="section-text">
-                 Outside of design, I like to hangout at the beach probably with an ice coffee in hand (even in the winter!), explore new restaurants and shop a little too much :) 
+                 Outside of design, I like to hangout at the beach probably with an ice coffee in hand (even in the winter!), explore new restaurants and shop a little too much.
+                 <br /><span className="happyface">☺</span>
                 </p>
               </div>
             </div>
@@ -132,12 +133,14 @@ function About() {
                     <p className="section-text">JavaScript</p>
                     <p className="section-text">Next.js / React.js</p>
                     <p className="section-text">Expo</p>
+                    <p className="section-text">Vercel</p>
                   </div>
                   <div className="tools-column">
                     <p className="section-text">Adobe Photoshop</p>
                     <p className="section-text">Adobe Illustrator</p>
                     <p className="section-text">Adobe InDesign</p>
                     <p className="section-text">Adobe After Effects</p>
+                    <p className="section-text">Trello</p>
                   </div>
                 </div>
               </div>

@@ -6,11 +6,14 @@ import './ScaffoldCaseStudy.css';
 function ScaffoldCaseStudy() {
   const projectData = {
     title: "Scaffold",
-    description: "Scaffold is an AI-powered app that helps trades students and apprentices across British Columbia discover and apply for financial support they qualify for. By centralizing fragmented funding information and simplifying repetitive application writing, Scaffold removes critical barriers between students and the funding they need.",
+    description: [
+      "Scaffold is an AI-powered app that helps trades students and apprentices across British Columbia discover and apply for financial support they qualify for.",
+      "By centralizing fragmented funding information and simplifying repetitive application writing, Scaffold removes critical barriers between students and the funding they need."
+    ],
     recognition: "3rd Place overall at the BCIT D3/FSWD x ConnectHer Student Design & Technology Innovation Showcase",
     role: ["Project Manager", "UX/UI Designer", "Graphic Designer"],
-    duration: "3 Months",
-    skills: ["Prototyping", "Front-end Development", "AI feature Integration"],
+    skills: ["User Research", "UX/UI Design", "React Development"],
+    duration: "Sept. – Dec. 2026",
     heroImage: "/images/scaffold-hero.png",
     heroClassName: "scaffold-hero"
   };

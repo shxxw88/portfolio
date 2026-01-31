@@ -67,6 +67,9 @@
   margin: 0;
   max-width: 90%;
 }
+.cs-hero-description p:not(:last-child) {
+  margin-bottom: 1rem;
+}
 
 /* Project Info Grid */
 .cs-hero-info {
