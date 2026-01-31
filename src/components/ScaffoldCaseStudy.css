@@ -533,6 +533,11 @@
   margin: 0;
 }
 
+.scaffold-emoji {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
 /* Desktop Feature - Separate section */
 .solution-desktop-feature {
   display: grid;

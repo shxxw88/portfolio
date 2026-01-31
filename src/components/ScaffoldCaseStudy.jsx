@@ -1,4 +1,6 @@
 import CaseStudyLayout from './CaseStudyLayout';
+import ProjectFooter from './ProjectFooter'; 
+import { useEffect } from 'react';
 import './ScaffoldCaseStudy.css';
 
 function ScaffoldCaseStudy() {
@@ -13,15 +15,58 @@ function ScaffoldCaseStudy() {
     heroClassName: "scaffold-hero"
   };
 
+
+  useEffect(() => {
+  const sections = document.querySelectorAll('.content-section');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
+
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        
+        navItems.forEach((item) => {
+          item.classList.remove('active');
+        });
+        
+        const activeNav = document.querySelector(`.nav-item[href="#${id}"]`);
+        if (activeNav) {
+          activeNav.classList.add('active');
+        }
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+
+  return () => {
+    sections.forEach((section) => {
+      observer.unobserve(section);
+    });
+  };
+}, []);
+
   return (
+    <>
     <CaseStudyLayout {...projectData}>
       <section className="case-study-content">
         <nav className="content-nav">
+          <a href="#" className="nav-item back-to-top">⌃</a>
           <a href="#insights" className="nav-item">Insights</a>
           <a href="#research" className="nav-item">Research & Discovery</a>
           <a href="#strategy" className="nav-item">Design Strategy</a>
           <a href="#solution" className="nav-item">Solution</a>
-          <a href="#marketing" className="nav-item">Marketing & Launch Support</a>
+          <a href="#marketing" className="nav-item">Marketing & Launch</a>
           <a href="#outcomes" className="nav-item">Outcomes & Takeaways</a>
         </nav>
 
@@ -250,7 +295,7 @@ function ScaffoldCaseStudy() {
     
     <div className="phone-features-list">
       <div className="feature-item">
-        <h3 className="feature-title">Centralized grant database with key information simplification</h3>
+        <h3 className="feature-title"><span className="scaffold-emoji">📂</span> Centralized grant database with key information simplification</h3>
         <p className="feature-text">
           By centralizing trades grants into one searchable platform, Scaffold removes fragmentation 
           and simplifies comparison. Critical information such as funding amount, deadlines and 
@@ -259,7 +304,7 @@ function ScaffoldCaseStudy() {
       </div>
       
       <div className="feature-item">
-        <h3 className="feature-title">AI-powered grant matching with smart profiles</h3>
+        <h3 className="feature-title"><span className="scaffold-emoji">🎯</span> AI-powered grant matching with smart profiles</h3>
         <p className="feature-text">
           Scaffold's smart profile capture key user information once and use AI-powered matching to 
           connect applicants with grants they are most likely eligible for. Reducing guesswork and 
@@ -268,7 +313,7 @@ function ScaffoldCaseStudy() {
       </div>
       
       <div className="feature-item">
-        <h3 className="feature-title">AI application support</h3>
+        <h3 className="feature-title"><span className="scaffold-emoji">📝</span> AI application support</h3>
         <p className="feature-text">
           Smart application support creates application templates that align with real grant forms, 
           allowing users to reuse and adapt responses across grants with AI-supported long-answer generation.
@@ -280,7 +325,7 @@ function ScaffoldCaseStudy() {
   {/* Desktop Feature - Separate */}
   <div className="solution-desktop-feature">
     <div className="desktop-feature-content">
-      <h3 className="feature-title">Desktop supplement</h3>
+      <h3 className="feature-title"><span className="scaffold-emoji">💻</span> Desktop supplement</h3>
       <p className="feature-text">
         While the core experience is mobile-first, desktop acts as a supplemental environment for 
         reviewing grant details and completing longer application responses more comfortably.
@@ -451,6 +496,8 @@ function ScaffoldCaseStudy() {
         </div>
       </section>
     </CaseStudyLayout>
+         <ProjectFooter />
+</>
   );
 }
 
