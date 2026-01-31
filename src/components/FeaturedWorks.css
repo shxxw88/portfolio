@@ -63,6 +63,124 @@
   gap: 6rem;
 }
 
+/* Design Grid Layout (for Graphic Design filter) */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.design-grid-item {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.design-grid-item:hover {
+  transform: translateY(-8px);
+}
+
+.design-grid-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #d9d9d9;
+}
+
+.design-grid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover overlay for title */
+.design-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.design-grid-item:hover .design-grid-overlay {
+  opacity: 1;
+}
+
+.design-grid-title {
+  font-family: 'Sen', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+  margin: 0;
+}
+.coming-soon-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+.coming-soon-message p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: 'Sen', sans-serif;
+}
+
+
+/* Responsive Design for Grid */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+  .design-grid {
+    gap: 2rem;
+  }
+
+  .design-grid-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablets and Mobile */
+@media (max-width: 768px) {
+  .design-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .design-grid-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .design-grid {
+    gap: 1.5rem;
+  }
+
+  .design-grid-image {
+    border-radius: 0.75rem;
+  }
+
+  .design-grid-title {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .featured-works {
     padding: 2rem 0 4rem;

@@ -5,10 +5,12 @@ import './CaseStudyLayout.css';
 function CaseStudyLayout({ 
   title, 
   description, 
+  recognition,
   role, 
   duration, 
   skills, 
   heroImage,
+  heroClassName,
   children 
 }) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -33,11 +35,29 @@ function CaseStudyLayout({
       {/* Back Link */}
       <Link to="/" className="back-link">Back</Link>
 
-      {/* Hero Section */}
-      <section className="case-study-hero">
+      {/* Hero Section - can have custom class */}
+      <section className={heroClassName || "case-study-hero"}>
         <div className="hero-left">
           <h1 className="cs-hero-title">{title}</h1>
-          <p className="cs-hero-description">{description}</p>
+          
+          {/* Updated description handling */}
+          <div className="cs-hero-description">
+            {Array.isArray(description) ? (
+              description.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))
+            ) : (
+              <p>{description}</p>
+            )}
+          </div>
+
+          {/* Recognition Section (Optional) */}
+          {recognition && (
+            <div className="cs-recognition">
+              <h3 className="cs-recognition-heading">Recognition</h3>
+              <p className="cs-recognition-text">{recognition}</p>
+            </div>
+          )}
 
           {/* Project Info Grid */}
           <div className="cs-hero-info">
@@ -48,16 +68,16 @@ function CaseStudyLayout({
               ))}
             </div>
 
-             <div className="info-column">
+            <div className="info-column">
+              <h3 className="info-heading">Timeline</h3>
+              <p className="info-text">{duration}</p>
+            </div>
+
+            <div className="info-column">
               <h3 className="info-heading">Skills</h3>
               {skills.map((skill, index) => (
                 <p key={index} className="info-text">{skill}</p>
               ))}
-            </div>
-
-            <div className="info-column">
-              <h3 className="info-heading">Duration</h3>
-              <p className="info-text">{duration}</p>
             </div>
           </div>
         </div>
