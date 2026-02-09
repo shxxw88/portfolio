@@ -10,7 +10,7 @@ function PickiCaseStudy() {
       "For the friend groups that can never decide. Picki is the app that ends the endless debates. Create an event, invite friends to suggest activites and let Picki randomly pick your plans.",
     ],
     role: ["UX/UI Designer"],
-    duration: "4 Months",
+    duration: "Jan. – April 2025",
     skills: ["User Testing", "Prototyping"],
     heroImage: "/images/picki-hero.png",
     heroClassName: "picki-hero"
