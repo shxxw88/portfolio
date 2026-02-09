@@ -5,6 +5,7 @@ export default function ProjectCard({ project }) {
   const getCaseStudyRoute = (title) => {
     const routes = {
       'Scaffold': '/case-study/scaffold',
+      'Picki': '/case-study/picki',
       'Aurore Menu': '/design/aurore-menu',
     };
     return routes[title] || '#';
