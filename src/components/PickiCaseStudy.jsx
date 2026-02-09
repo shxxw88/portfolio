@@ -192,7 +192,7 @@ function PickiCaseStudy() {
 <div id="iterations" className="content-section">
   <h2 className="cs-section-heading">Design Iterations</h2>
   
-  <h3 className="iterations-subsection-title">Design iterations: low fidelity — high fidelity</h3>
+  <h3 className="iterations-subsection-title">Low fidelity to Mid fidelity</h3>
   
   <p className="iterations-intro">
     Early wireframes focused on mapping out the essential interactions and introduced Picki's playful visual language.
@@ -232,7 +232,7 @@ function PickiCaseStudy() {
   </p>
   
   <p className="testing-intro">
-    We categorized issues by severity to tackle the most critical usability barriers first.
+    Issues were categorized by severity to tackle the most critical usability barriers first.
   </p>
   
   {/* Priority Boxes */}
@@ -427,51 +427,88 @@ function PickiCaseStudy() {
   </div>
 </div>
 
-            {/* Style Guide Section */}
-            <div id="styleguide" className="content-section">
-              <h2 className="cs-section-heading">Style Guide</h2>
-              
-              <p className="section-intro">
-                Visual identity and design system...
-              </p>
-              
-              <div className="style-guide-grid">
-                <div className="style-item">
-                  <h3 className="style-label">Colors</h3>
-                  <div className="style-preview">
-                    {/* Color swatches */}
-                  </div>
-                </div>
-                
-                <div className="style-item">
-                  <h3 className="style-label">Typography</h3>
-                  <div className="style-preview">
-                    {/* Typography examples */}
-                  </div>
-                </div>
-              </div>
-            </div>
+{/* Style Guide Section */}
+<div id="styleguide" className="content-section">
+  <h2 className="cs-section-heading">Style Guide</h2>
+  
+  <p className="styleguide-intro">
+    Picki's visual identity uses bright, energetic colours and rounded typography to create an 
+    intentionally approachable and playful experience. Every design choice reinforces that deciding 
+    where to go should be exciting.
+  </p>
+  
+  <div className="styleguide-grid">
+    {/* Row 1 - Three columns */}
+    <div className="styleguide-row-three">
+      <img src="/images/picki-logo.png" alt="Picki style guide" />
+      <img src="/images/picki-colours.png" alt="Picki style guide" />
+      <img src="/images/picki-type.png" alt="Picki style guide" />
+    </div>
+    
+    {/* Row 2 - Two columns */}
+    <div className="styleguide-row-two">
+      <img src="/images/picki-cards.png" alt="Picki style guide" />
+      <img src="/images/picki-buttons.png" alt="Picki style guide" />
+    </div>
+  </div>
+</div>
 
-            {/* Reflections Section */}
-            <div id="reflections" className="content-section">
-              <h2 className="cs-section-heading">Reflections</h2>
+                      {/* Reflections Section */}
+          <div id="reflections" className="content-section">
+            <h2 className="cs-section-heading">Reflections</h2>
+
+            <div className="reflection-boxes">
               
-              <div className="reflection-boxes">
-                <div className="reflection-box">
-                  <h3 className="reflection-title">Reflection 1</h3>
-                  <p className="reflection-text">
-                    Reflection content...
-                  </p>
-                </div>
-                
-                <div className="reflection-box">
-                  <h3 className="reflection-title">Reflection 2</h3>
-                  <p className="reflection-text">
-                    Reflection content...
-                  </p>
+              {/* Inspiration */}
+              <div className="reflection-box">
+                <div className="reflection-layout">
+                  <div className="reflection-icon-col">
+                    <span className="reflection-icon">🎡</span>
+                  </div>
+
+                  <div className="reflection-content">
+                    <h3 className="reflection-title">
+                      The inspiration: a wheel in my backpack.
+                    </h3>
+                    <p className="reflection-text">
+                      My friend group was so chronically indecisive that we made a physical
+                      “spin-the-wheel” to carry around for lunch decisions! It worked, but
+                      hauling around a prop just to pick a restaurant felt a little silly.
+                      That’s what inspired me to create Picki, a digital solution for a
+                      problem we can all relate to.
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              {/* Takeaways */}
+              <div className="reflection-box">
+                <div className="reflection-layout">
+                  <div className="reflection-icon-col">
+                    <span className="reflection-icon">📝</span>
+                  </div>
+
+                  <div className="reflection-content">
+                    <h3 className="reflection-title">
+                      Key learnings
+                    </h3>
+
+                    <p className="reflection-text">
+                      This project taught me that good design sometimes means removing
+                      choice instead of optimizing.Important takeaways include:
+                    </p>
+
+                    <ul className="reflection-list">
+                      <li>Prioritize clarity over clever copy.</li>
+                      <li>Test core mechanics before polishing visuals.</li>
+                      <li>Never assume features that make sense to us will be obvious to users.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
             </div>
+          </div>
           </div>
         </section>
       </CaseStudyLayout>

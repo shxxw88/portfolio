@@ -102,8 +102,7 @@ function About() {
                  My background in art history and fashion shapes my perspective as a designer, informing how I create functional digital products grounded in visual culture, aesthetics and meaning.
                 </p>
                 <p className="section-text">
-                 Outside of design, I like to hangout at the beach probably with an ice coffee in hand (even in the winter!), explore new restaurants and shop a little too much.
-                 <br /><span className="happyface">☺</span>
+                 Outside of design, I like to hangout at the beach probably with an ice coffee in hand (even in the winter!), explore new restaurants and shop a little too much :)
                 </p>
               </div>
             </div>
@@ -113,10 +112,11 @@ function About() {
                 <h2 className="section-heading">Skills</h2>
               </div>
               <div className="section-right">
-                <p className="section-text">Wireframe</p>
+                <p className="section-text">Wireframing</p>
                 <p className="section-text">Rapid prototyping</p>
-                <p className="section-text">User research & testing</p>
-                <p className="section-text">Front end development (low code)</p>
+                <p className="section-text">User research</p>
+                <p className="section-text">Usability testing</p>
+                <p className="section-text">Front end development (Agentic coding)</p>
                 <p className="section-text">Project management</p>
               </div>
             </div>
@@ -131,7 +131,7 @@ function About() {
                     <p className="section-text">Figma</p>
                     <p className="section-text">HTML / CSS</p>
                     <p className="section-text">JavaScript</p>
-                    <p className="section-text">Next.js / React.js</p>
+                    <p className="section-text">Next.js / React</p>
                     <p className="section-text">Expo</p>
                     <p className="section-text">Vercel</p>
                   </div>
@@ -140,7 +140,7 @@ function About() {
                     <p className="section-text">Adobe Illustrator</p>
                     <p className="section-text">Adobe InDesign</p>
                     <p className="section-text">Adobe After Effects</p>
-                    <p className="section-text">Trello</p>
+                    <p className="section-text">Trello / Notion</p>
                   </div>
                 </div>
               </div>

@@ -535,6 +535,151 @@ display: grid;
   margin: 0;
 }
 
+/* ==================== STYLE GUIDE SECTION ==================== */
+.styleguide-intro {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin: 0 0 5rem 0;
+}
+
+.styleguide-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  margin: 2rem 0;
+}
+
+.styleguide-row-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.styleguide-row-three img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.styleguide-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.styleguide-row-two img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Reflections */
+/* Reflections Boxes */
+.reflection-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 8rem;
+}
+
+.reflection-box {
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reflection-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.reflection-icon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.reflection-text {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* List styling inside reflection text */
+.reflection-text ul {
+  margin: 1rem 0 0 1.25rem; /* matches a clean list indent */
+  padding: 0;
+}
+
+.reflection-list {
+  font-size: 0.875rem;
+  margin: 1rem 0 0 1.5rem;
+}
+
+/* Reflection layout */
+.reflection-layout {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Icon column */
+.reflection-icon-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.reflection-icon {
+  font-size: 3rem; /* nice visual weight like screenshot */
+  line-height: 1;
+}
+
+/* Content column */
+.reflection-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reflection-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.reflection-text {
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+
+/* Responsive for Style Guide */
+@media (max-width: 1024px) {
+  .styleguide-row-three {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .styleguide-row-three {
+    grid-template-columns: 1fr;
+  }
+  
+  .styleguide-row-two {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive for Design */
 @media (max-width: 1024px) {
   .design-videos-grid {
