@@ -55,9 +55,15 @@ function GraphicProjectLayout({
 
       {/* Concept and Tools Section */}
       <div className="gp-info-grid">
-        <div className="gp-info-column">
+        <div className="gp-info-column gp-concept-column">
           <h3 className="gp-info-heading">Concept</h3>
-          <p className="gp-info-text">{concept}</p>
+                  {Array.isArray(concept) ? (
+            concept.map((paragraph, index) => (
+              <p key={index} className="gp-info-text">{paragraph}</p>
+            ))
+          ) : (
+            <p className="gp-info-text">{concept}</p>
+          )}
         </div>
 
         <div className="gp-info-column">

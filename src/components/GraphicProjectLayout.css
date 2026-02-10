@@ -100,6 +100,10 @@
   gap: 0.5rem;
 }
 
+.gp-concept-column .gp-info-text:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .gp-info-heading {
   font-family: 'Sen', sans-serif;
   font-size: 0.875rem;
@@ -109,14 +113,13 @@
 
 .gp-info-text {
   font-size: 0.875rem;
-  line-height: 1.7;
   margin: 0;
 }
 
 .gp-tools-list {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0;
 }
 
 /* Content Area */
@@ -311,7 +314,7 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1a1a1a;
+  background-color: #0e0e0e;
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
