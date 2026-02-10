@@ -293,6 +293,84 @@
   display: block;
 }
 
+/* ==================== ICELAND GUIDE ==================== */
+.iceland-details {
+  max-width: 1000px;
+  margin: 6rem auto;
+}
+
+.iceland-details img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== FLIPBOOK ==================== */
+.flipbook-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.flipbook-page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.flipbook-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controls */
+.flipbook-controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.flipbook-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: none;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+  padding: 0 0.5rem;
+}
+
+.flipbook-btn:hover {
+  opacity: 1;
+}
+
+.flipbook-indicator {
+  color: #ffffff;
+  font-size: 0.875rem;
+  opacity: 0.7;
+  min-width: 3rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flipbook-wrapper {
+    padding: 2rem 1rem;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .labels-row-two {
