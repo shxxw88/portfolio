@@ -11,6 +11,7 @@ import PickiCaseStudy from './components/PickiCaseStudy.jsx';
 
 // Graphic Design Project imports
 import AuroreMenuProject from './components/AuroreMenuProject.jsx';
+import DailyCoffeeProject from './components/DailyCoffeeProject.jsx';
 
 import './index.css';
 
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         
         {/* Graphic Design Project Routes */}
         <Route path="/design/aurore-menu" element={<AuroreMenuProject />} />
+        <Route path="/design/daily-coffee" element={<DailyCoffeeProject />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

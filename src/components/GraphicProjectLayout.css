@@ -165,7 +165,7 @@
 }
 
 
-/* Aurore Menu Design */
+/* ==================== AURORE MENU ==================== */
 .aurore-icons {
   display: flex;
   justify-content: center;
@@ -204,6 +204,127 @@
   object-position: top;
   display: block;
 }
+
+/* ==================== DAILY COFFEE ==================== */
+/* ICONS MARQUEE  */
+.coffee-icons-marquee {
+  overflow: hidden;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.coffee-icons-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 10s linear infinite;
+}
+
+.coffee-icons-track img {
+  height: 150px; /* Adjust to your preferred size */
+  width: auto;
+  display: block;
+}
+
+/* CANS GRID */
+.cans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.can-item {
+  display: flex;
+  justify-content: center;
+}
+
+.can-item img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Stagger the second can down */
+.can-item:nth-child(2) {
+  align-self: end;
+  margin-top: 4rem;
+  padding-top: 12rem;
+}
+
+/* Third can spans full width and centers */
+.can-item:nth-child(3) {
+  grid-column: 1 / -1;
+  justify-content: center;
+  margin-top: -4rem; /* Pull it up slightly */
+}
+
+/* LABELS GRID */
+.labels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 2rem 0;
+}
+
+.labels-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1;
+}
+
+.labels-row-two img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.labels-row-full {
+  max-width: 1200px; /* whatever you set */
+  margin: 0 auto;
+  margin-bottom: 8rem;
+}
+
+.labels-row-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .labels-row-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .can-item:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .can-item:nth-child(3) {
+    grid-column: auto;
+    margin-top: 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Moves exactly one image width */
+  }
+}
+
 
 
 /* Responsive */

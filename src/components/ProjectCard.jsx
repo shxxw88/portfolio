@@ -7,6 +7,7 @@ export default function ProjectCard({ project }) {
       'Scaffold': '/case-study/scaffold',
       'Picki': '/case-study/picki',
       'Aurore Menu': '/design/aurore-menu',
+      'Daily Coffee': '/design/daily-coffee',
     };
     return routes[title] || '#';
   };
