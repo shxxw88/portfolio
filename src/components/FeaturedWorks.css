@@ -139,7 +139,32 @@
   font-family: 'Sen', sans-serif;
 }
 
+/* ==================== GRAPHIC DESIGN CARD  ==================== */
+.graphic-item .project-card,
+.graphic-item-full .project-card {
+  display: block !important; /* Remove internal 2-col grid (no caption needed) */
+}
 
+.graphic-item .project-image,
+.graphic-item-full .project-image {
+  width: 100% !important; /* Override fixed 700px */
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+}
+
+.graphic-item-full .project-image {
+  aspect-ratio: 16 / 9; /* Wider for full-width card */
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .graphic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graphic-item-full {
+    grid-column: auto;
+  }
+}
 /* Responsive Design for Grid */
 
 /* Large tablets */

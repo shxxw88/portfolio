@@ -246,6 +246,20 @@
     aspect-ratio: 600 / 440;
   }
 }
+.graphic-design-card {
+  display: block !important;
+}
+
+.graphic-design-card .project-image-link {
+  display: block;
+  width: 100%;
+}
+
+.graphic-design-card .project-image {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+}
 
 @media (max-width: 768px) {
   .project-title {

@@ -1,7 +1,7 @@
 .graphic-project-container {
   min-height: 100vh;
   background-color: white;
-  padding: 2rem 3rem;
+ padding: 5rem 3rem 2rem 3rem;
   color: var(--color-text);
 }
 
@@ -25,12 +25,31 @@
 
 /* Back Link */
 .gp-back-link {
-  display: inline-block;
-  font-size: 1rem;
+  position: fixed;
+  top: 1.5rem;
+  left: 2.5rem;
+  z-index: 100;
+  font-size: 0.875rem;
   color: var(--color-text);
   text-decoration: none;
-  margin-bottom: 3rem;
-  transition: opacity 0.2s ease;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  transition: 
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    border 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.gp-back-link.scrolled {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid #fff;
+  box-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .gp-back-link:hover {
@@ -39,8 +58,10 @@
 
 /* Hero Image - Full width, natural height */
 .gp-hero-image {
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0 0 3rem 0;
   overflow: hidden;
 }
@@ -68,7 +89,7 @@
 /* Info Grid */
 .gp-info-grid {
   display: grid;
-  grid-template-columns: 4fr 1fr;  /* Concept is 2x wider than Tools */
+  grid-template-columns: 5fr 1fr;  /* Concept is 2x wider than Tools */
   gap: 4rem;
   margin: 0 0 4rem 0;
 }
@@ -77,6 +98,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.gp-concept-column .gp-info-text:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .gp-info-heading {
@@ -88,14 +113,13 @@
 
 .gp-info-text {
   font-size: 0.875rem;
-  line-height: 1.7;
   margin: 0;
 }
 
 .gp-tools-list {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0;
 }
 
 /* Content Area */
@@ -104,14 +128,6 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-}
-
-/* Content Image Placeholder */
-.gp-content-image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: #d9d9d9;
-  overflow: hidden;
 }
 
 .gp-content-image img {
@@ -151,6 +167,258 @@
   aspect-ratio: 1 / 1;
 }
 
+
+/* ==================== AURORE MENU ==================== */
+.aurore-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.aurore-icons img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  margin: 2rem 5rem;
+  margin-bottom: 10rem;
+ background-color: #2d2727; /* Dark background */
+  padding: 10rem
+}
+
+.menu-page {
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 1);
+
+}
+
+.menu-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ==================== DAILY COFFEE ==================== */
+/* ICONS MARQUEE  */
+.coffee-icons-marquee {
+  overflow: hidden;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.coffee-icons-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 10s linear infinite;
+}
+
+.coffee-icons-track img {
+  height: 150px; /* Adjust to your preferred size */
+  width: auto;
+  display: block;
+}
+
+/* CANS GRID */
+.cans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.can-item {
+  display: flex;
+  justify-content: center;
+}
+
+.can-item img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Stagger the second can down */
+.can-item:nth-child(2) {
+  align-self: end;
+  margin-top: 4rem;
+  padding-top: 12rem;
+}
+
+/* Third can spans full width and centers */
+.can-item:nth-child(3) {
+  grid-column: 1 / -1;
+  justify-content: center;
+  margin-top: -4rem; /* Pull it up slightly */
+}
+
+/* LABELS GRID */
+.labels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 2rem 0;
+}
+
+.labels-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1;
+}
+
+.labels-row-two img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.labels-row-full {
+  max-width: 1200px; /* whatever you set */
+  margin: 0 auto;
+  margin-bottom: 8rem;
+}
+
+.labels-row-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== ICELAND GUIDE ==================== */
+.iceland-details {
+  max-width: 1000px;
+  margin: 6rem auto;
+}
+
+.iceland-details img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== FLIPBOOK ==================== */
+.flipbook-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0e0e0e;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.flipbook-page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.flipbook-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controls */
+.flipbook-controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.flipbook-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: none;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+  padding: 0 0.5rem;
+}
+
+.flipbook-btn:hover {
+  opacity: 1;
+}
+
+.flipbook-indicator {
+  color: #ffffff;
+  font-size: 0.875rem;
+  opacity: 0.7;
+  min-width: 3rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flipbook-wrapper {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .labels-row-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .can-item:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .can-item:nth-child(3) {
+    grid-column: auto;
+    margin-top: 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Moves exactly one image width */
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu-page-tall,
+  .menu-page-short {
+    height: 400px;
+  }
+}
 /* Responsive Design */
 
 /* Tablets */

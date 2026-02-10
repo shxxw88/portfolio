@@ -10,18 +10,26 @@ function GraphicProjectLayout({
   children 
 }) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const moveCursor = (e) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
     };
-
     window.addEventListener('mousemove', moveCursor);
     return () => window.removeEventListener('mousemove', moveCursor);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="graphic-project-container">
+   <div className="graphic-project-container">
       {/* Custom Cursor */}
       <div 
         className="custom-cursor"
@@ -29,7 +37,9 @@ function GraphicProjectLayout({
       />
       
       {/* Back Link */}
-      <Link to="/" className="gp-back-link">Back</Link>
+      <Link to="/" className={`gp-back-link ${scrolled ? 'scrolled' : ''}`}>
+       ← Back
+      </Link>
 
       {/* Hero Image */}
       <div className="gp-hero-image">
@@ -45,9 +55,15 @@ function GraphicProjectLayout({
 
       {/* Concept and Tools Section */}
       <div className="gp-info-grid">
-        <div className="gp-info-column">
+        <div className="gp-info-column gp-concept-column">
           <h3 className="gp-info-heading">Concept</h3>
-          <p className="gp-info-text">{concept}</p>
+                  {Array.isArray(concept) ? (
+            concept.map((paragraph, index) => (
+              <p key={index} className="gp-info-text">{paragraph}</p>
+            ))
+          ) : (
+            <p className="gp-info-text">{concept}</p>
+          )}
         </div>
 
         <div className="gp-info-column">
