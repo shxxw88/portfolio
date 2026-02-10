@@ -3,50 +3,45 @@ import GraphicProjectLayout from './GraphicProjectLayout';
 function AuroreMenuProject() {
   const projectData = {
     title: "Aurore Menu Design",
-    concept: "A playful approach to French brunch, where organic shapes and expressive typography bring warmth and approachability. Casually sophisticated, perfect from eggs to aperitifs.",
+    concept: [
+      "Aurore is a modern, French-inspired brunch restaurant that balances approachability with refinement.",
+      "The menu design pairs organic shapes, tactile textures, and expressive typography to soften the traditionally formal tone of French dining. Playful visual elements are balanced with clear hierarchy and structure, creating an experience that feels both welcoming and polished. The result is a casually sophisticated menu that transitions seamlessly from brunch to aperitifs."
+    ],
+
     tools: [
       "Adobe InDesign",
       "Adobe Illustrator",
       "Adobe Photoshop"
     ],
-    heroImage: "/images/aurore-hero.png" // Replace with your actual image
+    heroImage: "/images/aurore-hero.png" 
   };
 
   return (
     <GraphicProjectLayout {...projectData}>
-      {/* Additional content images */}
-      <div className="gp-content-image">
-        <img src="/images/aurore-detail-1.png" alt="Menu design detail 1" />
+      <div className="aurore-icons">
+        <img src="/images/aurore-icons.png" alt="Menu design detail 1" />
       </div>
 
-      <div className="gp-content-image">
-        <img src="/images/aurore-detail-2.png" alt="Menu design detail 2" />
+          <div className="menu-grid">
+      {/* Row 1 - Left tall, Right short */}
+      <div className="menu-page menu-page-tall">
+        <img src="/images/aurore-menu-1.png" alt="Aurore menu page 1" />
       </div>
+      <div className="menu-page menu-page-short">
+        <img src="/images/aurore-menu-2.png" alt="Aurore menu page 2" />
+      </div>
+      
+      {/* Row 2 - Left short, Right tall */}
+      <div className="menu-page menu-page-short">
+        <img src="/images/aurore-menu-3.png" alt="Aurore menu page 3" />
+      </div>
+      <div className="menu-page menu-page-tall">
+        <img src="/images/aurore-menu-4.png" alt="Aurore menu page 4" />
+      </div>
+    </div>
 
-      {/* Optional: Add text sections if needed */}
-      {/* 
-      <div className="gp-text-section">
-        <h2 className="gp-section-heading">Design Process</h2>
-        <p className="gp-section-text">
-          Your design process description here...
-        </p>
-      </div>
-      */}
+    
 
-      {/* Optional: Add image grid if needed */}
-      {/* 
-      <div className="gp-images-grid">
-        <div className="gp-content-image">
-          <img src="/images/aurore-1.png" alt="Design variation 1" />
-        </div>
-        <div className="gp-content-image">
-          <img src="/images/aurore-2.png" alt="Design variation 2" />
-        </div>
-        <div className="gp-content-image">
-          <img src="/images/aurore-3.png" alt="Design variation 3" />
-        </div>
-      </div>
-      */}
     </GraphicProjectLayout>
   );
 }
