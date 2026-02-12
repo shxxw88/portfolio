@@ -15,6 +15,7 @@
   opacity: 0;
   transform: translateY(80px) scale(0.95);
   transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  
 }
 
 .project-footer.fade-in {

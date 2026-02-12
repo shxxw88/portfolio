@@ -12,7 +12,7 @@
 }
 
 .project-title {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -70,9 +70,7 @@
 .project-link.disabled:hover {
   color: var(--color-text);
   text-underline-offset: 8px;
-
 }
-
 
 /* Custom cursor for project image link */
 .project-image-link {
@@ -86,7 +84,6 @@
   height: 525px;
   max-width: 100%;
 }
-
 
 .image-container {
   position: relative;
@@ -102,120 +99,25 @@
 }
 
 .project-img {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  z-index: 0;
 }
 
 .image-container:hover .project-img {
   transform: scale(1.02) translateY(-4px);
 }
 
-/* Black overlay effect */
 .image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+  position: relative;
+  z-index: 2;
 }
 
 .image-container:hover .image-overlay {
   opacity: 1;
-}
-
-.overlay-text {
-  color: white; /* White text */
-  font-size: 1rem;
-  font-weight: 500;
-  display: block; /* Show the text */
-}
-
-/* Remove green overlay effect */
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: transparent; /* Changed from green */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none; /* Don't interfere with clicks */
-}
-
-.overlay-text {
-  display: none; /* Hide the overlay text */
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #E8E9F3 0%, #D4D7E8 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.phone-mockups {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  padding: 2rem;
-}
-
-.phone-mockup {
-  width: 140px;
-  height: 280px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.phone-mockup::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 3px;
-  background: #E0E0E0;
-  border-radius: 2px;
-}
-
-.phone-1 {
-  transform: rotate(-5deg) translateY(10px);
-  z-index: 1;
-}
-
-.phone-2 {
-  transform: scale(1.05);
-  z-index: 3;
-}
-
-.phone-3 {
-  transform: rotate(5deg) translateY(10px);
-  z-index: 2;
-}
-
-.project-card:hover .phone-mockup {
-  transform: scale(1.02);
 }
 
 @media (max-width: 1024px) {
@@ -246,6 +148,7 @@
     aspect-ratio: 600 / 440;
   }
 }
+
 .graphic-design-card {
   display: block !important;
 }
@@ -299,4 +202,3 @@
     display: none;
   }
 }
-

@@ -3,6 +3,8 @@
   background-color: white;
   padding: 2rem 3rem;
   color: var(--color-text);
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
 }
 
 /* Custom Cursor for Case Study */
@@ -31,6 +33,8 @@
   text-decoration: none;
   margin-bottom: 3rem;
   transition: color 0.2s ease;
+  font-family: 'Neue Montreal', sans-serif;
+  letter-spacing: 0.08rem;
 }
 
 .back-link:hover {
@@ -53,9 +57,9 @@
 }
 
 .cs-hero-title {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: left;
   margin: 0;
 }
@@ -86,9 +90,9 @@
 }
 
 .cs-recognition-heading {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0 0 0.5rem 0;
 }
 
@@ -108,7 +112,7 @@
 }
 
 .info-heading {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
@@ -163,29 +167,30 @@
   height: fit-content;
   align-self: flex-end;
   margin-left: -2rem;
+  font-family: 'Neue Montreal', sans-serif;
 }
 
 .nav-item {
   font-size: 0.875rem;
-  color: #888888;
+  color: #b5b5b5;
   text-decoration: none;
   transition: all 0.2s ease;
   padding: 0.5rem 0;
-  border-left: 2px solid transparent;
+  border-left: 1.5px solid transparent;
   padding-left: 0.75rem;
 }
 
 .nav-item:hover {
-  color: #000000;
-  border-left-color: #000000;
+  color: var(--color-text);
+  border-left-color: var(--color-text);
   padding-left: 1rem;
 }
 
 /* Active state - when nav item is clicked/in view */
 .nav-item.active {
-  color: #000000;
-  font-weight: 600;
-  border-left-color: #000000;
+  color: var(--color-text);
+  font-weight: 500;
+  border-left-color: var(--color-text);
 }
 
 /* Alternative: use :target for active section (works without JS) */
@@ -226,16 +231,17 @@
 }
 
 .cs-section-heading {
-  font-family: 'Sen', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-family: 'Neue Montreal', sans-serif;
+    color: var(--color-text);
+  font-size: 1.7rem;
+  font-weight: 500;
   margin: 0 0 2rem 0;
 }
 
 .cs-section-subheading {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   margin: 2rem 0 1rem 0;
 }
 
@@ -243,6 +249,12 @@
   font-size: 0.875rem;
   line-height: 1.7;
   margin: 0 0 1rem 0;
+}
+
+.case-study-container .insights-heading {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .cs-section-image {
