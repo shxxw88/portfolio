@@ -88,7 +88,7 @@ function About() {
               </div>
               <div className="section-right">
                 <p className="section-text">
-                  I design at the intersection of art and technology by using creativity to solve problems and craft intentional, usable, and visually compelling digital experiences.
+                    I design at the intersection of art and technology to create intentional digital experiences.                
                 </p>
               </div>
             </div>
@@ -99,7 +99,7 @@ function About() {
               </div>
               <div className="section-right">
                 <p className="section-text">
-                 My background in art history and fashion shapes my perspective as a designer, informing how I create functional digital products grounded in visual culture, aesthetics and meaning.
+                 My background in art history and fashion shapes my perspective as a designer, informing how I create functional products grounded in visual culture, aesthetics and meaning.
                 </p>
                 <p className="section-text">
                  Outside of design, I like to hangout at the beach probably with an ice coffee in hand (even in the winter!), explore new restaurants and shop a little too much :)

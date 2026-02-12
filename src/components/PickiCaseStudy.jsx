@@ -11,7 +11,7 @@ function PickiCaseStudy() {
     ],
     role: ["UX/UI Designer"],
     duration: "Jan. – April 2025",
-    skills: ["User Testing", "Prototyping"],
+    skills: ["Product Design", "Usability Testing", "Prototyping"],
     heroImage: "/images/picki-hero.png",
     heroClassName: "picki-hero"
   };

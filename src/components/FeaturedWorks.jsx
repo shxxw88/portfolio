@@ -11,7 +11,7 @@ export default function FeaturedWorks() {
     {
       id: 1,
       title: 'Scaffold',
-      description: 'AI powered grant matching and application assistant app for trades students and apprentices in British Columbia.',
+      description: 'Reducing financial barriers to trades training by centralizing fragmented grant databases and matching BC apprentices to relevant funding opportunities',
       skills: ['Project Management', 'UX/UI Design', 'Front-end development'],
       image: '/images/scaffold-cover.png',
       category: 'UX/UI',
@@ -20,8 +20,8 @@ export default function FeaturedWorks() {
     {
       id: 2,
       title: 'Picki',
-      description: 'Event planning app that helps friend groups decide faster. Everyone suggests ideas, Picki randomly picks one for less debating, more doing.',
-      skills: ['UX/UI design', 'User testing', 'Wireframe & Prototype'],
+      description: 'Getting friend groups from "what should we do?" to actually doing it by taking the pressure out of choosing.',
+      skills: ['Product design', 'Usability testing', 'Prototyping'],
       image: '/images/picki-cover.jpg',
       category: 'UX/UI',
       link: '/case-study/picki'
