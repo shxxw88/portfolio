@@ -495,7 +495,7 @@ function PickiCaseStudy() {
 
                     <p className="reflection-text">
                       This project taught me that good design sometimes means removing
-                      choice instead of optimizing.Important takeaways include:
+                      choice instead of optimizing. Important takeaways include:
                     </p>
 
                     <ul className="reflection-list">
