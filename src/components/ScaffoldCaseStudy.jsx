@@ -258,24 +258,24 @@ function ScaffoldCaseStudy() {
   to reduce cognitive load.
 </p>
 
-<div className="strategy-iterations-grid">
-  <div className="iteration-item">
-    <div className="iteration-image">
+<div className="scaffold-strategy-iterations-grid">
+  <div className="scaffold-iteration-item">
+    <div className="scaffold-iteration-image">
       <img src="/images/scaffold-lofi.png" alt="Design iteration 1" />
     </div>
-    <p className="iteration-caption">Low-fidelity wireframe</p>
+    <p className="scaffold-iteration-caption">Low-fidelity wireframe</p>
   </div>
-  <div className="iteration-item">
-    <div className="iteration-image">
+  <div className="scaffold-iteration-item">
+    <div className="scaffold-iteration-image">
       <img src="/images/scaffold-midfi.png" alt="Design iteration 2" />
     </div>
-    <p className="iteration-caption">Mid-fidelity wireframe</p>
+    <p className="scaffold-iteration-caption">Mid-fidelity wireframe</p>
   </div>
-  <div className="iteration-item">
-    <div className="iteration-image">
+  <div className="scaffold-iteration-item">
+    <div className="scaffold-iteration-image">
       <img src="/images/scaffold-hifi.png" alt="Design iteration 3" />
     </div>
-    <p className="iteration-caption">Final design</p>
+    <p className="scaffold-iteration-caption">Final design</p>
   </div>
 </div>
       {/* Solution Section */}
