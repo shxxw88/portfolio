@@ -1,81 +1,59 @@
-import { useEffect } from 'react';
-import Sphere from './Sphere';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import './Hero.css';
 
+const NAME = 'Sharleen Wang';
+
+const getDelay = (char) => {
+  if (char === ' ') return 120;
+  if ('.!?,'.includes(char)) return 200;
+  return 70 + Math.random() * 40;
+};
+
 export default function Hero() {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [caretVisible, setCaretVisible] = useState(true);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const nameElement = document.querySelector('.hero-name-typing');
-      if (nameElement) {
-        nameElement.classList.add('typed');
+    let i = 0;
+    const typeNext = () => {
+      if (i >= NAME.length) {
+        // Stop caret after a pause
+        setTimeout(() => setCaretVisible(false), 1000);
+        return;
       }
-    }, 3000);
+      const delay = getDelay(NAME[i]);
+      setTimeout(() => {
+        i++;
+        setVisibleCount(i);
+        typeNext();
+      }, delay);
+    };
 
-    return () => clearTimeout(timer);
+    const startDelay = setTimeout(typeNext, 500);
+    return () => clearTimeout(startDelay);
   }, []);
-
-  const spheres = [
-    { 
-      initialTop: '15%', 
-      initialRight: '20%', 
-      color: 'green',
-      animationName: 'floatRandom1',
-      duration: '20s'
-    },
-    { 
-      initialTop: '60%', 
-      initialLeft: '15%', 
-      color: 'orange',
-      animationName: 'floatRandom2',
-      duration: '20s'
-    },
-    { 
-      initialBottom: '20%', 
-      initialRight: '25%', 
-      color: 'blue',
-      animationName: 'floatRandom3',
-      duration: '20s'
-    }
-  ];
-
-  const handleSphereClick = (color) => {
-    console.log(`Clicked ${color} sphere!`);
-    alert(`You clicked the ${color} sphere!`);
-  };
 
   return (
     <section className="hero">
-      {/* Floating spheres
-      <div className="hero-spheres">
-        {spheres.map((sphere, index) => (
-          <div
-            key={index}
-            className="sphere-wrapper clickable"
-            style={{
-              position: 'absolute',
-              top: sphere.initialTop,
-              left: sphere.initialLeft,
-              right: sphere.initialRight,
-              bottom: sphere.initialBottom,
-              animation: `${sphere.animationName} ${sphere.duration} ease-in-out infinite`,
-              pointerEvents: 'auto',
-              cursor: 'pointer'
-            }}
-            onClick={() => handleSphereClick(sphere.color)}
-          >
-            <Sphere size={90} color={sphere.color} />
-          </div>
-        ))}
-      </div> */}
-
       <div className="hero-container">
-        {/* Name with typing animation */}
-        <h1 className="hero-name hero-name-typing">Sharleen Wang</h1>
-        
-        {/* Product Designer (no animation) */}
+        <h1 className="hero-name">
+          <span style={{ whiteSpace: 'pre' }}>
+            {NAME.slice(0, visibleCount)}
+          </span>
+          {caretVisible && (
+            <motion.span
+              className="typing-caret"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+            >
+              
+            </motion.span>
+          )}
+        </h1>
+
         <span className="hero-role highlight">Product Designer</span>
-        
-        {/* Description */}
+
         <div className="hero-description">
           <p className="hero-title">
             I bring an artist's eye and designer's mindset to every product I build.

@@ -8,17 +8,6 @@
   width: 100%;
 }
 
-/* 
-.hero-spheres {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-} */
-
 .sphere-wrapper {
   z-index: 0;
 }
@@ -45,6 +34,14 @@
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
+/* Name wrapper — positions highlight and cursor relative to the name */
+.hero-name-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero-name {
   font-family: 'Sen', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -53,24 +50,51 @@
   line-height: 1.2;
   margin: 0;
   text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  /* Remove all previous typing animation */
+  animation: none;
+  border: none;
+  overflow: visible;
+}
+
+/* Expanding highlight behind the text */
+.selection-highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(190, 220, 59, 0.2);
+  transform-origin: left center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Cursor bar that rides the leading edge of the highlight */
+.selection-cursor {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 2px;
+  background-color: var(--color-accent);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .hero-role {
   display: block;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  animation: fadeIn 0.8s ease-out 0.3s both;
 }
 
 .hero-description {
   max-width: 100%;
   text-align: center;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out 0.6s forwards;  /* Fades in slightly after */
+  animation: fadeIn 0.8s ease-out 0.3s both;
+
 }
 
 .hero-title {
@@ -95,54 +119,35 @@
   margin: 0;
 }
 
-/* Typing animation - only on name */
-.hero-name-typing {
-  overflow: hidden;
-  border-right: 3px solid var(--color-accent);
-  white-space: nowrap;
+.hover-icon {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 4;
+}
+.hero-name-char {
+  position: relative;
   display: inline-block;
-  margin: 0 auto;
-  max-width: 100%;
-  padding-right: 3px;
-  animation: 
-    typing 2.8s steps(20, end) 0.5s 1 normal both,
-    blink-caret 0.75s step-end infinite;
 }
 
-/* Remove caret after typing completes */
-.hero-name-typing.typed {
-  border-right: none;
-  animation: none;
-  overflow: visible;
+.char-highlight {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: -1;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--color-accent);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.typing-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background-color: var(--color-accent);
+  margin-left: 2px;
+  vertical-align: middle;
 }
 
 @keyframes fadeIn {
@@ -155,62 +160,6 @@
     transform: translateY(0);
   }
 }
-/* Sphere floating animations - EXTREME 1000px+ movement with rotation */
-/* @keyframes floatRandom1 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  20% {
-    transform: translate(-500px, 400px) rotate(72deg);
-  }
-  40% {
-    transform: translate(450px, -350px) rotate(144deg);
-  }
-  60% {
-    transform: translate(-400px, 450px) rotate(216deg);
-  }
-  80% {
-    transform: translate(550px, -300px) rotate(288deg);
-  }
-}
-
-@keyframes floatRandom2 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  16% {
-    transform: translate(480px, -450px) rotate(60deg);
-  }
-  33% {
-    transform: translate(-520px, 350px) rotate(120deg);
-  }
-  50% {
-    transform: translate(350px, 500px) rotate(180deg);
-  }
-  66% {
-    transform: translate(-450px, -400px) rotate(240deg);
-  }
-  83% {
-    transform: translate(500px, 300px) rotate(300deg);
-  }
-}
-
-@keyframes floatRandom3 {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(480px, 480px) rotate(90deg);
-  }
-  50% {
-    transform: translate(-500px, -450px) rotate(180deg);
-  }
-  75% {
-    transform: translate(420px, -480px) rotate(270deg);
-  }
-} */
-
-
 
 @media (max-width: 968px) {
   .hero-container {
@@ -224,8 +173,13 @@
     padding: 2rem 0 4rem;
     min-height: 60vh;
   }
-  
+
   .hero-title {
     font-size: 1rem;
+  }
+
+  .hero-name {
+    white-space: normal;
+    text-align: center;
   }
 }

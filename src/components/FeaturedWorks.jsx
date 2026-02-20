@@ -1,12 +1,27 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import './FeaturedWorks.css';
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
 export default function FeaturedWorks() {
   const [activeFilter, setActiveFilter] = useState('UX/UI');
-  
+  const [dotStyle, setDotStyle] = useState({ left: 0 });
+  const btnRefs = useRef([]);
   const filters = ['UX/UI', 'Graphic Design'];
-  
+
+  useEffect(() => {
+    const index = filters.indexOf(activeFilter);
+    const btn = btnRefs.current[index];
+    if (btn) {
+      setDotStyle({ left: btn.offsetLeft + btn.offsetWidth / 2 - 3 });
+    }
+  }, [activeFilter]);
+
   const projects = [
     {
       id: 1,
@@ -35,7 +50,7 @@ export default function FeaturedWorks() {
       category: 'Graphic Design',
       link: '/design/aurore-menu',
       noCaption: true,
-      featured: true // Large card
+      featured: true
     },
     {
       id: 4,
@@ -60,49 +75,69 @@ export default function FeaturedWorks() {
   ];
 
   const filteredProjects = projects.filter(p => p.category === activeFilter);
-  const graphicProjects = filteredProjects.filter(p => p.category === 'Graphic Design');
-  const featuredGraphic = graphicProjects.find(p => p.featured);
-  const smallGraphic = graphicProjects.filter(p => !p.featured);
 
   return (
     <section className="featured-works">
       <div className="works-container">
+
         {/* Filters */}
         <div className="works-filters">
-          {filters.map(filter => (
-            <button
-              key={filter}
-              className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter)}
-            >
-              {filter}
-            </button>
-          ))}
+          <div className="filter-inner">
+            {filters.map((filter, i) => (
+              <>
+                <button
+                  key={filter}
+                  ref={el => btnRefs.current[i] = el}
+                  className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
+                  onClick={() => setActiveFilter(filter)}
+                >
+                  {filter}
+                </button>
+                {i < filters.length - 1 && (
+                  <span className="filter-slash">/</span>
+                )}
+              </>
+            ))}
+            <div className="filter-dot" style={{ left: dotStyle.left }} />
+          </div>
         </div>
 
         {/* UX/UI Grid */}
         {activeFilter === 'UX/UI' && (
           <div className="projects-grid">
-            {filteredProjects.map(project => (
-              <ProjectCard key={project.id} project={project} />
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={cardVariants}
+                transition={{ delay: index * 0.1 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
           </div>
         )}
 
         {/* Graphic Design Grid */}
-      
         {activeFilter === 'Graphic Design' && (
-  <div className="graphic-grid">
-    {filteredProjects.map((project, index) => (
-      <div 
-        key={project.id} 
-        className={index === filteredProjects.length - 1 ? 'graphic-item-full' : 'graphic-item'}
-      >
-        <ProjectCard project={project} />
-      </div>
-    ))}
-  </div>
-)}
+          <div className="graphic-grid">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="graphic-item"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={cardVariants}
+                transition={{ delay: index * 0.1 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </div>
+        )}
 
       </div>
     </section>
