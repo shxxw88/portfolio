@@ -1,96 +1,56 @@
-import { motion } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import './Hero.css';
 
 const NAME = 'Sharleen Wang';
 
+const getDelay = (char) => {
+  if (char === ' ') return 120;
+  if ('.!?,'.includes(char)) return 200;
+  return 70 + Math.random() * 40;
+};
+
 export default function Hero() {
-  const wrapperRef = useRef(null);
-  const [width, setWidth] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [caretVisible, setCaretVisible] = useState(true);
 
   useEffect(() => {
-    if (wrapperRef.current) {
-      setWidth(wrapperRef.current.getBoundingClientRect().width);
-    }
+    let i = 0;
+    const typeNext = () => {
+      if (i >= NAME.length) {
+        // Stop caret after a pause
+        setTimeout(() => setCaretVisible(false), 1000);
+        return;
+      }
+      const delay = getDelay(NAME[i]);
+      setTimeout(() => {
+        i++;
+        setVisibleCount(i);
+        typeNext();
+      }, delay);
+    };
+
+    const startDelay = setTimeout(typeNext, 500);
+    return () => clearTimeout(startDelay);
   }, []);
-
-  const SWEEP_DELAY = 0.8;
-  const SWEEP_DURATION = 0.6;
-  const HOLD_DURATION = 1.5;
-
-  const getOpacity = (i) => {
-    if (activeIndex === null) return 0;
-    const distance = Math.abs(i - activeIndex);
-    if (distance === 0) return 0.35;
-    if (distance === 1) return 0.2;
-    if (distance === 2) return 0.08;
-    return 0;
-  };
 
   return (
     <section className="hero">
       <div className="hero-container">
-        <div
-          className="hero-name-wrapper"
-          ref={wrapperRef}
-          onMouseLeave={() => setActiveIndex(null)}
-        >
-          <motion.h1
-            className="hero-name"
-            initial={{ clipPath: 'inset(0 100% 0 0)' }}
-            animate={{ clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)', 'inset(0 0% 0 0)'] }}
-            transition={{
-              duration: SWEEP_DURATION + HOLD_DURATION,
-              times: [0, SWEEP_DURATION / (SWEEP_DURATION + HOLD_DURATION), 1],
-              delay: SWEEP_DELAY,
-              ease: ['easeInOut', 'linear'],
-            }}
-          >
-            {NAME.split('').map((char, i) => (
-              <span
-                key={i}
-                className="hero-name-char"
-                onMouseEnter={() => setActiveIndex(i)}
-                style={{ position: 'relative', display: 'inline-block' }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-                <motion.span
-                  className="char-highlight"
-                  animate={{ opacity: getOpacity(i) }}
-                  transition={{ duration: 0.15, ease: 'easeOut' }}
-                />
-              </span>
-            ))}
-          </motion.h1>
-
-          {/* Intro highlight */}
-          <motion.div
-            className="selection-highlight"
-            initial={{ width: '0%', opacity: 1 }}
-            animate={{
-              width: ['0%', '100%', '100%', '100%'],
-              opacity: [1, 1, 1, 0],
-            }}
-            transition={{
-              duration: SWEEP_DURATION + HOLD_DURATION,
-              times: [0, SWEEP_DURATION / (SWEEP_DURATION + HOLD_DURATION), 0.98, 1],
-              delay: SWEEP_DELAY,
-              ease: ['easeInOut', 'linear', 'linear'],
-            }}
-          />
-
-          {/* Cursor bar */}
-          <motion.div
-            className="selection-cursor"
-            initial={{ x: 0, opacity: 1 }}
-            animate={{ x: width, opacity: 0 }}
-            transition={{
-              x: { duration: SWEEP_DURATION, delay: SWEEP_DELAY, ease: 'easeInOut' },
-              opacity: { duration: 0.1, delay: SWEEP_DELAY + SWEEP_DURATION + HOLD_DURATION - 0.1 },
-            }}
-          />
-        </div>
+        <h1 className="hero-name">
+          <span style={{ whiteSpace: 'pre' }}>
+            {NAME.slice(0, visibleCount)}
+          </span>
+          {caretVisible && (
+            <motion.span
+              className="typing-caret"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+            >
+              
+            </motion.span>
+          )}
+        </h1>
 
         <span className="hero-role highlight">Product Designer</span>
 

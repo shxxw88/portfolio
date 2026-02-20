@@ -141,6 +141,15 @@
   z-index: -1;
 }
 
+.typing-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background-color: var(--color-accent);
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

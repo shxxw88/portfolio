@@ -1,5 +1,5 @@
 .featured-works {
-  padding: 8rem 0 6rem;
+  padding: 8rem 0 25rem;
 }
 
 .works-container {
@@ -7,54 +7,55 @@
 }
 
 .works-filters {
-  display: flex;
-  gap: 1rem;
   margin-bottom: 3rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
 }
 
+.filter-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
 .filter-btn {
   font-family: 'Sen', sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text-light);
   background: none;
-  padding: 0.5rem;
   border: none;
   cursor: pointer;
-  position: relative;
-  transition: color 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s ease, font-weight 0.2s ease;
   letter-spacing: 0.02em;
 }
 
-.filter-btn::after {
-  content: '';
-  position: absolute;
-  bottom: 0.1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 1.2px;
-  color: var(--color-text);
-  background-color: var(--color-accent);
-  transition: width 0.3s ease;
-}
-
-.filter-btn:hover {
-  color: var(--color-accent);
-}
-
-.filter-btn:hover::after {
-  width: 80%;
-}
-
 .filter-btn.active {
-  color: var(--color-accent);
+  color: var(--color-text);
+  font-weight: 600;
 }
 
-.filter-btn.active::after {
-  width: 80%;
+.filter-btn::after {
+  display: none;
+}
+
+.filter-slash {
+  color: var(--color-border);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.filter-dot {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-grid {
@@ -139,34 +140,47 @@
   font-family: 'Sen', sans-serif;
 }
 
-/* ==================== GRAPHIC DESIGN CARD  ==================== */
-.graphic-item .project-card,
-.graphic-item-full .project-card {
-  display: block !important; /* Remove internal 2-col grid (no caption needed) */
+/* ==================== GRAPHIC DESIGN GRID ==================== */
+.graphic-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.graphic-item .project-image,
-.graphic-item-full .project-image {
-  width: 100% !important; /* Override fixed 700px */
+.graphic-item {
+  display: flex;
+  width: 55%;
+}
+
+.graphic-item:nth-child(2) {
+  align-self: flex-end;
+  width: 62%;
+}
+
+.graphic-item:nth-child(3) {
+  align-self: flex-start;
+  width: 55%;
+}
+
+.graphic-item .project-card {
+  display: block;
+  width: 100%;
+}
+
+.graphic-item .project-image {
+  width: 100% !important;
   height: auto !important;
   aspect-ratio: 4 / 3;
 }
 
-.graphic-item-full .project-image {
-  aspect-ratio: 16 / 9; /* Wider for full-width card */
-}
-/* Responsive */
 @media (max-width: 768px) {
-  .graphic-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .graphic-item-full {
-    grid-column: auto;
+  .graphic-item,
+  .graphic-item:nth-child(2),
+  .graphic-item:nth-child(3) {
+    width: 100%;
+    align-self: auto;
   }
 }
-/* Responsive Design for Grid */
-
 /* Large tablets */
 @media (max-width: 1024px) {
   .design-grid {
