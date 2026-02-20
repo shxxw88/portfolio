@@ -1,81 +1,99 @@
-import { useEffect } from 'react';
-import Sphere from './Sphere';
+import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
 import './Hero.css';
 
-export default function Hero() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const nameElement = document.querySelector('.hero-name-typing');
-      if (nameElement) {
-        nameElement.classList.add('typed');
-      }
-    }, 3000);
+const NAME = 'Sharleen Wang';
 
-    return () => clearTimeout(timer);
+export default function Hero() {
+  const wrapperRef = useRef(null);
+  const [width, setWidth] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    if (wrapperRef.current) {
+      setWidth(wrapperRef.current.getBoundingClientRect().width);
+    }
   }, []);
 
-  const spheres = [
-    { 
-      initialTop: '15%', 
-      initialRight: '20%', 
-      color: 'green',
-      animationName: 'floatRandom1',
-      duration: '20s'
-    },
-    { 
-      initialTop: '60%', 
-      initialLeft: '15%', 
-      color: 'orange',
-      animationName: 'floatRandom2',
-      duration: '20s'
-    },
-    { 
-      initialBottom: '20%', 
-      initialRight: '25%', 
-      color: 'blue',
-      animationName: 'floatRandom3',
-      duration: '20s'
-    }
-  ];
+  const SWEEP_DELAY = 0.8;
+  const SWEEP_DURATION = 0.6;
+  const HOLD_DURATION = 1.5;
 
-  const handleSphereClick = (color) => {
-    console.log(`Clicked ${color} sphere!`);
-    alert(`You clicked the ${color} sphere!`);
+  const getOpacity = (i) => {
+    if (activeIndex === null) return 0;
+    const distance = Math.abs(i - activeIndex);
+    if (distance === 0) return 0.35;
+    if (distance === 1) return 0.2;
+    if (distance === 2) return 0.08;
+    return 0;
   };
 
   return (
     <section className="hero">
-      {/* Floating spheres
-      <div className="hero-spheres">
-        {spheres.map((sphere, index) => (
-          <div
-            key={index}
-            className="sphere-wrapper clickable"
-            style={{
-              position: 'absolute',
-              top: sphere.initialTop,
-              left: sphere.initialLeft,
-              right: sphere.initialRight,
-              bottom: sphere.initialBottom,
-              animation: `${sphere.animationName} ${sphere.duration} ease-in-out infinite`,
-              pointerEvents: 'auto',
-              cursor: 'pointer'
-            }}
-            onClick={() => handleSphereClick(sphere.color)}
-          >
-            <Sphere size={90} color={sphere.color} />
-          </div>
-        ))}
-      </div> */}
-
       <div className="hero-container">
-        {/* Name with typing animation */}
-        <h1 className="hero-name hero-name-typing">Sharleen Wang</h1>
-        
-        {/* Product Designer (no animation) */}
+        <div
+          className="hero-name-wrapper"
+          ref={wrapperRef}
+          onMouseLeave={() => setActiveIndex(null)}
+        >
+          <motion.h1
+            className="hero-name"
+            initial={{ clipPath: 'inset(0 100% 0 0)' }}
+            animate={{ clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)', 'inset(0 0% 0 0)'] }}
+            transition={{
+              duration: SWEEP_DURATION + HOLD_DURATION,
+              times: [0, SWEEP_DURATION / (SWEEP_DURATION + HOLD_DURATION), 1],
+              delay: SWEEP_DELAY,
+              ease: ['easeInOut', 'linear'],
+            }}
+          >
+            {NAME.split('').map((char, i) => (
+              <span
+                key={i}
+                className="hero-name-char"
+                onMouseEnter={() => setActiveIndex(i)}
+                style={{ position: 'relative', display: 'inline-block' }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+                <motion.span
+                  className="char-highlight"
+                  animate={{ opacity: getOpacity(i) }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                />
+              </span>
+            ))}
+          </motion.h1>
+
+          {/* Intro highlight */}
+          <motion.div
+            className="selection-highlight"
+            initial={{ width: '0%', opacity: 1 }}
+            animate={{
+              width: ['0%', '100%', '100%', '100%'],
+              opacity: [1, 1, 1, 0],
+            }}
+            transition={{
+              duration: SWEEP_DURATION + HOLD_DURATION,
+              times: [0, SWEEP_DURATION / (SWEEP_DURATION + HOLD_DURATION), 0.98, 1],
+              delay: SWEEP_DELAY,
+              ease: ['easeInOut', 'linear', 'linear'],
+            }}
+          />
+
+          {/* Cursor bar */}
+          <motion.div
+            className="selection-cursor"
+            initial={{ x: 0, opacity: 1 }}
+            animate={{ x: width, opacity: 0 }}
+            transition={{
+              x: { duration: SWEEP_DURATION, delay: SWEEP_DELAY, ease: 'easeInOut' },
+              opacity: { duration: 0.1, delay: SWEEP_DELAY + SWEEP_DURATION + HOLD_DURATION - 0.1 },
+            }}
+          />
+        </div>
+
         <span className="hero-role highlight">Product Designer</span>
-        
-        {/* Description */}
+
         <div className="hero-description">
           <p className="hero-title">
             I bring an artist's eye and designer's mindset to every product I build.
