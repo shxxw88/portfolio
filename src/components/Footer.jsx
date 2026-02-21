@@ -1,59 +1,42 @@
 import './Footer.css';
 
 export default function Footer() {
+  const links = [
+     { id: 'email', label: 'Email', href: 'mailto:sharleenwang7@gmail.com' },
+    { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/sharleenwang/' },
+  ];
+
   return (
     <footer className="footer">
-      <div className="footer-circle">
-        {/* Top curved text */}
-        <svg className="curved-text curved-text-top" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path 
-              id="curve-top" 
-              d="M 100,250 Q 400,80 700,250" 
-              fill="transparent"
-            />
-          </defs>
-          <text className="curved-text-path">
-            <textPath href="#curve-top" startOffset="50%" textAnchor="middle">
-              Connect with me!
-            </textPath>
-          </text>
-        </svg>
+      {/* No background — transparent */}
 
-        <div className="footer-content">
-          <div className="footer-links">
-            <a 
-              href="https://www.linkedin.com/in/sharleenwang/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="footer-link"
-            >
-              LinkedIn
-            </a>
-            <a 
-              href="mailto:sharleenwang7@gmail.com" 
-              className="footer-link"
-            >
-              Email
-            </a>
-          </div>
+      <div className="footer-content">
+        <p className="footer-label">Connect with me!</p>
+
+        <div className="footer-links">
+          {links.map((link, i) => (
+            <span key={link.id} className="footer-link-group">
+              <a
+                href={link.href}
+                className="footer-link"
+                target={link.id === 'linkedin' ? '_blank' : undefined}
+                rel={link.id === 'linkedin' ? 'noreferrer' : undefined}
+              >
+                {link.label}
+                <span className="arrow">→</span>
+              </a>
+              {i < links.length - 1 && (
+                <span className="footer-divider">/</span>
+              )}
+            </span>
+          ))}
         </div>
+      </div>
 
-        {/* Bottom wavy text */}
-        <svg className="curved-text curved-text-bottom" viewBox="0 0 1000 150" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path 
-              id="wave-bottom" 
-              d="M 50,75 Q 150,50 250,75 T 450,75 T 650,75 T 850,75 T 950,75" 
-              fill="transparent"
-            />
-          </defs>
-          <text className="curved-text-path curved-text-path-small">
-            <textPath href="#wave-bottom" startOffset="50%" textAnchor="middle">
-              This website was coded with love using React &lt;3
-            </textPath>
-          </text>
-        </svg>
+      <div className="footer-bottom">
+        <p className="footer-credit">
+          Designed and coded with love using React &copy; Sharleen Wang, 2026
+        </p>
       </div>
     </footer>
   );

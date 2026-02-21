@@ -1,5 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import VariableProximity from './VariableProximity';
+// import ScrollArrow from './ScrollArrow';
 import './Hero.css';
 
 const NAME = 'Sharleen Wang';
@@ -13,13 +15,16 @@ const getDelay = (char) => {
 export default function Hero() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [caretVisible, setCaretVisible] = useState(true);
+  const [typingDone, setTypingDone] = useState(false);
 
   useEffect(() => {
     let i = 0;
     const typeNext = () => {
       if (i >= NAME.length) {
-        // Stop caret after a pause
-        setTimeout(() => setCaretVisible(false), 1000);
+        setTimeout(() => {
+          setCaretVisible(false);
+          setTypingDone(true);
+        }, 1000);
         return;
       }
       const delay = getDelay(NAME[i]);
@@ -34,20 +39,42 @@ export default function Hero() {
     return () => clearTimeout(startDelay);
   }, []);
 
+  const scrollToWorks = () => {
+    const works = document.querySelector('.featured-works');
+    if (works) works.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section className="hero">
       <div className="hero-container">
         <h1 className="hero-name">
-          <span style={{ whiteSpace: 'pre' }}>
-            {NAME.slice(0, visibleCount)}
-          </span>
-          {caretVisible && (
+          {!typingDone ? (
+            <>
+              <span style={{ whiteSpace: 'pre' }}>
+                {NAME.slice(0, visibleCount)}
+              </span>
+              {caretVisible && (
+                <motion.span
+                  className="typing-caret"
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+                />
+              )}
+            </>
+          ) : (
             <motion.span
-              className="typing-caret"
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, ease: 'easeIn' }}
             >
-              
+              <VariableProximity
+                label={NAME}
+                radius={140}
+                minWeight={400}
+                maxWeight={800}
+                falloff="quadratic"
+                enabled={true}
+              />
             </motion.span>
           )}
         </h1>
@@ -63,6 +90,9 @@ export default function Hero() {
           </p>
         </div>
       </div>
+
+      {/* Fades in after hero animations settle */}
+      {/* <ScrollArrow onClick={scrollToWorks} /> */}
     </section>
   );
 }

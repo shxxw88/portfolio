@@ -187,7 +187,7 @@ function ScaffoldCaseStudy() {
     Based on interviews and research, we created a primary user persona:
   </p>
   
-  <div className="persona-card">
+  <div className="scaffold-persona-card">
     <div className="persona-profile">
       <div className="persona-image">
         <img src="/images/scaffold-persona.png" alt="Talia Redsky" />
