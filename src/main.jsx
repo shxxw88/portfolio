@@ -14,12 +14,15 @@ import AuroreMenuProject from './components/AuroreMenuProject.jsx';
 import DailyCoffeeProject from './components/DailyCoffeeProject.jsx';
 import IcelandGuideProject from './components/IcelandGuideProject.jsx';
 
+import { Analytics } from "@vercel/analytics/react"
+
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ScrollToTop /> {/* Add this here */}
+      <ScrollToTop /> 
+      <Analytics />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
