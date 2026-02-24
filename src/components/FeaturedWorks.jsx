@@ -26,7 +26,7 @@ export default function FeaturedWorks() {
     {
       id: 1,
       title: 'Scaffold',
-      description: 'Reducing financial barriers to trades training by centralizing fragmented grant databases and matching BC apprentices to relevant funding opportunities',
+      description: 'Reducing financial barriers to trades training by centralizing fragmented grant databases and matching BC apprentices to relevant funding opportunities.',
       skills: ['Project Management', 'UX/UI Design', 'Front-end development'],
       image: '/images/scaffold-cover.png',
       category: 'UX/UI',
