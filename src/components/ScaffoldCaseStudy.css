@@ -1044,3 +1044,7 @@
     width: 100%;
   }
 }
+
+.content-main {
+  gap: 10rem;
+}

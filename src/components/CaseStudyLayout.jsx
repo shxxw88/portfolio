@@ -11,6 +11,8 @@ function CaseStudyLayout({
   skills, 
   heroImage,
   heroClassName,
+  demoUrl,
+  demoLabel = "View Demo →",
   children 
 }) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -59,6 +61,7 @@ function CaseStudyLayout({
             </div>
           )}
 
+
           {/* Project Info Grid */}
           <div className="cs-hero-info">
             <div className="info-column">
@@ -80,6 +83,20 @@ function CaseStudyLayout({
               ))}
             </div>
           </div>
+
+
+         {/* Demo Button */}
+          {demoUrl && (
+            <a 
+              href={demoUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="cs-demo-button"
+            >
+              {demoLabel}
+            </a>
+          )}
+        
         </div>
 
         {/* Hero Image */}
