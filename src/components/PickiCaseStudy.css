@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 0.2rem !important;
-  margin-bottom: 8rem;
+  margin-bottom: 10rem;
   padding: 0 2rem;
   align-items: flex-start;
 }
@@ -37,7 +37,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  margin-top: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .picki-hero .info-column {
@@ -914,5 +915,7 @@ display: grid;
   }
 }
 
-/* ==================== GENERAL SECTION STYLING ==================== */
-/* ... rest of your existing CSS */
+
+.content-main {
+  gap: 8rem;
+}

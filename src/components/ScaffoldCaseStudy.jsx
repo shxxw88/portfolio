@@ -15,7 +15,9 @@ function ScaffoldCaseStudy() {
     skills: ["User Research", "UX/UI Design", "React Development"],
     duration: "Sept. – Dec. 2026",
     heroImage: "/images/scaffold-hero.png",
-    heroClassName: "scaffold-hero"
+    heroClassName: "scaffold-hero",
+    demoUrl: "https://scaffold-theta.vercel.app/",
+    demoLabel: "Try the Demo →"
   };
 
 
@@ -176,16 +178,14 @@ function ScaffoldCaseStudy() {
               How can we make financial support easier to discover, understand and apply for, 
               without overwhelming users who are already stretched thin?
             </p>
-          </div>
 
-          {/* Add this right after the research-question paragraph */}
+          <div className="user-persona-section">
+            <h3 className="persona-heading">User Persona</h3>
 
-<div className="user-persona-section">
-  <h3 className="persona-heading">User Persona</h3>
-  
-  <p className="persona-intro">
-    Based on interviews and research, we created a primary user persona:
-  </p>
+            <p className="persona-intro">
+              Based on interviews and research, we created a primary user persona:
+          </p>
+      </div>
   
   <div className="scaffold-persona-card">
     <div className="persona-profile">
@@ -248,7 +248,6 @@ function ScaffoldCaseStudy() {
   
   <div className="strategy-flow-image">
     <img src="/images/scaffold-flow.png" alt="Scaffold user flow diagram" />
-  </div>
 </div>
 <p className="strategy-subsection-title"><strong>Design Iterations</strong></p>
 
@@ -277,6 +276,7 @@ function ScaffoldCaseStudy() {
     </div>
     <p className="scaffold-iteration-caption">Final design</p>
   </div>
+</div>
 </div>
       {/* Solution Section */}
 <div id="solution" className="content-section">

@@ -13,7 +13,9 @@ function PickiCaseStudy() {
     duration: "Jan. – April 2025",
     skills: ["Product Design", "Usability Testing", "Prototyping"],
     heroImage: "/images/picki-hero.png",
-    heroClassName: "picki-hero"
+    heroClassName: "picki-hero",
+    demoUrl: "https://www.figma.com/proto/Ph43MP7u4CTx9Kkd3imj1U/PICKI-A4-Mockup?node-id=1210-1363&t=LRDRToMaWAefDMm7-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A57",
+    demoLabel: "Try the Prototype →"
   };
 
   useEffect(() => {
