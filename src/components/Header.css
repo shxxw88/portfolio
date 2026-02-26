@@ -1,20 +1,26 @@
+/* ── Always positioned by top — enables smooth transition ── */
 .header {
-  padding: 2.5rem 0 3rem;
-  position: sticky;
-  top: 0;
-  background-color: transparent;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
-  transition: padding 0.3s ease;
   display: flex;
   justify-content: center;
+  transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header.scrolled {
-  padding: 1.5rem 0;
+/* At bottom (hero in view) — expressed as top so transition works */
+.header.at-bottom {
+  top: calc(100vh - 5rem);
+}
+
+/* At top (scrolled past hero) */
+.header.at-top {
+  top: 2rem;
 }
 
 .nav {
- display: flex;
+  display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
 
@@ -40,7 +46,6 @@
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   letter-spacing: 0.02em;
-
 }
 
 .nav-link:hover {
@@ -51,33 +56,20 @@
   color: var(--color-text);
   background-color: var(--color-accent);
 }
-/* 
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-text);
-  border-radius: 50%;
-} */
 
-/* Scrolled state - keep same style */
-.header.scrolled .nav {
+.header.at-top .nav {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 1.5rem 0 2rem;
+  .header.at-bottom {
+    top: calc(100vh - 4rem);
   }
-  
-  .header.scrolled {
-    padding: 1rem 0;
+
+  .header.at-top {
+    top: 1rem;
   }
-  
+
   .nav {
     gap: 1.5rem;
   }

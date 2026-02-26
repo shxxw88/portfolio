@@ -1,98 +1,75 @@
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import VariableProximity from './VariableProximity';
-// import ScrollArrow from './ScrollArrow';
 import './Hero.css';
 
-const NAME = 'Sharleen Wang';
+// 🖼️ Replace with your actual image paths
+import postcardFront from '/images/postcard-front.png';
+import back1 from '/images/postcard-back1.png';
+import back2 from '/images/postcard-back2.png';
+import back3 from '/images/postcard-back3.png';
+import back4 from '/images/postcard-back4.png';
 
-const getDelay = (char) => {
-  if (char === ' ') return 120;
-  if ('.!?,'.includes(char)) return 200;
-  return 70 + Math.random() * 40;
+const BACK_IMAGES = [back1, back2, back3, back4];
+
+const getRandomImage = (exclude = null) => {
+  const options = BACK_IMAGES.filter((img) => img !== exclude);
+  return options[Math.floor(Math.random() * options.length)];
 };
 
 export default function Hero() {
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [caretVisible, setCaretVisible] = useState(true);
-  const [typingDone, setTypingDone] = useState(false);
+  const [flipped, setFlipped] = useState(false);
+  const [hasFlipped, setHasFlipped] = useState(false);
+  const [currentBack, setCurrentBack] = useState(() => getRandomImage());
+  const lastBack = useRef(currentBack);
 
-  useEffect(() => {
-    let i = 0;
-    const typeNext = () => {
-      if (i >= NAME.length) {
-        setTimeout(() => {
-          setCaretVisible(false);
-          setTypingDone(true);
-        }, 1000);
-        return;
-      }
-      const delay = getDelay(NAME[i]);
-      setTimeout(() => {
-        i++;
-        setVisibleCount(i);
-        typeNext();
-      }, delay);
-    };
-
-    const startDelay = setTimeout(typeNext, 500);
-    return () => clearTimeout(startDelay);
-  }, []);
-
-  const scrollToWorks = () => {
-    const works = document.querySelector('.featured-works');
-    if (works) works.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handleFlip = () => {
+    if (!flipped) {
+      const next = getRandomImage(lastBack.current);
+      lastBack.current = next;
+      setCurrentBack(next);
+    }
+    setFlipped((f) => !f);
+    setHasFlipped(true);
   };
 
   return (
     <section className="hero">
-      <div className="hero-container">
-        <h1 className="hero-name">
-          {!typingDone ? (
-            <>
-              <span style={{ whiteSpace: 'pre' }}>
-                {NAME.slice(0, visibleCount)}
-              </span>
-              {caretVisible && (
-                <motion.span
-                  className="typing-caret"
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
-                />
-              )}
-            </>
-          ) : (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3, ease: 'easeIn' }}
-            >
-              <VariableProximity
-                label={NAME}
-                radius={140}
-                minWeight={400}
-                maxWeight={800}
-                falloff="quadratic"
-                enabled={true}
-              />
-            </motion.span>
-          )}
-        </h1>
+      <motion.div
+        className="postcard-scene"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <motion.div
+          className="postcard-card"
+          animate={{ rotateY: flipped ? 180 : 0 }}
+          transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
+          whileHover={{ scale: 1.012, rotate: flipped ? 0 : -0.4 }}
+          onClick={handleFlip}
+        >
+          {/* ── FRONT ── */}
+          <div className="postcard-face postcard-front">
+            <img src={postcardFront} alt="Postcard front" className="postcard-img" />
+            {!hasFlipped && (
+              <motion.span
+                className="pc-flip-hint"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.4, duration: 0.6 }}
+              >
+                flip ↩
+              </motion.span>
+            )}
+          </div>
 
-        <span className="hero-role highlight">Product Designer</span>
+          {/* ── BACK ── */}
+          <div
+            className="postcard-face postcard-back"
+            style={{ backgroundImage: `url(${currentBack})` }}
+          />
 
-        <div className="hero-description">
-          <p className="hero-title">
-            I bring an artist's eye and designer's mindset to every product I build.
-          </p>
-          <p className="hero-subtitle">
-            (Plus a bit of code to make it all come alive!)
-          </p>
-        </div>
-      </div>
-
-      {/* Fades in after hero animations settle */}
-      {/* <ScrollArrow onClick={scrollToWorks} /> */}
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
