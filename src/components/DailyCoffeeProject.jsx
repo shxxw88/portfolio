@@ -5,8 +5,8 @@ function DailyCoffeeProject() {
     title: "Daily Coffee — Can Design",
     concept: 
     [
-        "Brewed for everyday moments, Daily Coffee is a simple, consistent coffee experience designed for the modern consumer.",
-        "The can design uses minimal imagery to highlight the simplicity and purity of the ingredients, reducing visual noise and keeping the focus on what matters. The result is a reliable, modern design that fits seamlessly into everyday routines."
+        "Daily Coffee is a modern coffee brand created to deliver a simple, consistent experience for everyday routines.",
+        "The can design uses minimal imagery and restrained typography to emphasize ingredient purity and reduce visual noise. This approach keeps the focus on what matters, resulting in a reliable, modern system that fits naturally into daily life."
     ],
     tools: ["Adobe Illustrator", "Adobe Photoshop", "Adobe Stock Images"],
     heroImage: "/images/coffee-hero.png"

@@ -4,8 +4,8 @@ function AuroreMenuProject() {
   const projectData = {
     title: "Aurore Menu Design",
     concept: [
-      "Aurore is a modern, French-inspired brunch restaurant that balances approachability with refinement.",
-      "The menu design pairs organic shapes, tactile textures, and expressive typography to soften the traditionally formal tone of French dining. Playful visual elements are balanced with clear hierarchy and structure, creating an experience that feels both welcoming and polished. The result is a casually sophisticated menu that transitions seamlessly from brunch to aperitifs."
+      "Aurore is a modern, French-inspired brunch restaurant For Aurore, a French-inspired brunch restaurant, the goal was to reimagine traditional elegance in a more approachable way. balances approachability with refinement.",
+      "The menu design combines organic forms, tactile textures, and expressive typography to balance warmth with structure. Thoughtful hierarchy and playful accents create a casually sophisticated experience that feels inviting while remaining refined, transitioning seamlessly from brunch to aperitifs. menu design pairs organic shapes, tactile textures, and expressive typography to soften the traditionally formal tone of French dining. Playful visual elements are balanced with clear hierarchy and structure, creating an experience that feels both welcoming and polished. The result is a casually sophisticated menu that transitions seamlessly from brunch to aperitifs."
     ],
 
     tools: [
