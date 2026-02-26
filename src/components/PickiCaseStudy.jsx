@@ -15,7 +15,7 @@ function PickiCaseStudy() {
     heroImage: "/images/picki-hero.png",
     heroClassName: "picki-hero",
     demoUrl: "https://www.figma.com/proto/Ph43MP7u4CTx9Kkd3imj1U/PICKI-A4-Mockup?node-id=1210-1363&t=LRDRToMaWAefDMm7-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A57",
-    demoLabel: "Try the Prototype →"
+    demoLabel: "Try the Prototype"
   };
 
   useEffect(() => {
@@ -116,7 +116,7 @@ function PickiCaseStudy() {
               <h2 className="cs-section-heading">User Persona</h2>
               
               <p className="persona-intro">
-               We created a user persona based on conversations with friends and peers who struggle with group decision making, helping us understand the emotional and practical barriers to spontaneous plans. 
+               A user persona was created based on conversations with friends and peers who struggle with group decision making, helping us understand the emotional and practical barriers to spontaneous plans. 
               </p>
 
               <div className="persona-card">
@@ -229,7 +229,7 @@ function PickiCaseStudy() {
   <h2 className="cs-section-heading">Usability Tests</h2>
   
   <p className="testing-intro">
-    We conducted usability tests with 5 participants (ages 22–28) using Figma prototypes. Participants 
+    Usability tests were conducted with 5 participants (ages 22–28) using Figma prototypes. Participants 
     completed 6 tasks including event creation, group management and the activity quiz feature.
   </p>
   

@@ -166,12 +166,18 @@
   perspective: 1200px;
 }
 
+/* Tilt wrapper — must preserve-3d so flip child renders correctly */
+.postcard-tilt {
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Flip wrapper */
 .postcard-card {
   position: relative;
   width: 760px;
   height: 515px;
   transform-style: preserve-3d;
-  cursor: pointer;
   user-select: none;
 }
 
@@ -183,7 +189,7 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.08),
+    0 4px 18px rgba(0, 0, 0, 0.08),
     0 1px 6px rgba(0, 0, 0, 0.06);
 }
 
@@ -199,18 +205,6 @@
   display: block;
 }
 
-.pc-flip-hint {
-  position: absolute;
-  bottom: 12px;
-  right: 16px;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: #b8c44a;
-  font-family: 'Courier New', Courier, monospace;
-  pointer-events: none;
-}
-
-/* ── BACK ── */
 .postcard-back {
   transform: rotateY(180deg);
   background-size: cover;

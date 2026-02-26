@@ -17,7 +17,7 @@ function ScaffoldCaseStudy() {
     heroImage: "/images/scaffold-hero.png",
     heroClassName: "scaffold-hero",
     demoUrl: "https://scaffold-theta.vercel.app/",
-    demoLabel: "Try the Demo →"
+    demoLabel: "Try the Demo"
   };
 
 
@@ -126,7 +126,7 @@ function ScaffoldCaseStudy() {
             
             <p className="research-intro">
               Through user interviews with trades workers and apprentices as well as heuristic 
-              analysis of existing grant portals and applications, we uncovered these key insights:
+              analysis of existing grant portals and applications, these key insights emerged:
             </p>
             
             <div className="research-findings">
@@ -183,7 +183,7 @@ function ScaffoldCaseStudy() {
             <h3 className="persona-heading">User Persona</h3>
 
             <p className="persona-intro">
-              Based on interviews and research, we created a primary user persona:
+              Based on interviews and research, a primary user persona was created to represent the core needs, goals and pain points of our target audience.:
           </p>
       </div>
   
@@ -252,7 +252,7 @@ function ScaffoldCaseStudy() {
 <p className="strategy-subsection-title"><strong>Design Iterations</strong></p>
 
 <p className="strategy-iterations-intro">
-  Through iterative wireframing and testing, we learned that readability and simplicity was the highest 
+  Through iterative wireframing and testing, it was discovered that readability and simplicity was the highest 
   priority. The final interface breaks applications into guided steps and removes unnecessary information 
   to reduce cognitive load.
 </p>
@@ -390,8 +390,7 @@ function ScaffoldCaseStudy() {
   <h2 className="cs-section-heading marketing-heading">Marketing & Launch Support</h2>
   
   <p className="marketing-intro">
-    To support the BCIT showcase and validate product-market fit, we developed Scaffold's brand identity, demo 
-    materials, promotional posters and videos targeting trades students.
+To support the BCIT Showcase and validate product market fit, Scaffold’s brand identity, demo materials, and promotional assets were developed to engage trades students.
   </p>
   
   {/* Row 1 - Brand Identity */}
