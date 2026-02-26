@@ -85,32 +85,16 @@ function About() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorToggle, setCursorToggle] = useState(false);
   const [isOverNavOrFooter, setIsOverNavOrFooter] = useState(false);
-  const headerRef = useRef(null);
-  const footerRef = useRef(null);
 
   useEffect(() => {
     const moveCursor = (e) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
-      const headerElement = headerRef.current;
-      const footerElement = footerRef.current;
-      let isOverSpecialArea = false;
-      if (headerElement) {
-        const headerRect = headerElement.getBoundingClientRect();
-        if (e.clientX >= headerRect.left && e.clientX <= headerRect.right &&
-            e.clientY >= headerRect.top && e.clientY <= headerRect.bottom) {
-          isOverSpecialArea = true;
-        }
-      }
-      if (footerElement && !isOverSpecialArea) {
-        const footerRect = footerElement.getBoundingClientRect();
-        if (e.clientX >= footerRect.left && e.clientX <= footerRect.right &&
-            e.clientY >= footerRect.top && e.clientY <= footerRect.bottom) {
-          isOverSpecialArea = true;
-        }
-      }
-      setIsOverNavOrFooter(isOverSpecialArea);
+      // closest() reliably detects nav/footer regardless of fixed positioning
+      const overSpecial = !!e.target.closest('.header, .footer');
+      setIsOverNavOrFooter(overSpecial);
     };
     const handleClick = () => setCursorToggle(prev => !prev);
+
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('click', handleClick);
     return () => {
@@ -156,7 +140,7 @@ function About() {
         />
 
         <div className="app about-app">
-          <div ref={headerRef}><Header /></div>
+          <Header />
 
           <section className="about-page">
 
@@ -217,7 +201,7 @@ function About() {
 
           </section>
 
-          <div ref={footerRef}><Footer /></div>
+          <div ref={useRef(null)}><Footer /></div>
         </div>
       </div>
     </>

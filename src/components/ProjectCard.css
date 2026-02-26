@@ -170,53 +170,7 @@
   overflow: hidden;
 }
 
-.phone-mockups {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  padding: 2rem;
-}
 
-.phone-mockup {
-  width: 140px;
-  height: 280px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.phone-mockup::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 3px;
-  background: #E0E0E0;
-  border-radius: 2px;
-}
-
-.phone-1 {
-  transform: rotate(-5deg) translateY(10px);
-  z-index: 1;
-}
-
-.phone-2 {
-  transform: scale(1.05);
-  z-index: 3;
-}
-
-.phone-3 {
-  transform: rotate(5deg) translateY(10px);
-  z-index: 2;
-}
-
-.project-card:hover .phone-mockup {
-  transform: scale(1.02);
-}
 
 @media (max-width: 1024px) {
   .project-card {

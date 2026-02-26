@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import './Hero.css';
 
 // 🖼️ Replace with your actual image paths
@@ -16,11 +16,38 @@ const getRandomImage = (exclude = null) => {
   return options[Math.floor(Math.random() * options.length)];
 };
 
+const SPRING = { stiffness: 60, damping: 18, mass: 1.2 };
+const MAX_TILT = 12; // degrees
+
 export default function Hero() {
   const [flipped, setFlipped] = useState(false);
-  const [hasFlipped, setHasFlipped] = useState(false);
   const [currentBack, setCurrentBack] = useState(() => getRandomImage());
   const lastBack = useRef(currentBack);
+  const cardRef = useRef(null);
+
+  // Raw mouse motion values
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smoothed with spring physics
+  const springX = useSpring(mouseX, SPRING);
+  const springY = useSpring(mouseY, SPRING);
+
+  // Map to rotation angles
+  const rotateX = useTransform(springY, [-0.5, 0.5], [MAX_TILT, -MAX_TILT]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-MAX_TILT, MAX_TILT]);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   const handleFlip = () => {
     if (!flipped) {
@@ -29,7 +56,6 @@ export default function Hero() {
       setCurrentBack(next);
     }
     setFlipped((f) => !f);
-    setHasFlipped(true);
   };
 
   return (
@@ -40,34 +66,32 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
       >
+        {/* Tilt wrapper — handles mouse-tracked rotation */}
         <motion.div
-          className="postcard-card"
-          animate={{ rotateY: flipped ? 180 : 0 }}
-          transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
-          whileHover={{ scale: 1.012, rotate: flipped ? 0 : -0.4 }}
-          onClick={handleFlip}
+          ref={cardRef}
+          className="postcard-tilt"
+          style={{ rotateX, rotateY }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
         >
-          {/* ── FRONT ── */}
-          <div className="postcard-face postcard-front">
-            <img src={postcardFront} alt="Postcard front" className="postcard-img" />
-            {!hasFlipped && (
-              <motion.span
-                className="pc-flip-hint"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.4, duration: 0.6 }}
-              >
-                flip ↩
-              </motion.span>
-            )}
-          </div>
+          {/* Flip wrapper — handles click-to-flip rotation */}
+          <motion.div
+            className="postcard-card"
+            animate={{ rotateY: flipped ? 180 : 0 }}
+            transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
+            onClick={handleFlip}
+          >
+            {/* ── FRONT ── */}
+            <div className="postcard-face postcard-front">
+              <img src={postcardFront} alt="Postcard front" className="postcard-img" />
+            </div>
 
-          {/* ── BACK ── */}
-          <div
-            className="postcard-face postcard-back"
-            style={{ backgroundImage: `url(${currentBack})` }}
-          />
-
+            {/* ── BACK ── */}
+            <div
+              className="postcard-face postcard-back"
+              style={{ backgroundImage: `url(${currentBack})` }}
+            />
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
