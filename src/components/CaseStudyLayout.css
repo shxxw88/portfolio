@@ -26,6 +26,7 @@
 /* Back Link */
 .back-link {
   display: inline-block;
+  position: relative;
   font-size: 0.875rem;
   color: var(--color-text);
   text-decoration: none;
@@ -35,6 +36,22 @@
 
 .back-link:hover {
   color: var(--color-accent);
+}
+
+.back-link .arrow {
+  position: relative;
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  font-size: 13px;
+  color: var(--color-accent);
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.back-link:hover .arrow {
+  opacity: 1;
+  transform: translateX(0px);
 }
 
 /* Hero Section */

@@ -68,7 +68,7 @@ export default function ProjectCard({ project }) {
 
           {hasRoute ? (
             <Link to={caseStudyRoute} className="project-link">
-              View case study →
+              View case study <span className="arrow">→</span>
             </Link>
           ) : (
             <span className="project-link disabled">
