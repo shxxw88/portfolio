@@ -435,7 +435,7 @@
 .scaffold-strategy-iterations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 3.5rem;
   margin: 2rem 0;
 }
 
@@ -443,13 +443,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .scaffold-iteration-image {
   width: 100%;
   max-width: 250px;
   margin: 0 auto;
+  margin-top: 1.5rem;
 }
 
 .scaffold-iteration-image img {
@@ -464,6 +465,65 @@
   margin: 1rem 0;
 }
 
+.scaffold-implementations-subsection {
+  margin-top: 3rem;
+}
+
+.scaffold-implementation-example {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem 0;
+  justify-content: center;
+}
+
+.scaffold-implementation-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.scaffold-implementation-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 250px;
+}
+
+.scaffold-implementation-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.scaffold-implementation-arrow {
+  font-size: 2rem;
+  color: #595959;
+  align-self: center;
+}
+
+.scaffold-implementation-texts {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.scaffold-implementation-text-item {
+  flex: 1;
+}
+
+.scaffold-implementation-spacer {
+  width: 3rem;
+  flex-shrink: 0;
+}
+
+.scaffold-implementation-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 2rem 0 4rem 0;
+}
 /* ==================== SOLUTION SECTION ==================== */
 .solution-heading {
   color: var(--color-accent);
@@ -659,28 +719,51 @@
   border-radius: 0.5rem;
 }
 
+.marketing-asset {
+  margin-bottom: 2rem;
+}
+
+.marketing-asset-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.marketing-asset-item img {
+  width: 100%;
+  height: auto;
+}
+
+.marketing-caption {
+  font-size: 0.75rem;
+  color: var(--color-text);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
 /* Grid row - Brochure and Stickers (brochure bigger) */
 .marketing-grid-brochure {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 1rem;
-  align-items: start;
+  align-items: stretch;
 }
 
-.marketing-grid-brochure img:nth-child(2) {
-  max-width: 90%;
-  margin: 0 auto;
+.marketing-grid-brochure .marketing-asset-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .marketing-grid-brochure img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 500px; /* adjust to taste */
+  object-fit: cover;
+  object-position: center;
   display: block;
   border-radius: 0.5rem;
 }
 
-/* Grid row - Equal sizing (billboard and business cards) */
+
 .marketing-grid-equal {
   display: grid;
   grid-template-columns: 1fr 1fr;

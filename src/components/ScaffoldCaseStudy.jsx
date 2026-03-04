@@ -258,23 +258,115 @@ function ScaffoldCaseStudy() {
 </p>
 
 <div className="scaffold-strategy-iterations-grid">
-  <div className="scaffold-iteration-item">
-    <div className="scaffold-iteration-image">
-      <img src="/images/scaffold-lofi.png" alt="Design iteration 1" />
-    </div>
-    <p className="scaffold-iteration-caption">Low-fidelity wireframe</p>
+<div className="scaffold-iteration-item">
+  <div className="scaffold-iteration-image">
+    <img src="/images/scaffold-lofi.png" alt="Design iteration 1" />
   </div>
-  <div className="scaffold-iteration-item">
-    <div className="scaffold-iteration-image">
-      <img src="/images/scaffold-midfi.png" alt="Design iteration 2" />
-    </div>
-    <p className="scaffold-iteration-caption">Mid-fidelity wireframe</p>
+  <p className="implementation-label">Lo-fi</p>
+  <p className="implementation-text">Too much information on a single screen with grant details and snapshots competing for attention.</p>
+</div>
+
+<div className="scaffold-iteration-item">
+  <div className="scaffold-iteration-image">
+    <img src="/images/scaffold-midfi.png" alt="Design iteration 2" />
   </div>
-  <div className="scaffold-iteration-item">
-    <div className="scaffold-iteration-image">
-      <img src="/images/scaffold-hifi.png" alt="Design iteration 3" />
+  <p className="implementation-label">Mid-fi</p>
+  <p className="implementation-text">UI needed refinement and the application tracker wasn't giving users enough at a glance.</p>
+</div>
+
+<div className="scaffold-iteration-item">
+  <div className="scaffold-iteration-image">
+    <img src="/images/scaffold-hifi.png" alt="Design iteration 3" />
+  </div>
+  <p className="implementation-label">Final</p>
+  <p className="implementation-text">Polished UI with funding amounts surfaced upfront and clear calls to action throughout.</p>
+</div>
+</div>
+  <hr className="scaffold-implementation-divider" />
+
+{/* Design Implementations */}
+<div className="scaffold-implementations-subsection">
+
+  {/* Grant Info Page */}
+  <div className="scaffold-implementation-example">
+    <div className="scaffold-implementation-column">
+      <div className="scaffold-implementation-inner">
+        <img src="/images/scaffold-info-before.png" alt="Grant info before" />
+      </div>
     </div>
-    <p className="scaffold-iteration-caption">Final design</p>
+    <div className="scaffold-implementation-arrow">→</div>
+    <div className="scaffold-implementation-column">
+      <div className="scaffold-implementation-inner">
+        <img src="/images/scaffold-info-after.png" alt="Grant info after" />
+      </div>
+    </div>
+  </div>
+  <div className="scaffold-implementation-texts">
+    <div className="scaffold-implementation-text-item">
+      <p className="implementation-label">Before:</p>
+      <p className="implementation-text">Key details like amount, deadline, and eligibility were buried in a dense paragraph, making it hard to quickly assess a grant.</p>
+    </div>
+    <div className="scaffold-implementation-spacer"></div>
+    <div className="scaffold-implementation-text-item">
+      <p className="implementation-label">After:</p>
+      <p className="implementation-text">Scannable chips surface the most critical information upfront, letting users evaluate fit at a glance.</p>
+    </div>
+  </div>
+
+  <hr className="scaffold-implementation-divider" />
+
+  {/* Grant Cards */}
+  <div className="scaffold-implementation-example">
+    <div className="scaffold-implementation-column">
+      <div className="scaffold-implementation-inner">
+        <img src="/images/scaffold-grantcard-before.png" alt="Grant cards before" />
+      </div>
+    </div>
+    <div className="scaffold-implementation-arrow">→</div>
+    <div className="scaffold-implementation-column">
+      <div className="scaffold-implementation-inner">
+        <img src="/images/scaffold-grantcard-after.png" alt="Grant cards after" />
+      </div>
+    </div>
+  </div>
+  <div className="scaffold-implementation-texts">
+    <div className="scaffold-implementation-text-item">
+      <p className="implementation-label">Before:</p>
+      <p className="implementation-text">Inconsistent layout and competing visual elements made it difficult to compare grants or identify eligibility status.</p>
+    </div>
+    <div className="scaffold-implementation-spacer"></div>
+    <div className="scaffold-implementation-text-item">
+      <p className="implementation-label">After:</p>
+      <p className="implementation-text">A unified card structure with clear hierarchy makes eligibility, amount, and deadline immediately readable.</p>
+    </div>
+  </div>
+
+  <hr className="scaffold-implementation-divider" />
+
+  {/* Progress Tracker */}
+  <div className="scaffold-implementation-example">
+    <div className="scaffold-implementation-column">
+      <div className="scaffold-implementation-inner">
+        <img src="/images/scaffold-progress-before.png" alt="Progress tracker before" />
+      </div>
+    </div>
+    <div className="scaffold-implementation-arrow">→</div>
+    <div className="scaffold-implementation-column">
+      <div className="scaffold-implementation-inner">
+        <img src="/images/scaffold-progress-after.png" alt="Progress tracker after" />
+      </div>
+    </div>
+  </div>
+  <div className="scaffold-implementation-texts">
+    <div className="scaffold-implementation-text-item">
+      <p className="implementation-label">Before:</p>
+      <p className="implementation-text">All steps expanded simultaneously, making it hard to know where to focus or track progress through the application.</p>
+    </div>
+    <div className="scaffold-implementation-spacer"></div>
+    <div className="scaffold-implementation-text-item">
+      <p className="implementation-label">After:</p>
+      <p className="implementation-text">A collapsible accordion with distinct active and completed states guides users through one step at a time.</p>
+    </div>
   </div>
 </div>
 </div>
@@ -390,31 +482,54 @@ function ScaffoldCaseStudy() {
   <h2 className="cs-section-heading marketing-heading">Marketing & Launch Support</h2>
   
   <p className="marketing-intro">
-To support the BCIT Showcase and validate product market fit, Scaffold’s brand identity, demo materials, and promotional assets were developed to engage trades students.
+    To support the BCIT Showcase and validate product market fit, Scaffold's brand identity, demo materials, and promotional assets were developed to engage trades students. 
+    The materials were distributed to guests and judges at the BCIT D3/FSWD x ConnectHer Student Design & Technology Innovation Showcase.
   </p>
   
   {/* Row 1 - Brand Identity */}
-  <div className="marketing-row marketing-full">
-    <img src="/images/scaffold-style.png" alt="Scaffold brand identity and color palette" />
+  <div className="marketing-asset">
+    <div className="marketing-row marketing-full">
+      <img src="/images/scaffold-style.png" alt="Scaffold brand identity and color palette" />
+    </div>
+    <p className="marketing-caption">Brand identity style guide with logo, typography and colours</p>
   </div>
   
   {/* Row 2 - Brochure and Stickers */}
-  <div className="marketing-row marketing-grid-brochure">
-    <img src="/images/scaffold-brochure.png" alt="Scaffold brochure" />
-    <img src="/images/scaffold-stickers.png" alt="Scaffold promotional stickers" />
+  <div className="marketing-asset">
+    <div className="marketing-row marketing-grid-brochure">
+      <div className="marketing-asset-item">
+        <img src="/images/scaffold-brochure.png" alt="Scaffold brochure" />
+        <p className="marketing-caption">Showcase brochure</p>
+      </div>
+      <div className="marketing-asset-item">
+        <img src="/images/scaffold-stickers.png" alt="Scaffold promotional stickers" />
+        <p className="marketing-caption">Promotional stickers</p>
+      </div>
+    </div>
   </div>
   
   {/* Row 3 - Promo Video */}
-  <div className="marketing-row marketing-video">
-    <video autoPlay loop muted playsInline>
-      <source src="/videos/scaffold-promo.mov" type="video/mp4" />
-    </video>
+  <div className="marketing-asset">
+    <div className="marketing-row marketing-video">
+      <video autoPlay loop muted playsInline>
+        <source src="/videos/scaffold-promo.mov" type="video/mp4" />
+      </video>
+    </div>
+    <p className="marketing-caption">Promotional video</p>
   </div>
   
   {/* Row 4 - Billboard and Business Cards */}
-  <div className="marketing-row marketing-grid-equal">
-    <img src="/images/scaffold-banner.png" alt="Scaffold billboard banner" />
-    <img src="/images/scaffold-signs.png" alt="Scaffold business cards" />
+  <div className="marketing-asset">
+    <div className="marketing-row marketing-grid-equal">
+      <div className="marketing-asset-item">
+        <img src="/images/scaffold-banner.png" alt="Scaffold billboard banner" />
+        <p className="marketing-caption">Event banner</p>
+      </div>
+      <div className="marketing-asset-item">
+        <img src="/images/scaffold-signs.png" alt="Scaffold business cards" />
+        <p className="marketing-caption">Signage</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -445,7 +560,7 @@ To support the BCIT Showcase and validate product market fit, Scaffold’s brand
     
     <div className="outcome-stat">
       <div className="outcome-icon">👥</div>
-      <div className="outcome-number">100+ attendees</div>
+      <div className="outcome-number">300+ attendees</div>
       <p className="outcome-description">engaged with live demos, including current trades students and apprentices.</p>
     </div>
     

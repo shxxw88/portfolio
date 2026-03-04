@@ -35,7 +35,9 @@ function CaseStudyLayout({
       />
       
       {/* Back Link */}
-      <Link to="/" className="back-link">Back</Link>
+      <Link to="/" className="back-link">
+        <span className="arrow">←</span> Back
+      </Link>
 
       {/* Hero Section - can have custom class */}
       <section className={heroClassName || "case-study-hero"}>
