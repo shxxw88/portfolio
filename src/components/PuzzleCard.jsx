@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import confetti from 'canvas-confetti'
 import './PuzzleCard.css'
 
 // --- helpers ---
@@ -37,7 +38,7 @@ function formatTime(s) {
 }
 
 // --- component ---
-export default function PuzzleCard({ title, difficulty, grid, theme }) {
+export default function PuzzleCard({ title, difficulty, grid, theme, isActive = false }) {
   const rows = grid.length
   const cols = grid[0].length
   const { rowClues, colClues } = getClues(grid)
@@ -62,12 +63,12 @@ export default function PuzzleCard({ title, difficulty, grid, theme }) {
   const [seconds, setSeconds] = useState(0)
   const [won, setWon]         = useState(false)
 
-  // timer
+  // timer — only runs when this card is the active (front) card
   useEffect(() => {
-    if (won) return
+    if (won || !isActive) return
     const id = setInterval(() => setSeconds(s => s + 1), 1000)
     return () => clearInterval(id)
-  }, [won])
+  }, [won, isActive])
 
   // win check
   useEffect(() => {
@@ -78,6 +79,16 @@ export default function PuzzleCard({ title, difficulty, grid, theme }) {
     )
     if (solved) setWon(true)
   }, [cells, grid])
+
+  // confetti on solve — fire from both sides for full-screen coverage
+  useEffect(() => {
+    if (!won) return
+    const colors = [theme.accent, theme.fill, '#ffffff']
+    const opts = { particleCount: 80, spread: 90, colors }
+    confetti({ ...opts, origin: { x: 0.1, y: 0.5 }, angle: 60  })
+    confetti({ ...opts, origin: { x: 0.9, y: 0.5 }, angle: 120 })
+    confetti({ ...opts, origin: { x: 0.5, y: 0.8 }, angle: 90  })
+  }, [won])
 
   function handleClick(r, c) {
     if (won) return
@@ -137,13 +148,18 @@ export default function PuzzleCard({ title, difficulty, grid, theme }) {
     <div
       className={`puzzle-card ${won ? 'puzzle-card--won' : ''}`}
       style={{
-        '--pc-bg':          theme.bg,
-        '--pc-fill':        theme.fill,
-        '--pc-accent':      theme.accent,
-        '--pc-text':        theme.text,
-        '--pc-border':      theme.border,
-        '--pc-cell':        `${cellSize}px`,
-        '--pc-row-clue-w':  `${rowClueW}px`,
+        '--pc-bg':             theme.bg,
+        '--pc-fill':           theme.fill,
+        '--pc-accent':         theme.accent,
+        '--pc-text':           theme.text,
+        '--pc-border':         theme.border,
+        '--pc-border-style':   theme.borderStyle  ?? 'dashed',
+        '--pc-border-width':   theme.borderWidth  ?? '1.5px',
+        '--pc-border-radius':  theme.borderRadius ?? '2px',
+        '--pc-border-inset':   theme.borderInset  ?? '10px',
+        '--pc-border-filter':  theme.borderFilter ?? 'none',
+        '--pc-cell':           `${cellSize}px`,
+        '--pc-row-clue-w':     `${rowClueW}px`,
       }}
     >
       {/* LEFT PANEL */}
@@ -161,7 +177,7 @@ export default function PuzzleCard({ title, difficulty, grid, theme }) {
 
         <div className="pc-actions">
           <button className="pc-btn" onClick={handleHint}>Hint</button>
-          <button className="pc-btn" onClick={handleReset}>Reset</button>
+          <button className="pc-btn pc-btn--ghost" onClick={handleReset}>Reset</button>
         </div>
 
         {won && <div className="pc-solved">✦ Solved!</div>}

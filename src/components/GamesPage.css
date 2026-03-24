@@ -19,27 +19,6 @@
   gap: var(--spacing-lg);
 }
 
-.games-header {
-  text-align: center;
-}
-
-.games-title {
-  font-family: 'Sen', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  color: var(--color-text);
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-.games-sub {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--color-text-light);
-  margin: var(--spacing-lg) 0 0;
-  letter-spacing: 0.06em;
-  text-align: center;
-}
 
 /* ---- Content wrapper (holds badges + stack) ---- */
 .games-content {
@@ -88,93 +67,97 @@
 }
 
 /* ================================================================
-   BADGES
+   TOP-LEFT INFO PANEL
    ================================================================ */
 
-/* --- Green oval "How to play" sticker --- */
-.badge-howtoplay {
-  position: absolute;
-  top: -60px;
-  right: -90px;
-  width: 120px;
-  height: 150px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  transform: rotate(-8deg);
-  z-index: 30;
+.games-top {
+  padding: 2.5rem 0 0 2.5rem;
+  align-self: flex-start;
+}
+
+.games-info {
   padding: 0;
-  /* sticker: white outline + drop shadow */
-  box-shadow: 0 0 0 5px white, 0 8px 24px rgba(0, 0, 0, 0.22);
 }
 
-.badge-howtoplay::before {
-  content: '';
-  position: absolute;
-  inset: 9px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-}
-
-.badge-howtoplay__q {
-  font-family: 'Sen', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.45);
-  line-height: 1;
-}
-
-.badge-howtoplay__label {
+.games-info__title {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.7rem;
-  font-weight: 500;
-  color: white;
-  text-align: center;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-}
-
-/* --- Red ticket "Nonogram Puzzle" sticker --- */
-.badge-nonogram {
-  position: absolute;
-  top: -30px;
-  left: -60px;
-  background: #b8313f;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 22px 30px;
-  border-radius: 6px;
-  transform: rotate(-7deg);
-  z-index: 30;
-  /* sticker: white outline + drop shadow */
-  box-shadow: 0 0 0 5px white, 0 8px 24px rgba(0, 0, 0, 0.22);
-}
-
-.badge-nonogram::before {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border: 1.5px dashed rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-  pointer-events: none;
-}
-
-.badge-nonogram span {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-align: center;
-  display: block;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0 0 0.35rem;
+  white-space: nowrap;
+}
+
+.games-info__desc {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
   line-height: 1.6;
+  margin: 0 0 0.75rem;
+  white-space: nowrap;
+}
+
+.games-info__sub {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.games-info__toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 2rem;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  transition: opacity 0.15s;
+}
+
+.games-info__toggle:hover { opacity: 0.6; }
+
+.games-info__body {
+  margin-top: 0.75rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+
+.games-info__rules {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  border-left: 2px solid var(--color-accent);
+  padding-left: 0.75rem;
+}
+
+.games-info__rules li {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.games-info__rules strong {
+  color: var(--color-text);
 }
 
 /* ================================================================
