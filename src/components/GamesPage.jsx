@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PuzzleCard from './PuzzleCard'
 import { PUZZLES } from './Puzzles'
@@ -13,14 +13,27 @@ const FIXED_POSES = [
   { x: STEP_X * 2, y: 35,  rotate: -3  },
 ]
 
+const MOBILE_POSES = [
+  { x: 0, y: 0, rotate: -2   },
+  { x: 0, y: 0, rotate: 1.5  },
+  { x: 0, y: 0, rotate: -1   },
+]
+
 export default function GamesPage() {
   const [frontCard, setFrontCard]           = useState(0)
   const [instructionsOpen, setInstructions] = useState(false)
-  // Each card gets its own z-index counter so only the clicked card changes
+  const [isMobile, setIsMobile]             = useState(() => window.innerWidth <= 900)
+
   const zCounter = useRef(PUZZLES.length)
   const [zMap, setZMap] = useState(() =>
     Object.fromEntries(PUZZLES.map((_, i) => [i, i === 0 ? PUZZLES.length : i]))
   )
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth <= 900)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
 
   function bringToFront(idx) {
     zCounter.current += 1
@@ -41,7 +54,7 @@ export default function GamesPage() {
         </defs>
       </svg>
 
-      {/* ---- Top-left info panel (in flow so it pushes cards down) ---- */}
+      {/* ---- Info panel ---- */}
       <div className="games-top">
         <div className="games-info">
           <p className="games-info__title">NONOGRAM PUZZLE</p>
@@ -87,14 +100,12 @@ export default function GamesPage() {
       </div>
 
       <motion.main layout className="games-main" transition={{ type: 'spring', stiffness: 200, damping: 30 }}>
-        {/* card stack + star decoration */}
         <div className="games-content">
-
-<div className="games-stack-area">
-            <div className="games-stack">
+          <div className="games-stack-area">
+            <div className={`games-stack${isMobile ? ' games-stack--mobile' : ''}`}>
               {PUZZLES.map((puzzle, puzzleIdx) => {
                 const isFront = puzzleIdx === frontCard
-                const pose = FIXED_POSES[puzzleIdx]
+                const pose = (isMobile ? MOBILE_POSES : FIXED_POSES)[puzzleIdx]
 
                 return (
                   <motion.div

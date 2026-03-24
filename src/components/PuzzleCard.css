@@ -98,8 +98,8 @@
 }
 
 .pc-btn {
-  width: 100%;
-  padding: 10px 0;
+  width: auto;
+  padding: 8px 18px;
   background: var(--pc-accent);
   color: var(--pc-bg);
   border: none;
@@ -271,4 +271,46 @@
   opacity: 0.5;
   line-height: 1;
   pointer-events: none;
+}
+
+/* ---- Mobile / tablet reflow (≤ 900px) ---- */
+@media (max-width: 900px) {
+  .puzzle-card {
+    flex-direction: column;
+    width: min(560px, calc(100vw - 3rem));
+    height: auto;
+  }
+
+  /* Grid panel comes first */
+  .pc-right {
+    order: -1;
+    padding: 28px 24px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Divider becomes horizontal */
+  .pc-divider {
+    width: calc(100% - 48px);
+    height: 1px;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* Controls panel below, centered */
+  .pc-left {
+    flex-direction: column;
+    align-items: center;
+    min-width: unset;
+    width: 100%;
+    padding: 20px 24px 28px;
+    gap: 8px;
+  }
+
+  .pc-actions {
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+    gap: 12px;
+  }
 }

@@ -264,21 +264,47 @@
   color: var(--color-text);
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 520px) {
-  .games-stack-area {
+/* ---- Responsive (tablet + mobile ≤ 900px) ---- */
+@media (max-width: 900px) {
+  .games-top {
+    padding: 2rem 1.5rem 0;
     width: 100%;
-    overflow-x: auto;
-    padding: 20px 1.5rem;
-    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  .games-info__title,
+  .games-info__desc,
+  .games-info__sub {
+    white-space: normal;
   }
 
   .games-main {
-    padding: var(--spacing-md) 1.5rem var(--spacing-lg);
+    padding: var(--spacing-md) 1.5rem var(--spacing-xl);
   }
 
-  .badge-howtoplay,
-  .badge-nonogram {
-    display: none;
+  .games-stack-area {
+    overflow-x: visible;
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+  }
+
+  /* Mobile stack: normal flow, slight overlap */
+  .games-stack--mobile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .games-stack--mobile .games-card-wrap {
+    position: relative;
+    margin-bottom: -28px;
+  }
+
+  .games-stack--mobile .games-card-wrap:last-child {
+    margin-bottom: 60px;
   }
 }
