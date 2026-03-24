@@ -1,0 +1,81 @@
+.games-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.games-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg) 3rem var(--spacing-xl);
+  gap: var(--spacing-lg);
+}
+
+.games-header {
+  text-align: center;
+}
+
+.games-title {
+  font-family: 'Sen', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.games-sub {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Stack container ---- */
+.games-stack-area {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 60px;
+}
+
+.games-stack {
+  position: relative;
+  width: 630px;
+  /* STEP*2 + card height = 360*2 + 420 */
+  height: 1140px;
+}
+
+/* ---- Individual card wrapper ---- */
+.games-card-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+}
+
+/* ---- Transparent overlay on non-front cards ---- */
+.games-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 520px) {
+  .games-stack-area {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .games-main {
+    padding: var(--spacing-md) 1.5rem var(--spacing-lg);
+  }
+}
