@@ -70,8 +70,38 @@
    TOP-LEFT INFO PANEL
    ================================================================ */
 
+.games-back-link {
+  display: block;
+  width: fit-content;
+  position: relative;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  text-decoration: none;
+  margin: 2.5rem 0 0 2.5rem;
+  transition: color 0.2s ease;
+}
+
+.games-back-link:hover {
+  color: var(--color-accent);
+}
+
+.games-back-link .arrow {
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  font-size: 13px;
+  color: var(--color-accent);
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.games-back-link:hover .arrow {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
 .games-top {
-  padding: 2.5rem 0 0 2.5rem;
+  padding: 5rem 0 0 2.5rem;
   align-self: flex-start;
 }
 

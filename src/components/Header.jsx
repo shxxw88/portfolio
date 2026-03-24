@@ -87,6 +87,12 @@ export default function Header() {
           About
         </a>
         <a
+          href="/puzzle"
+          className={`nav-link ${location.pathname === '/puzzle' ? 'active' : ''}`}
+        >
+          Puzzle
+        </a>
+        <a
           href="#contact"
           className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
           onClick={scrollToFooter}

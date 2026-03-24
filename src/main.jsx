@@ -40,7 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/design/iceland-guide" element={<IcelandGuideProject />} />
 
         {/* Games */}
-        <Route path="/games" element={<GamesPage />} />
+        <Route path="/puzzle" element={<GamesPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

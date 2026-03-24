@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import PuzzleCard from './PuzzleCard'
 import { PUZZLES } from './Puzzles'
@@ -53,6 +54,10 @@ export default function GamesPage() {
           </filter>
         </defs>
       </svg>
+
+      <Link to="/" className="games-back-link">
+        <span className="arrow">←</span> Back
+      </Link>
 
       {/* ---- Info panel ---- */}
       <div className="games-top">
