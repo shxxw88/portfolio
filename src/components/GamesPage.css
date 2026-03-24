@@ -2,7 +2,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--color-bg);
+  cursor: auto;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 .games-main {
@@ -29,10 +34,19 @@
 
 .games-sub {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--color-text-light);
-  margin: 0;
-  letter-spacing: 0.03em;
+  margin: var(--spacing-lg) 0 0;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* ---- Content wrapper (holds badges + stack) ---- */
+.games-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ---- Stack container ---- */
@@ -40,14 +54,16 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 20px 60px;
+  padding: 20px;
+  overflow-x: auto;
 }
 
 .games-stack {
   position: relative;
-  width: 630px;
-  /* STEP*2 + card height = 360*2 + 420 */
-  height: 1140px;
+  /* STEP_X*2 + card width = 400*2 + 630 */
+  width: 1430px;
+  /* card height + y-offset + rotation buffer */
+  height: 660px;
 }
 
 /* ---- Individual card wrapper ---- */
@@ -58,12 +74,211 @@
   transform-origin: center center;
 }
 
+/* Drop shadow on every puzzle card */
+.games-card-wrap .puzzle-card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
 /* ---- Transparent overlay on non-front cards ---- */
 .games-card-overlay {
   position: absolute;
   inset: 0;
   z-index: 100;
   cursor: pointer;
+}
+
+/* ================================================================
+   BADGES
+   ================================================================ */
+
+/* --- Green oval "How to play" sticker --- */
+.badge-howtoplay {
+  position: absolute;
+  top: -60px;
+  right: -90px;
+  width: 120px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transform: rotate(-8deg);
+  z-index: 30;
+  padding: 0;
+  /* sticker: white outline + drop shadow */
+  box-shadow: 0 0 0 5px white, 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.badge-howtoplay::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.badge-howtoplay__q {
+  font-family: 'Sen', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 1;
+}
+
+.badge-howtoplay__label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+/* --- Red ticket "Nonogram Puzzle" sticker --- */
+.badge-nonogram {
+  position: absolute;
+  top: -30px;
+  left: -60px;
+  background: #b8313f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 22px 30px;
+  border-radius: 6px;
+  transform: rotate(-7deg);
+  z-index: 30;
+  /* sticker: white outline + drop shadow */
+  box-shadow: 0 0 0 5px white, 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.badge-nonogram::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.badge-nonogram span {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  display: block;
+  line-height: 1.6;
+}
+
+/* ================================================================
+   DECORATIVE SHAPES
+   ================================================================ */
+
+.deco-star {
+  position: absolute;
+  /* sits between card 1 and card 2 in the horizontal spread */
+  top: 300px;
+  left: 760px;
+  font-size: 72px;
+  line-height: 1;
+  color: #f5df4d;
+  transform: rotate(15deg);
+  /* sticker: white outline follows the star shape, then drop shadow */
+  filter:
+    drop-shadow(0 0 0 5px white)
+    drop-shadow(0 0 0 5px white)
+    drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));
+  pointer-events: none;
+  user-select: none;
+  z-index: 25;
+}
+
+/* ================================================================
+   OVERLAY MODAL
+   ================================================================ */
+.games-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.games-overlay__card {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 48px 44px 44px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+}
+
+.games-overlay__close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+.games-overlay__close:hover {
+  color: var(--color-text);
+}
+
+.games-overlay__title {
+  font-family: 'Sen', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.games-overlay__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.overlay-rule {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.overlay-rule__icon {
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.overlay-rule p {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.overlay-rule strong {
+  color: var(--color-text);
 }
 
 /* ---- Responsive ---- */
@@ -77,5 +292,10 @@
 
   .games-main {
     padding: var(--spacing-md) 1.5rem var(--spacing-lg);
+  }
+
+  .badge-howtoplay,
+  .badge-nonogram {
+    display: none;
   }
 }
