@@ -132,7 +132,7 @@ function ScaffoldCaseStudy() {
             <h3 className="persona-heading">User Persona</h3>
 
             <p className="persona-intro">
-              Based on interviews and research, a primary user persona was created to represent the core needs, goals and pain points of our target audience.:
+              Based on interviews and research, a primary user persona was created to represent the core needs, goals and pain points of our target audience.
           </p>
       </div>
   
@@ -231,7 +231,6 @@ function ScaffoldCaseStudy() {
   <p className="implementation-text">Polished UI with funding amounts surfaced upfront and clear calls to action throughout.</p>
 </div>
 </div>
-  <hr className="scaffold-implementation-divider" />
 
 {/* Design Implementations */}
 <div className="scaffold-implementations-subsection">
@@ -262,7 +261,6 @@ function ScaffoldCaseStudy() {
     </div>
   </div>
 
-  <hr className="scaffold-implementation-divider" />
 
   {/* Grant Cards */}
   <div className="scaffold-implementation-example">
@@ -290,7 +288,6 @@ function ScaffoldCaseStudy() {
     </div>
   </div>
 
-  <hr className="scaffold-implementation-divider" />
 
   {/* Progress Tracker */}
   <div className="scaffold-implementation-example">
@@ -526,8 +523,9 @@ function ScaffoldCaseStudy() {
   </div>
   
   {/* Takeaways Subsection */}
+  <div className="takeaways-section">
   <h2 className="cs-section-heading takeaways-heading">Takeaways</h2>
-  
+
   <div className="takeaways-boxes">
     <div className="takeaway-box">
       <p className="takeaway-title"><strong>Experiencing the problems we were solving</strong></p>
@@ -557,6 +555,7 @@ function ScaffoldCaseStudy() {
         was needed.
       </p>
     </div>
+  </div>
   </div>
 </div>
         </div>

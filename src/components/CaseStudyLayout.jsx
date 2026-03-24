@@ -64,6 +64,8 @@ function CaseStudyLayout({
           )}
 
 
+          <hr className="cs-hero-divider" />
+
           {/* Project Info Grid */}
           <div className="cs-hero-info">
             <div className="info-column">
