@@ -86,13 +86,7 @@
   display: block;
 }
 
-.cs-section-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
-}
+/* cs-section-heading defined in CaseStudyLayout.css */
 /* ==================== CONTEXT SECTION ==================== */
 .context-chat-image {
   width: 100%;

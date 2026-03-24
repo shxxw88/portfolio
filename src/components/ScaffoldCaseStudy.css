@@ -1,90 +1,48 @@
-/* ScaffoldCaseStudy.css - Custom styling for Scaffold case study */
+/* ScaffoldCaseStudy.css */
 
-/* Override hero section layout for Scaffold */
-.scaffold-hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 0.2rem !important;
-  margin-bottom: 6rem;
-  padding: 0 2rem;
-  align-items: flex-start;
+/* ================================================================
+   SHARED LABEL — matches cs-section-heading/subheading treatment
+   ================================================================ */
+
+.cs-sub-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin: 0 0 1.5rem 0;
 }
 
-.scaffold-hero .hero-right{
-    margin-left: 0;
+/* ================================================================
+   HERO LAYOUT OVERRIDES
+   ================================================================ */
+
+.scaffold-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 8rem;
+  padding: 0 2rem;
+  align-items: flex-start;
 }
 
 .scaffold-hero .hero-left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
-.scaffold-hero .cs-hero-title {
-  font-family: 'Sen', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.scaffold-hero .cs-hero-description {
-  font-size: 0.875rem;
-  margin: 0;
-  max-width: 100%;
-}
-
-/* Recognition section styling */
-.scaffold-hero .cs-recognition {
-  margin: 1rem 0 1.5rem 0;
-  text-align: left;
-  padding: 0;
-}
-
-.scaffold-hero .cs-recognition-heading {
-  font-family: 'Sen', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-}
-
-.scaffold-hero .cs-recognition-text {
-  font-size: 0.875rem;
-  margin: 0;
-}
-
-/* Info grid - three columns */
 .scaffold-hero .cs-hero-info {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-top: 1.5rem;
+  gap: 2rem;
+  margin-top: 0;
 }
 
-.scaffold-hero .info-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.scaffold-hero .info-heading {
-  font-family: 'Sen', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin: 0 0 0.75rem 0;
-}
-
-.scaffold-hero .info-text {
-  font-size: 0.875rem;
-  margin: 0;
-}
-
-/* Hero image - phone mockups */
 .scaffold-hero .hero-right {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  position: relative;
-  padding-right: 1rem;
 }
 
 .scaffold-hero .image-placeholder {
@@ -105,137 +63,119 @@
   display: block;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .scaffold-hero {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
+/* ================================================================
+   CONTENT SPACING OVERRIDE
+   ================================================================ */
 
-  .scaffold-hero .cs-hero-title {
-    font-size: 2.5rem;
-  }
-
-  .scaffold-hero .cs-hero-info {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .scaffold-hero .image-placeholder {
-    width: 80%;
-    max-width: 550px;
-    margin: 0 auto;
-  }
+.content-main {
+  gap: 8rem;
 }
 
-@media (max-width: 768px) {
-  .scaffold-hero {
-    gap: 3rem;
-    padding: 0;
-  }
-
-  .scaffold-hero .cs-hero-title {
-    font-size: 2rem;
-  }
-
-  .scaffold-hero .cs-hero-description {
-    font-size: 0.813rem;
-  }
-
-  .scaffold-hero .cs-hero-info {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .scaffold-hero .info-heading,
-  .scaffold-hero .info-text {
-    font-size: 0.813rem;
-  }
-
-  .scaffold-hero .image-placeholder {
-    width: 100%;
-    max-width: 100%;
-  }
+/* Body text width constraint — keeps paragraphs readable */
+.insights-subtitle,
+.research-intro,
+.strategy-intro,
+.strategy-flow-description,
+.strategy-iterations-intro,
+.solution-tagline,
+.solution-intro,
+.technical-intro,
+.marketing-intro,
+.outcomes-intro,
+.persona-intro,
+.insights-conclusion,
+.research-question {
+  max-width: 660px;
 }
 
-/* Insights Section */
-.insights-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
-}
+/* ================================================================
+   SECTION 1: INSIGHTS
+   ================================================================ */
 
 .insights-subtitle {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 3rem 0;
+  color: var(--color-text);
 }
 
 .insights-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  margin: 2rem 0;
+  gap: 0.75rem;
+  margin: 0 0 3rem 0;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: #f9f9f9;
 }
 
 .stat-number {
   font-family: 'Roboto Mono', monospace;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-text);
 }
 
 .stat-description {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
 }
 
 .insights-conclusion {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 3rem 0 0 0;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--color-text);
+  border-left: 2px solid rgba(0, 0, 0, 0.15);
+  padding-left: 1.25rem;
+  margin: 0;
 }
 
-
-/* ==================== RESEARCH & DISCOVERY SECTION ==================== */
-.research-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
-}
+/* ================================================================
+   SECTION 2: RESEARCH & DISCOVERY
+   ================================================================ */
 
 .research-intro {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 3rem 0;
+  color: var(--color-text);
 }
 
 .research-findings {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin: 2rem 0;
+  gap: 0.75rem;
+  margin: 0 0 3rem 0;
 }
 
 .finding-card {
   display: flex;
-  gap: 1rem;
-  padding: 1.5rem 2rem;
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: #f9f9f9;
   align-items: flex-start;
 }
 
 .finding-number {
-  font-size: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
   font-weight: 700;
+  color: var(--color-text-light);
   flex-shrink: 0;
-  min-width: 60px;
+  min-width: 2rem;
+  padding-top: 2px;
 }
 
 .finding-content {
@@ -243,68 +183,66 @@
 }
 
 .finding-title {
-  font-family: 'Sen', sans-serif;
-  font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
   font-weight: 600;
-  margin: 0 0 0.75rem 0;
-  line-height: 1.4;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+  color: var(--color-text);
 }
 
 .finding-text {
-  font-size: 0.875rem;
-  line-height: 1.7;
+  font-size: 0.8rem;
+  line-height: 1.8;
   margin: 0;
+  color: var(--color-text-light);
 }
 
 .research-question {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 3rem 0 0 0;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--color-text);
+  border-left: 2px solid rgba(0, 0, 0, 0.15);
+  padding-left: 1.25rem;
+  margin: 0;
 }
 
-/* Responsive for Research */
-@media (max-width: 768px) {
-  .research-heading {
-    font-size: 1.5rem;
-  }
-  
-  .finding-card {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-  
-  .finding-number {
-    font-size: 2.5rem;
-  }
-}
+/* ================================================================
+   SECTION 3: USER PERSONA (subsection within Research)
+   ================================================================ */
 
-
-/* ==================== USER PERSONA SECTION ==================== */
 .user-persona-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 4rem;
   margin-top: 4rem;
 }
 
 .persona-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
   margin: 0 0 1.5rem 0;
 }
 
 .persona-intro {
   font-size: 0.875rem;
-  margin: 0 0 2rem 0;
+  line-height: 1.8;
+  margin: 0 0 2.5rem 0;
+  color: var(--color-text);
 }
 
 .scaffold-persona-card {
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
+  background: #f9f9f9;
 }
 
 .persona-profile {
@@ -315,11 +253,11 @@
 
 .persona-image {
   flex-shrink: 0;
-  width: 180px;
-  height: 180px;
-  border-radius: 0.5rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 3px;
   overflow: hidden;
-  background-color: #d9d9d9;
+  background-color: #e8e8e8;
 }
 
 .persona-image img {
@@ -332,82 +270,95 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .persona-name {
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
 }
 
 .persona-role {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   margin: 0;
+  color: var(--color-text-light);
 }
 
 .persona-location {
-  font-size: 0.875rem;
-  font-style: italic;
-  margin: 0 0 1rem 0;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin: 0 0 0.75rem 0;
 }
 
 .persona-bio {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
   margin: 0;
+  color: var(--color-text);
 }
 
 .persona-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  padding-top: 0.3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 2rem;
 }
 
 .persona-column-title {
-  font-family: 'Sen', sans-serif;
-  font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
   font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
   margin: 0 0 0.75rem 0;
 }
 
 .persona-list {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.4rem;
 }
 
 .persona-list li {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text);
 }
 
-/* ==================== DESIGN STRATEGY SECTION ==================== */
-.strategy-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
-}
+/* ================================================================
+   SECTION 4: DESIGN STRATEGY
+   ================================================================ */
 
 .strategy-intro {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 3rem 0;
+  color: var(--color-text);
 }
 
 .strategy-flow-title {
-  font-family: 'Sen', sans-serif;
-  color: var(--color-accent);
-  font-size: 1.25rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
   margin: 0 0 1rem 0;
 }
 
 .strategy-flow-description {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 2rem 0;
+  color: var(--color-text);
 }
 
 .strategy-flow-image {
@@ -421,36 +372,44 @@
   display: block;
 }
 
-/* ==================== DESIGN ITERATIONS ==================== */
+/* Design Iterations subsection */
 .strategy-subsection-title {
-  font-size: 1.25rem;
-  margin: 4rem 0 0.5rem 0;
-  color: var(--color-accent);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 4rem;
+  margin: 4rem 0 1rem 0;
 }
 
 .strategy-iterations-intro {
   font-size: 0.875rem;
+  line-height: 1.8;
+  margin: 0 0 2.5rem 0;
+  color: var(--color-text);
+  max-width: 660px;
 }
 
 .scaffold-strategy-iterations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3.5rem;
-  margin: 2rem 0;
+  gap: 2.5rem;
+  margin: 0;
 }
 
 .scaffold-iteration-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 }
 
 .scaffold-iteration-image {
   width: 100%;
-  max-width: 250px;
+  max-width: 240px;
   margin: 0 auto;
-  margin-top: 1.5rem;
 }
 
 .scaffold-iteration-image img {
@@ -459,21 +418,18 @@
   display: block;
 }
 
-.scaffold-iteration-caption {
-  font-size: 0.875rem;
-  text-align: center;
-  margin: 1rem 0;
-}
-
+/* Implementations subsection */
 .scaffold-implementations-subsection {
-  margin-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 4rem;
+  margin-top: 4rem;
 }
 
 .scaffold-implementation-example {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin: 2rem 0 1rem 0;
+  gap: 2rem;
+  margin: 0 0 1.5rem 0;
   justify-content: center;
 }
 
@@ -488,26 +444,21 @@
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  max-width: 250px;
+  max-width: 260px;
+  width: 100%;
 }
 
 .scaffold-implementation-inner img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0.5rem;
-}
-
-.scaffold-implementation-arrow {
-  font-size: 2rem;
-  color: #595959;
-  align-self: center;
+  border-radius: 3px;
 }
 
 .scaffold-implementation-texts {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 2rem;
+  margin-bottom: 0;
 }
 
 .scaffold-implementation-text-item {
@@ -515,48 +466,49 @@
 }
 
 .scaffold-implementation-spacer {
-  width: 3rem;
+  width: 2rem;
   flex-shrink: 0;
 }
 
 .scaffold-implementation-divider {
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 2rem 0 4rem 0;
-}
-/* ==================== SOLUTION SECTION ==================== */
-.solution-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 3.5rem 0;
 }
 
+/* ================================================================
+   SECTION 5: SOLUTION
+   ================================================================ */
+
 .solution-tagline {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
   margin: 0 0 1.5rem 0;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .solution-intro {
   font-size: 0.875rem;
-  margin: 0 0 5rem 0;
+  line-height: 1.8;
+  margin: 0 0 4rem 0;
+  color: var(--color-text);
 }
 
-/* Phone Features - One video with 3 descriptions */
 .solution-phone-features {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
-  margin: 3rem 0;
+  margin: 0;
   align-items: start;
 }
 
 .phone-video-container {
   width: 100%;
-  max-width: 260px;
-  margin-left: 3rem;
+  max-width: 240px;
+  margin-left: 2rem;
   position: sticky;
   top: 2rem;
 }
@@ -565,7 +517,7 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 52px;
+  border-radius: 48px;
 }
 
 .phone-features-list {
@@ -577,39 +529,43 @@
 .feature-item {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .feature-title {
-  font-family: 'Sen', sans-serif;
-  color: #7260CC;
-  font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
   font-weight: 600;
   margin: 0;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
 }
 
 .feature-text {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
   margin: 0;
+  color: var(--color-text-light);
 }
 
 .scaffold-emoji {
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
 }
 
-/* Desktop Feature - Separate section */
 .solution-desktop-feature {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 3rem;
-  margin: 4rem 0;
+  margin: 4rem 0 0 0;
   align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 4rem;
 }
 
 .desktop-video-container {
   width: 100%;
-  max-width: 600px;
 }
 
 .desktop-video-container video {
@@ -621,106 +577,105 @@
 .desktop-feature-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
+/* ================================================================
+   SECTION 6: TECHNICAL IMPLEMENTATION
+   ================================================================ */
 
-/* ==================== TECHNICAL IMPLEMENTATION ==================== */
 .technical-implementation {
-  margin-top: 5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 4rem;
+  margin-top: 4rem;
 }
 
 .technical-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
   margin: 0 0 1.5rem 0;
 }
 
 .technical-intro {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 2rem 0;
+  color: var(--color-text);
+  max-width: 660px;
 }
 
 .technical-box {
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 2rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  background: #f9f9f9;
 }
 
 .tech-stack {
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
 }
 
 .tech-flow {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.5rem;
 }
 
 .tech-label {
-  font-size: 0.875rem;
-  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin: 0 0 0.75rem 0;
 }
 
 .tech-text {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
   margin: 0;
+  color: var(--color-text);
 }
 
 .tech-list {
   margin: 0;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .tech-list li {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text);
 }
 
-
-/* ==================== MARKETING & LAUNCH SUPPORT ==================== */
-.marketing-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
-}
+/* ================================================================
+   SECTION 7: MARKETING & LAUNCH
+   ================================================================ */
 
 .marketing-intro {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 3rem 0;
-}
-
-.marketing-row {
-  margin: 2rem 0;
-}
-
-/* Full width row (single image) */
-.marketing-full {
-  width: 85%;
-    margin: 0 auto;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-}
-
-.marketing-full img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0.5rem;
+  color: var(--color-text);
 }
 
 .marketing-asset {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .marketing-asset-item {
@@ -734,14 +689,23 @@
 }
 
 .marketing-caption {
-  font-size: 0.75rem;
-  color: var(--color-text);
-  opacity: 0.6;
-  margin-top: 0.5rem;
-  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--color-text-light);
+  margin-top: 0.75rem;
+  letter-spacing: 0.04em;
 }
 
-/* Grid row - Brochure and Stickers (brochure bigger) */
+.marketing-full {
+  width: 100%;
+}
+
+.marketing-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .marketing-grid-brochure {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -756,18 +720,16 @@
 
 .marketing-grid-brochure img {
   width: 100%;
-  height: 500px; /* adjust to taste */
+  height: 460px;
   object-fit: cover;
   object-position: center;
   display: block;
-  border-radius: 0.5rem;
 }
-
 
 .marketing-grid-equal {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .marketing-grid-equal img {
@@ -775,359 +737,299 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 0.5rem;
 }
 
-/* Video row */
 .marketing-video {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  gap: 0;
 }
 
 .marketing-video video {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0.5rem;
 }
 
-/* Add this to your ScaffoldCaseStudy.css */
-
-/* ==================== OUTCOMES & TAKEAWAYS SECTION ==================== */
-.outcomes-heading,
-.takeaways-heading {
-  color: var(--color-accent);
-  font-family: 'Sen', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 2rem 0;
-}
-
-.takeaways-heading {
-  margin-top: 4rem;
-}
+/* ================================================================
+   SECTION 8: OUTCOMES
+   ================================================================ */
 
 .outcomes-intro {
   font-size: 0.875rem;
+  line-height: 1.8;
   margin: 0 0 1.5rem 0;
+  color: var(--color-text);
 }
 
 .outcomes-subsection-title {
-  font-size: 1rem;
-  margin: 2rem 0 1.5rem 0;
-  color: var(--color-accent);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 3rem;
+  margin: 3rem 0 2rem 0;
 }
 
 .outcomes-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 0.75rem;
+  margin: 0 0 3rem 0;
 }
 
 .outcome-stat {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: #f9f9f9;
 }
 
 .outcome-icon {
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 .outcome-number {
   font-family: 'Roboto Mono', monospace;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
 }
 
 .outcome-description {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
   margin: 0;
-}
-
-.outcome-text {
-  font-size: 0.875rem;
-  margin: 0;
+  color: var(--color-text-light);
 }
 
 .outcomes-photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: 1rem;
+  margin: 3rem 0 0 0;
 }
 
 .outcomes-photos img {
   width: 100%;
-  height: 100%;
+  height: 260px;
   object-fit: cover;
   display: block;
-  border-radius: 0.5rem;
 }
 
-.outcomes-list {
-  margin: 0 0 3rem 0;
-  padding-left: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+/* ================================================================
+   SECTION 9: TAKEAWAYS
+   ================================================================ */
+
+.takeaways-heading {
+  margin-top: 0;
 }
 
-.outcomes-list li {
-  font-size: 0.875rem;
-}
-
-/* Takeaways Boxes */
 .takeaways-boxes {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.75rem;
   margin-top: 2rem;
 }
 
 .takeaway-box {
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 2rem 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
+  background: #f9f9f9;
 }
 
 .takeaway-title {
-  font-size: 0.875rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
   margin: 0;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
 }
 
 .takeaway-subtitle {
-  font-size: 0.875rem;
-  margin: 1rem 0 0 0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin: 0.75rem 0 0 0;
 }
 
 .takeaway-text {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+/* ================================================================
+   IMPLEMENTATION LABELS (Before/After, Lo-fi/Mid-fi/Final)
+   ================================================================ */
+
+.implementation-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin: 0 0 0.5rem 0;
+}
+
+.implementation-text {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
   margin: 0;
 }
 
-/* Responsive for Outcomes */
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
 @media (max-width: 1024px) {
-  .outcomes-stats {
+  .scaffold-hero {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 3rem;
+    padding: 0;
+    margin-bottom: 5rem;
   }
-}
 
-@media (max-width: 768px) {
-  .outcomes-heading,
-  .takeaways-heading {
-    font-size: 1.5rem;
+  .scaffold-hero .image-placeholder {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
   }
-  
-  .outcomes-stats {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .outcome-icon {
-    font-size: 1.75rem;
-  }
-  
-  .outcome-number {
-    font-size: 1.5rem;
-  }
-  
-  .outcomes-photos {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .takeaway-box {
-    padding: 1.5rem;
-  }
-}
 
-/* Responsive for Marketing */
-@media (max-width: 768px) {
-  .marketing-grid-brochure,
-  .marketing-grid-equal {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .marketing-heading {
-    font-size: 1.5rem;
-  }
-  
-  .marketing-row {
-    margin: 1.5rem 0;
-  }
-}
-/* Responsive for Technical Implementation */
-@media (max-width: 768px) {
-  .technical-box {
-    padding: 1.5rem;
-  }
-  
-  .technical-heading {
-    font-size: 1.5rem;
-  }
-}
-
-/* Responsive for Solution */
-@media (max-width: 1024px) {
-  .solution-phone-features {
-    gap: 2rem;
-  }
-  
-  .solution-desktop-feature {
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .solution-phone-features {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .phone-video-container {
-    position: static;
-  }
-  
-  .phone-features-list {
-    gap: 2rem;
-  }
-  
-  .solution-desktop-feature {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .desktop-video-container {
-    max-width: 100%;
-  }
-  
-  .solution-heading {
-    font-size: 1.5rem;
-  }
-}
-
-/* Responsive for Iterations */
-@media (max-width: 1024px) {
-  .strategy-iterations-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .iteration-image {
-    max-width: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  .strategy-iterations-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .strategy-subsection-title {
-    font-size: 1.1rem;
-  }
-  
-  .iteration-image {
-    max-width: 300px;
-  }
-  
-  .iteration-caption {
-    font-size: 0.813rem;
-  }
-}
-
-/* Responsive for Strategy */
-@media (max-width: 768px) {
-  .strategy-heading {
-    font-size: 1.5rem;
-  }
-  
-  .strategy-flow-title {
-    font-size: 1.1rem;
-  }
-}
-
-/* Responsive for Persona */
-@media (max-width: 768px) {
-  .persona-card {
-    padding: 1.5rem;
-  }
-  
-  .persona-profile {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .persona-image {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .persona-details {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .persona-image {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .persona-name {
-    font-size: 1.25rem;
-  }
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
   .insights-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item {
+    margin-right: 0;
+    margin-bottom: -1px;
+  }
+
+  .outcomes-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .outcome-stat {
+    margin-right: 0;
+    margin-bottom: -1px;
+  }
+
+  .scaffold-strategy-iterations-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
-}
 
-@media (max-width: 768px) {
-  .insights-stats {
+  .solution-desktop-feature {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .insights-heading {
-    font-size: 1.5rem;
-  }
 }
 
-@media (max-width: 480px) {
-  .scaffold-hero .cs-hero-title {
-    font-size: 1.75rem;
-  }
-
-  .scaffold-hero .cs-hero-description {
-    font-size: 0.75rem;
+@media (max-width: 768px) {
+  .scaffold-hero {
+    gap: 2rem;
   }
 
   .scaffold-hero .image-placeholder {
     width: 100%;
+    max-width: 100%;
   }
-}
 
-.content-main {
-  gap: 10rem;
+  .insights-stats,
+  .outcomes-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .finding-card {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .persona-profile {
+    flex-direction: column;
+  }
+
+  .persona-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .persona-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .scaffold-strategy-iterations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-phone-features {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .phone-video-container {
+    position: static;
+    margin-left: 0;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .scaffold-implementation-example {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .scaffold-implementation-inner {
+    max-width: 100%;
+  }
+
+  .scaffold-implementation-texts {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .scaffold-implementation-spacer {
+    display: none;
+  }
+
+  .marketing-grid-brochure,
+  .marketing-grid-equal {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .marketing-grid-brochure img {
+    height: 300px;
+  }
+
+  .outcomes-photos {
+    grid-template-columns: 1fr;
+  }
+
+  .outcomes-photos img {
+    height: 220px;
+  }
+
+  .takeaway-box {
+    padding: 1.5rem;
+  }
 }

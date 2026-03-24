@@ -1,6 +1,5 @@
 import CaseStudyLayout from './CaseStudyLayout';
-import ProjectFooter from './ProjectFooter'; 
-import { useEffect } from 'react';
+import ProjectFooter from './ProjectFooter';
 import './ScaffoldCaseStudy.css';
 
 function ScaffoldCaseStudy() {
@@ -21,60 +20,10 @@ function ScaffoldCaseStudy() {
   };
 
 
-  useEffect(() => {
-  const sections = document.querySelectorAll('.content-section');
-  const navItems = document.querySelectorAll('.nav-item');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -70% 0px',
-    threshold: 0
-  };
-
-  const observerCallback = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        
-        navItems.forEach((item) => {
-          item.classList.remove('active');
-        });
-        
-        const activeNav = document.querySelector(`.nav-item[href="#${id}"]`);
-        if (activeNav) {
-          activeNav.classList.add('active');
-        }
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-
-  return () => {
-    sections.forEach((section) => {
-      observer.unobserve(section);
-    });
-  };
-}, []);
-
   return (
     <>
     <CaseStudyLayout {...projectData}>
       <section className="case-study-content">
-        <nav className="content-nav">
-          <a href="#" className="nav-item back-to-top">⌃</a>
-          <a href="#insights" className="nav-item">Insights</a>
-          <a href="#research" className="nav-item">Research & Discovery</a>
-          <a href="#strategy" className="nav-item">Design Strategy</a>
-          <a href="#solution" className="nav-item">Solution</a>
-          <a href="#marketing" className="nav-item">Marketing & Launch</a>
-          <a href="#outcomes" className="nav-item">Outcomes & Takeaways</a>
-        </nav>
-
         <div className="content-main">
           {/* Insights Section */}
           <div id="insights" className="content-section">
