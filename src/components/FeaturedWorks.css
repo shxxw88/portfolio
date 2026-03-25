@@ -22,21 +22,22 @@
 }
 
 .filter-btn {
-  font-family: 'Sen', sans-serif;
-  font-size: 0.875rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
   font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--color-text-light);
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   transition: color 0.2s ease, font-weight 0.2s ease;
-  letter-spacing: 0.02em;
 }
 
 .filter-btn.active {
   color: var(--color-text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .filter-btn::after {
@@ -119,9 +120,9 @@
 }
 
 .design-grid-title {
-  font-family: 'Sen', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: white;
   text-align: center;
   padding: 0 2rem;
@@ -136,9 +137,9 @@
 }
 
 .coming-soon-message p {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  font-family: 'Sen', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 /* ==================== GRAPHIC DESIGN GRID ==================== */

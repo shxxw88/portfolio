@@ -12,11 +12,11 @@
 }
 
 .project-title {
-  font-family: 'Sen', sans-serif;
-  font-size: 2rem;
-  font-weight: 500;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.75rem;
+  font-weight: 400;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 .project-description {
@@ -41,16 +41,20 @@
 }
 
 .skill-tag {
-  font-size: 0.875rem;
-  color: var(--color-text);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-light);
   line-height: 1.6;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .project-link {
   display: inline-block;
   position: relative;
+  font-family: 'Roboto Mono', monospace;
   font-style: italic;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--color-text);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -232,7 +236,7 @@
   }
   
   .project-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .project-image {

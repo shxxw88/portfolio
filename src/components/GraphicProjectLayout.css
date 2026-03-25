@@ -29,7 +29,11 @@
   top: 1.5rem;
   left: 2.5rem;
   z-index: 100;
-  font-size: 0.875rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--color-text);
   text-decoration: none;
   padding: 0.5rem 1.25rem;
@@ -80,9 +84,9 @@
 
 /* Project Title */
 .gp-title {
-  font-family: 'Sen', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0 0 2rem 0;
 }
 
@@ -105,9 +109,12 @@
 }
 
 .gp-info-heading {
-  font-family: 'Sen', sans-serif;
-  font-size: 0.875rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
   font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
   margin: 0 0 0.5rem 0;
 }
 
@@ -144,9 +151,12 @@
 }
 
 .gp-section-heading {
-  font-family: 'Sen', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
   margin: 0;
 }
 
