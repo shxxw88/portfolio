@@ -84,9 +84,12 @@
 }
 
 .section-heading {
-  font-family: 'Sen', sans-serif;
-  font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
 }
 
 .section-right {
@@ -171,7 +174,7 @@
   }
 
   .section-heading {
-    font-size: 1.1rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -190,7 +193,7 @@
   }
 
   .section-heading {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 
   .section-text,

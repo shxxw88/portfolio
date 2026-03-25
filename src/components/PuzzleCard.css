@@ -1,0 +1,316 @@
+.puzzle-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 630px;
+  height: 420px;
+  background: var(--pc-bg);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+/* per-card postcard border */
+.puzzle-card::before {
+  content: '';
+  position: absolute;
+  inset: var(--pc-border-inset, 10px);
+  border: var(--pc-border-width, 1.5px) var(--pc-border-style, dashed) var(--pc-border);
+  border-radius: var(--pc-border-radius, 2px);
+  filter: var(--pc-border-filter, none);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.puzzle-card--won::before {
+  animation: pc-border-pulse 1.2s ease-in-out 3;
+}
+
+@keyframes pc-border-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ---- LEFT ---- */
+.pc-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px;
+  min-width: 180px;
+  position: relative;
+  z-index: 1;
+}
+
+.pc-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pc-text);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.pc-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.pc-star {
+  font-size: 14px;
+  color: var(--pc-text);
+  opacity: 0.2;
+  transition: opacity 0.15s;
+}
+
+.pc-star--on {
+  opacity: 0.85;
+}
+
+.pc-diff {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--pc-text);
+  opacity: 0.7;
+  text-transform: uppercase;
+  margin-top: -4px;
+}
+
+.pc-timer {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--pc-text);
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.pc-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.pc-btn {
+  width: auto;
+  padding: 8px 18px;
+  background: var(--pc-accent);
+  color: var(--pc-bg);
+  border: none;
+  border-radius: 2px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.pc-btn:hover  { opacity: 0.85; }
+.pc-btn:active { transform: scale(0.97); }
+
+.pc-btn--ghost {
+  background: transparent;
+  color: var(--pc-text);
+  border: 1px solid var(--pc-border);
+  opacity: 0.6;
+}
+
+.pc-btn--ghost:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--pc-text) 6%, transparent);
+}
+
+.pc-solved {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--pc-text);
+  opacity: 0.9;
+  animation: pc-fade-in 0.4s ease;
+}
+
+@keyframes pc-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 0.9; transform: translateY(0); }
+}
+
+/* ---- DIVIDER (vertical) ---- */
+.pc-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--pc-border);
+  opacity: 0.5;
+  margin: 24px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- RIGHT ---- */
+.pc-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pc-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* column clues */
+.pc-col-clues {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-bottom: 4px;
+}
+
+.pc-col-clue {
+  width: var(--pc-cell);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  padding-bottom: 4px;
+}
+
+.pc-col-clue span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--pc-text);
+  opacity: 0.65;
+  line-height: 1.4;
+}
+
+/* rows */
+.pc-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pc-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+}
+
+.pc-row-clue {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  margin-right: 4px;
+  width: var(--pc-row-clue-w);
+  flex-shrink: 0;
+}
+
+.pc-row-clue span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--pc-text);
+  opacity: 0.65;
+  line-height: 1;
+  width: 14px;
+  text-align: right;
+}
+
+/* cells */
+.pc-cell {
+  width: var(--pc-cell);
+  height: var(--pc-cell);
+  border: 1px solid var(--pc-border);
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, border-radius 0.1s;
+  flex-shrink: 0;
+}
+
+.pc-cell:hover {
+  background: color-mix(in srgb, var(--pc-fill) 15%, transparent);
+}
+
+.pc-cell--filled {
+  background: var(--pc-fill);
+  border-color: var(--pc-fill);
+}
+
+.pc-cell--filled:hover {
+  background: var(--pc-fill);
+  opacity: 0.85;
+}
+
+.pc-cell--marked {
+  background: transparent;
+}
+
+.pc-cell-x {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--pc-text);
+  opacity: 0.5;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ---- Mobile / tablet reflow (≤ 900px) ---- */
+@media (max-width: 900px) {
+  .puzzle-card {
+    flex-direction: column;
+    width: min(560px, calc(100vw - 3rem));
+    height: auto;
+  }
+
+  /* Grid panel comes first */
+  .pc-right {
+    order: -1;
+    padding: 28px 24px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Divider becomes horizontal */
+  .pc-divider {
+    width: calc(100% - 48px);
+    height: 1px;
+    align-self: center;
+    margin: 0;
+  }
+
+  /* Controls panel below, centered */
+  .pc-left {
+    flex-direction: column;
+    align-items: center;
+    min-width: unset;
+    width: 100%;
+    padding: 20px 24px 28px;
+    gap: 8px;
+  }
+
+  .pc-actions {
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+    gap: 12px;
+  }
+}

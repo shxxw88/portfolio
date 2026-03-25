@@ -9,6 +9,9 @@ import ScrollToTop from './components/ScrollToTop.jsx'; // Import the new compon
 import ScaffoldCaseStudy from './components/ScaffoldCaseStudy.jsx';
 import PickiCaseStudy from './components/PickiCaseStudy.jsx';
 
+// Games
+import GamesPage from './components/GamesPage.jsx';
+
 // Graphic Design Project imports
 import AuroreMenuProject from './components/AuroreMenuProject.jsx';
 import DailyCoffeeProject from './components/DailyCoffeeProject.jsx';
@@ -35,6 +38,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/design/aurore-menu" element={<AuroreMenuProject />} />
         <Route path="/design/daily-coffee" element={<DailyCoffeeProject />} />
         <Route path="/design/iceland-guide" element={<IcelandGuideProject />} />
+
+        {/* Games */}
+        <Route path="/puzzle" element={<GamesPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

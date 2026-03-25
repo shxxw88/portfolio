@@ -1,9 +1,17 @@
+import { useState, useEffect } from 'react';
 import CaseStudyLayout from './CaseStudyLayout';
-import ProjectFooter from './ProjectFooter'; 
-import { useEffect } from 'react';
+import ProjectFooter from './ProjectFooter';
+import VideoPlayer from './VideoPlayer';
 import './ScaffoldCaseStudy.css';
 
 function ScaffoldCaseStudy() {
+  const [lightboxSrc, setLightboxSrc] = useState(null);
+
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') setLightboxSrc(null); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, []);
   const projectData = {
     title: "Scaffold",
     description: [
@@ -17,64 +25,15 @@ function ScaffoldCaseStudy() {
     heroImage: "/images/scaffold-hero.png",
     heroClassName: "scaffold-hero",
     demoUrl: "https://scaffold-theta.vercel.app/",
-    demoLabel: "Try the Demo"
+    demoLabel: "Try the Demo",
+    repoUrl: "https://github.com/shxxw88/scaffold-demo?tab=readme-ov-file"
   };
 
-
-  useEffect(() => {
-  const sections = document.querySelectorAll('.content-section');
-  const navItems = document.querySelectorAll('.nav-item');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -70% 0px',
-    threshold: 0
-  };
-
-  const observerCallback = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        
-        navItems.forEach((item) => {
-          item.classList.remove('active');
-        });
-        
-        const activeNav = document.querySelector(`.nav-item[href="#${id}"]`);
-        if (activeNav) {
-          activeNav.classList.add('active');
-        }
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-
-  return () => {
-    sections.forEach((section) => {
-      observer.unobserve(section);
-    });
-  };
-}, []);
 
   return (
     <>
     <CaseStudyLayout {...projectData}>
       <section className="case-study-content">
-        <nav className="content-nav">
-          <a href="#" className="nav-item back-to-top">⌃</a>
-          <a href="#insights" className="nav-item">Insights</a>
-          <a href="#research" className="nav-item">Research & Discovery</a>
-          <a href="#strategy" className="nav-item">Design Strategy</a>
-          <a href="#solution" className="nav-item">Solution</a>
-          <a href="#marketing" className="nav-item">Marketing & Launch</a>
-          <a href="#outcomes" className="nav-item">Outcomes & Takeaways</a>
-        </nav>
-
         <div className="content-main">
           {/* Insights Section */}
           <div id="insights" className="content-section">
@@ -116,7 +75,7 @@ function ScaffoldCaseStudy() {
             
             <p className="insights-conclusion">
               While thousands of dollars in funding exists for trades training in BC. 
-              eligible apprentices aren't accessing it.
+              eligible apprentices are not accessing it.
             </p>
           </div>
 
@@ -180,54 +139,110 @@ function ScaffoldCaseStudy() {
             </p>
 
           <div className="user-persona-section">
-            <h3 className="persona-heading">User Persona</h3>
-
+            <h3 className="persona-heading">User Personas</h3>
             <p className="persona-intro">
-              Based on interviews and research, a primary user persona was created to represent the core needs, goals and pain points of our target audience.:
-          </p>
-      </div>
-  
-  <div className="scaffold-persona-card">
-    <div className="persona-profile">
-      <div className="persona-image">
-        <img src="/images/scaffold-persona.png" alt="Talia Redsky" />
-      </div>
-      
-      <div className="persona-info">
-        <h4 className="persona-name">Talia Redsky</h4>
-        <p className="persona-role">28, Carpentry Apprentice</p>
-        <p className="persona-location">Williams Lake, BC</p>
-        
-        <p className="persona-bio">
-          Indigenous tradeswoman working full-time for a small construction 
-          company while training towards Red Seal certification. She's passionate 
-          about supporting her community but find it difficult to apply for 
-          government funding.
-        </p>
-      </div>
-    </div>
-    
-    <div className="persona-details">
-      <div className="persona-column">
-        <h5 className="persona-column-title">Goals:</h5>
-        <ul className="persona-list">
-          <li>Access Indigenous-specific funding programs.</li>
-          <li>Save time by using a tool that explains eligibility in plain language.</li>
-          <li>Never miss a deadline or lose track of applications.</li>
-          <li>Use technology that respects and reflects her community values.</li>
-        </ul>
-      </div>
-      
-      <div className="persona-column">
-        <h5 className="persona-column-title">Pain points:</h5>
-        <ul className="persona-list">
-          <li>Grant information is scattered across multiple government sites.</li>
-          <li>Missed deadlines due to lack of reminders.</li>
-          <li>Limited awareness of what she actually qualifies for.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+              Based on interviews and research, two personas were created to represent the core needs, goals, and pain points of our target audience.
+            </p>
+
+            <div className="persona-cards-grid">
+
+              {/* Primary Persona — Talia */}
+              <div className="scaffold-persona-card">
+                <div className="persona-profile">
+                  <div className="persona-image">
+                    <img src="/images/scaffold-persona.png" alt="Talia Redsky" />
+                  </div>
+                  <div className="persona-info">
+                    <h4 className="persona-name">Talia Redsky</h4>
+                    <p className="persona-role">28, Carpentry Apprentice</p>
+                    <p className="persona-location">Williams Lake, BC</p>
+                    <p className="persona-bio">Indigenous tradeswoman working full-time for a small construction company while training toward her Red Seal certification. Passionate about her community but frustrated by how difficult it is to find and apply for Indigenous-specific funding.</p>
+                  </div>
+                </div>
+
+                <p className="persona-quote">"I want to keep learning and supporting my community, but the system makes it hard to get started."</p>
+
+                <div className="persona-details">
+                  <div className="persona-column">
+                    <h5 className="persona-column-title">Goals</h5>
+                    <ul className="persona-list">
+                      <li>Access Indigenous-specific funding programs.</li>
+                      <li>Save time with a tool that explains eligibility in plain language.</li>
+                      <li>Never miss a deadline or lose track of applications.</li>
+                      <li>Use technology that reflects her community values.</li>
+                    </ul>
+                  </div>
+                  <div className="persona-column">
+                    <h5 className="persona-column-title">Pain Points</h5>
+                    <ul className="persona-list">
+                      <li>Grant information scattered across multiple government sites.</li>
+                      <li>Missed deadlines due to lack of reminders.</li>
+                      <li>Limited awareness of what she qualifies for.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="persona-scenario">
+                  <h5 className="persona-column-title">Scenario</h5>
+                  <p className="persona-scenario-text">Talia recently tried applying for Indigenous apprenticeship grants but found each one had different forms, deadlines, and requirements. After long workdays, she runs out of time and energy before completing the process.</p>
+                </div>
+
+                <div className="persona-tech-row">
+                  <h5 className="persona-column-title">Technology</h5>
+                  <p className="persona-tech-text">Smartphone (Android) · Laptop for forms and documents</p>
+                </div>
+              </div>
+
+              {/* Secondary Persona — Mateo */}
+              <div className="scaffold-persona-card">
+                <div className="persona-profile">
+                  <div className="persona-image">
+                    <img src="/images/scaffold-persona2.png" alt="Mateo Alvarez" />
+                  </div>
+                  <div className="persona-info">
+                    <h4 className="persona-name">Mateo Alvarez</h4>
+                    <p className="persona-role">22, Plumbing Apprentice</p>
+                    <p className="persona-location">Surrey, BC</p>
+                    <p className="persona-bio">Second-year trade school student balancing classes with part-time work under a local contractor. Motivated and eager to learn, but unsure which grants apply to him or how to navigate the process. Needs something simple and mobile-first.</p>
+                  </div>
+                </div>
+
+                <p className="persona-quote">"I just want to focus on learning my trade and not figuring out endless paperwork."</p>
+
+                <div className="persona-details">
+                  <div className="persona-column">
+                    <h5 className="persona-column-title">Goals</h5>
+                    <ul className="persona-list">
+                      <li>Find and apply for apprenticeship grants and bursaries.</li>
+                      <li>Get reminders for upcoming application deadlines.</li>
+                      <li>Access funding without feeling overwhelmed.</li>
+                      <li>Build financial independence while completing training.</li>
+                    </ul>
+                  </div>
+                  <div className="persona-column">
+                    <h5 className="persona-column-title">Pain Points</h5>
+                    <ul className="persona-list">
+                      <li>Unaware of grants until others mention them.</li>
+                      <li>Application forms are confusing and full of jargon.</li>
+                      <li>Government websites are not mobile-friendly.</li>
+                      <li>Misses opportunities due to unclear deadlines.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="persona-scenario">
+                  <h5 className="persona-column-title">Scenario</h5>
+                  <p className="persona-scenario-text">After getting one grant through word of mouth, Mateo discovered the program was canceled the following year. Searching for alternatives left him overwhelmed — he spent hours online and eventually gave up.</p>
+                </div>
+
+                <div className="persona-tech-row">
+                  <h5 className="persona-column-title">Technology</h5>
+                  <p className="persona-tech-text">Smartphone (iPhone) · Laptop for coursework and applications</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
 </div>
 
           {/* Design Strategy Section */}
@@ -247,8 +262,13 @@ function ScaffoldCaseStudy() {
   </p>
   
   <div className="strategy-flow-image">
-    <img src="/images/scaffold-flow.png" alt="Scaffold user flow diagram" />
-</div>
+    <img
+      src="/images/scaffold-flow.png"
+      alt="Scaffold user flow diagram"
+      className="zoomable-image"
+      onClick={() => setLightboxSrc('/images/scaffold-flow.png')}
+    />
+  </div>
 <p className="strategy-subsection-title"><strong>Design Iterations</strong></p>
 
 <p className="strategy-iterations-intro">
@@ -282,7 +302,6 @@ function ScaffoldCaseStudy() {
   <p className="implementation-text">Polished UI with funding amounts surfaced upfront and clear calls to action throughout.</p>
 </div>
 </div>
-  <hr className="scaffold-implementation-divider" />
 
 {/* Design Implementations */}
 <div className="scaffold-implementations-subsection">
@@ -313,7 +332,6 @@ function ScaffoldCaseStudy() {
     </div>
   </div>
 
-  <hr className="scaffold-implementation-divider" />
 
   {/* Grant Cards */}
   <div className="scaffold-implementation-example">
@@ -341,7 +359,6 @@ function ScaffoldCaseStudy() {
     </div>
   </div>
 
-  <hr className="scaffold-implementation-divider" />
 
   {/* Progress Tracker */}
   <div className="scaffold-implementation-example">
@@ -489,7 +506,7 @@ function ScaffoldCaseStudy() {
   {/* Row 1 - Brand Identity */}
   <div className="marketing-asset">
     <div className="marketing-row marketing-full">
-      <img src="/images/scaffold-style.png" alt="Scaffold brand identity and color palette" />
+      <img src="/images/scaffold-style.png" alt="Scaffold brand identity and color palette" className="zoomable-image" onClick={() => setLightboxSrc('/images/scaffold-style.png')} />
     </div>
     <p className="marketing-caption">Brand identity style guide with logo, typography and colours</p>
   </div>
@@ -498,11 +515,11 @@ function ScaffoldCaseStudy() {
   <div className="marketing-asset">
     <div className="marketing-row marketing-grid-brochure">
       <div className="marketing-asset-item">
-        <img src="/images/scaffold-brochure.png" alt="Scaffold brochure" />
+        <img src="/images/scaffold-brochure.png" alt="Scaffold brochure" className="zoomable-image" onClick={() => setLightboxSrc('/images/scaffold-brochure.png')} />
         <p className="marketing-caption">Showcase brochure</p>
       </div>
       <div className="marketing-asset-item">
-        <img src="/images/scaffold-stickers.png" alt="Scaffold promotional stickers" />
+        <img src="/images/scaffold-stickers.png" alt="Scaffold promotional stickers" className="zoomable-image" onClick={() => setLightboxSrc('/images/scaffold-stickers.png')} />
         <p className="marketing-caption">Promotional stickers</p>
       </div>
     </div>
@@ -511,9 +528,7 @@ function ScaffoldCaseStudy() {
   {/* Row 3 - Promo Video */}
   <div className="marketing-asset">
     <div className="marketing-row marketing-video">
-      <video autoPlay loop muted playsInline>
-        <source src="/videos/scaffold-promo.mov" type="video/mp4" />
-      </video>
+      <VideoPlayer src="/videos/scaffold-promo.mov" />
     </div>
     <p className="marketing-caption">Promotional video</p>
   </div>
@@ -522,11 +537,11 @@ function ScaffoldCaseStudy() {
   <div className="marketing-asset">
     <div className="marketing-row marketing-grid-equal">
       <div className="marketing-asset-item">
-        <img src="/images/scaffold-banner.png" alt="Scaffold billboard banner" />
+        <img src="/images/scaffold-banner.png" alt="Scaffold billboard banner" className="zoomable-image" onClick={() => setLightboxSrc('/images/scaffold-banner.png')} />
         <p className="marketing-caption">Event banner</p>
       </div>
       <div className="marketing-asset-item">
-        <img src="/images/scaffold-signs.png" alt="Scaffold business cards" />
+        <img src="/images/scaffold-signs.png" alt="Scaffold business cards" className="zoomable-image" onClick={() => setLightboxSrc('/images/scaffold-signs.png')} />
         <p className="marketing-caption">Signage</p>
       </div>
     </div>
@@ -577,8 +592,9 @@ function ScaffoldCaseStudy() {
   </div>
   
   {/* Takeaways Subsection */}
+  <div className="takeaways-section">
   <h2 className="cs-section-heading takeaways-heading">Takeaways</h2>
-  
+
   <div className="takeaways-boxes">
     <div className="takeaway-box">
       <p className="takeaway-title"><strong>Experiencing the problems we were solving</strong></p>
@@ -609,11 +625,18 @@ function ScaffoldCaseStudy() {
       </p>
     </div>
   </div>
+  </div>
 </div>
         </div>
       </section>
     </CaseStudyLayout>
          <ProjectFooter />
+
+      {lightboxSrc && (
+        <div className="lightbox-overlay" onClick={() => setLightboxSrc(null)}>
+          <img src={lightboxSrc} alt="Zoomed view" className="lightbox-image" />
+        </div>
+      )}
 </>
   );
 }
