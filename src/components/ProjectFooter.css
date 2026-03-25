@@ -99,12 +99,12 @@
 }
 
 .contact-heading {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   font-family: 'Roboto Mono', monospace;
   margin: 0;
   color: var(--color-text);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 .contact-links {
