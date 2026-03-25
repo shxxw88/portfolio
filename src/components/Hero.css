@@ -34,7 +34,6 @@
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
-/* Name wrapper — positions highlight and cursor relative to the name */
 .hero-name-wrapper {
   position: relative;
   display: inline-flex;
@@ -53,13 +52,11 @@
   white-space: nowrap;
   position: relative;
   z-index: 2;
-  /* Remove all previous typing animation */
   animation: none;
   border: none;
   overflow: visible;
 }
 
-/* Expanding highlight behind the text */
 .selection-highlight {
   position: absolute;
   left: 0;
@@ -71,7 +68,6 @@
   pointer-events: none;
 }
 
-/* Cursor bar that rides the leading edge of the highlight */
 .selection-cursor {
   position: absolute;
   left: 0;
@@ -94,7 +90,6 @@
   max-width: 100%;
   text-align: center;
   animation: fadeIn 0.8s ease-out 0.3s both;
-
 }
 
 .hero-title {
@@ -127,6 +122,7 @@
   pointer-events: none;
   z-index: 4;
 }
+
 .hero-name-char {
   position: relative;
   display: inline-block;
@@ -166,22 +162,19 @@
   perspective: 1200px;
 }
 
-/* Tilt wrapper — must preserve-3d so flip child renders correctly */
 .postcard-tilt {
   transform-style: preserve-3d;
   cursor: pointer;
 }
 
-/* Flip wrapper */
 .postcard-card {
   position: relative;
-  width: 760px;
-  height: 515px;
+  width: min(760px, calc(100vw - 4rem));
+  height: calc(min(760px, calc(100vw - 4rem)) * 0.678);
   transform-style: preserve-3d;
   user-select: none;
 }
 
-/* ── Shared face ── */
 .postcard-face {
   position: absolute;
   inset: 0;
@@ -193,7 +186,6 @@
     0 1px 6px rgba(0, 0, 0, 0.06);
 }
 
-/* ── FRONT ── */
 .postcard-front {
   background-color: #fafaf8;
 }
@@ -212,28 +204,60 @@
   background-color: #222;
 }
 
-/* ── Responsive ── */
-.postcard-card {
-  width: min(760px, calc(100vw - 4rem));
-  height: calc(min(760px, calc(100vw - 4rem)) * 0.678);
+/* ─────────────────────────────────────────────
+   Hero — Mobile text layout
+───────────────────────────────────────────── */
+
+.hero--mobile {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2rem 6rem;
 }
 
-@media (max-width: 480px) {
-  .postcard-card {
-    width: 92vw;
-    height: 62vh;
-  }
+.hero-mobile-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
 
-.postcard-flip-hint {
+.hmc-greeting {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 0.8rem;
   color: var(--color-text-light);
-  text-align: center;
-  margin-top: 1rem;
+  margin: 0;
+  letter-spacing: 0.02em;
 }
+
+.hmc-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  min-height: 2rem;
+}
+
+.hmc-desc-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hmc-desc {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   Animations / Responsive
+───────────────────────────────────────────── */
 
 @keyframes fadeIn {
   from {
@@ -254,11 +278,6 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 2rem 0 4rem;
-    min-height: 60vh;
-  }
-
   .hero-title {
     font-size: 1rem;
   }

@@ -1,8 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import './Hero.css';
 
-// 🖼️ Replace with your actual image paths
 import postcardFront from '/images/postcard-front.png';
 import back1 from '/images/postcard-back1.png';
 import back2 from '/images/postcard-back2.png';
@@ -17,8 +16,42 @@ const getRandomImage = (exclude = null) => {
 };
 
 const SPRING = { stiffness: 60, damping: 18, mass: 1.2 };
-const MAX_TILT = 12; // degrees
+const MAX_TILT = 12;
 const isTouch = window.matchMedia('(pointer: coarse)').matches;
+const isMobilePhone = isTouch && window.innerWidth < 768;
+
+function TypewriterText({ text, delay = 0, className }) {
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    let i = 0;
+    const start = setTimeout(() => {
+      const typeNext = () => {
+        if (i >= text.length) return;
+        setTimeout(() => {
+          i++;
+          setVisibleCount(i);
+          typeNext();
+        }, 60 + Math.random() * 30);
+      };
+      typeNext();
+    }, delay);
+    return () => clearTimeout(start);
+  }, [text, delay]);
+
+  return (
+    <p className={className}>
+      {text.slice(0, visibleCount)}
+      {visibleCount < text.length && (
+        <motion.span
+          className="typing-caret"
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+        />
+      )}
+    </p>
+  );
+}
 
 export default function Hero() {
   const [flipped, setFlipped] = useState(false);
@@ -26,15 +59,10 @@ export default function Hero() {
   const lastBack = useRef(currentBack);
   const cardRef = useRef(null);
 
-  // Raw mouse motion values
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-
-  // Smoothed with spring physics
   const springX = useSpring(mouseX, SPRING);
   const springY = useSpring(mouseY, SPRING);
-
-  // Map to rotation angles
   const rotateX = useTransform(springY, [-0.5, 0.5], [MAX_TILT, -MAX_TILT]);
   const rotateY = useTransform(springX, [-0.5, 0.5], [-MAX_TILT, MAX_TILT]);
 
@@ -59,6 +87,31 @@ export default function Hero() {
     setFlipped((f) => !f);
   };
 
+  if (isMobilePhone) {
+    return (
+      <section className="hero hero--mobile">
+        <div className="hero-mobile-copy">
+          <p className="hmc-greeting">Hey, I'm Sharleen Wang</p>
+
+          <TypewriterText
+            text="Product Designer"
+            delay={300}
+            className="hmc-title"
+          />
+
+          <div className="hmc-desc-block">
+            <p className="hmc-desc">
+              I bring an artist's eye and designer's mindset to every product I build.
+            </p>
+            <p className="hmc-desc">
+              (Plus a bit of code to make it all come alive!)
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="hero">
       <motion.div
@@ -67,36 +120,28 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
       >
-        {/* Tilt wrapper — handles mouse-tracked rotation */}
         <motion.div
           ref={cardRef}
           className="postcard-tilt"
-          style={{ rotateX: isTouch ? 0 : rotateX, rotateY: isTouch ? 0 : rotateY }}
-          onMouseMove={isTouch ? undefined : handleMouseMove}
-          onMouseLeave={isTouch ? undefined : handleMouseLeave}
+          style={{ rotateX, rotateY }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
         >
-          {/* Flip wrapper — handles click-to-flip rotation */}
           <motion.div
             className="postcard-card"
             animate={{ rotateY: flipped ? 180 : 0 }}
             transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
             onClick={handleFlip}
           >
-            {/* ── FRONT ── */}
             <div className="postcard-face postcard-front">
               <img src={postcardFront} alt="Postcard front" className="postcard-img" />
             </div>
-
-            {/* ── BACK ── */}
             <div
               className="postcard-face postcard-back"
               style={{ backgroundImage: `url(${currentBack})` }}
             />
           </motion.div>
         </motion.div>
-        {isTouch && (
-          <p className="postcard-flip-hint">{flipped ? 'tap to flip back' : 'tap to flip'}</p>
-        )}
       </motion.div>
     </section>
   );
