@@ -95,7 +95,7 @@
 .section-right {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .section-text {
@@ -163,7 +163,7 @@
 /* Tablets */
 @media (max-width: 968px) {
   .about-page {
-    padding: 3rem 2rem 6rem 2rem;
+    padding: 8rem 2rem 6rem 2rem;
     gap: 4rem;
   }
 
@@ -181,7 +181,7 @@
 /* Mobile and small tablets */
 @media (max-width: 768px) {
   .about-page {
-    padding: 2rem 1.5rem 4rem 1.5rem;
+    padding: 6rem 1.5rem 4rem 1.5rem;
     gap: 3rem;
   }
 

@@ -38,7 +38,7 @@ function GraphicProjectLayout({
       
       {/* Back Link */}
       <Link to="/" className={`gp-back-link ${scrolled ? 'scrolled' : ''}`}>
-       ← Back
+        <span className="arrow">←</span> Back
       </Link>
 
       {/* Hero Image */}

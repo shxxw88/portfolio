@@ -18,6 +18,7 @@ const getRandomImage = (exclude = null) => {
 
 const SPRING = { stiffness: 60, damping: 18, mass: 1.2 };
 const MAX_TILT = 12; // degrees
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
 export default function Hero() {
   const [flipped, setFlipped] = useState(false);
@@ -70,9 +71,9 @@ export default function Hero() {
         <motion.div
           ref={cardRef}
           className="postcard-tilt"
-          style={{ rotateX, rotateY }}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
+          style={{ rotateX: isTouch ? 0 : rotateX, rotateY: isTouch ? 0 : rotateY }}
+          onMouseMove={isTouch ? undefined : handleMouseMove}
+          onMouseLeave={isTouch ? undefined : handleMouseLeave}
         >
           {/* Flip wrapper — handles click-to-flip rotation */}
           <motion.div
@@ -93,6 +94,9 @@ export default function Hero() {
             />
           </motion.div>
         </motion.div>
+        {isTouch && (
+          <p className="postcard-flip-hint">{flipped ? 'tap to flip back' : 'tap to flip'}</p>
+        )}
       </motion.div>
     </section>
   );
