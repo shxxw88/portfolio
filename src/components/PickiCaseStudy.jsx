@@ -1,6 +1,5 @@
 import CaseStudyLayout from './CaseStudyLayout';
-import ProjectFooter from './ProjectFooter'; 
-import { useEffect } from 'react';
+import ProjectFooter from './ProjectFooter';
 import './PickiCaseStudy.css';
 
 function PickiCaseStudy() {
@@ -18,62 +17,10 @@ function PickiCaseStudy() {
     demoLabel: "Try the Prototype"
   };
 
-  useEffect(() => {
-    const sections = document.querySelectorAll('.content-section');
-    const navItems = document.querySelectorAll('.nav-item');
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          
-          navItems.forEach((item) => {
-            item.classList.remove('active');
-          });
-          
-          const activeNav = document.querySelector(`.nav-item[href="#${id}"]`);
-          if (activeNav) {
-            activeNav.classList.add('active');
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-    };
-  }, []);
-
   return (
     <>
       <CaseStudyLayout {...projectData}>
         <section className="case-study-content">
-          <nav className="content-nav">
-            <a href="#" className="nav-item back-to-top">⌃</a>
-            <a href="#context" className="nav-item">Context</a>
-            <a href="#persona" className="nav-item">User Persona</a>
-            <a href="#userflow" className="nav-item">User Flow</a>
-            <a href="#iterations" className="nav-item">Iterations</a>
-            <a href="#testing" className="nav-item">Usability Tests</a>
-            <a href="#design" className="nav-item">Design</a>
-            <a href="#styleguide" className="nav-item">Style Guide</a>
-            <a href="#reflections" className="nav-item">Reflections</a>
-          </nav>
-
           <div className="content-main">
            {/* Context Section */}
 <div id="context" className="content-section">
@@ -124,35 +71,48 @@ function PickiCaseStudy() {
                   <div className="persona-image">
                     <img src="/images/picki-persona.png" alt="User Persona" />
                   </div>
-                  
                   <div className="persona-info">
                     <h4 className="persona-name">Amy Ross</h4>
                     <p className="persona-role">25, Graphic Designer</p>
-                    <p className="persona-location">East Vancouver, BC.</p>
+                    <p className="persona-location">East Vancouver, BC</p>
                     <p className="persona-bio">
-                      Amy is a graphic designer living in East Vancouver, who loves trying new cafés, exploring hidden gems, and spending time with her small circle of friends. She has strong aesthetic preferences and knows exactly what kind of vibe she wants.
+                      Amy is a graphic designer who loves trying new cafés, exploring hidden gems, and spending time with her small circle of friends. She has strong aesthetic preferences and knows exactly what kind of vibe she wants, but hates being the one to decide for the group.
                     </p>
                   </div>
                 </div>
-                
+
+                <p className="persona-quote">"A good café is like a well-designed logo — effortlessly inviting, memorable, and full of character."</p>
+
                 <div className="persona-details">
                   <div className="persona-column">
-                    <h5 className="persona-column-title">Goals:</h5>
+                    <h5 className="persona-column-title">Goals</h5>
                     <ul className="persona-list">
-                      <li>Discover unique spots that match her aesthetics, not generic top-rated places.</li>
+                      <li>Discover unique spots that match her aesthetic, not generic top-rated places.</li>
                       <li>Make group decisions quickly without the guilt of being "the decider."</li>
                       <li>Turn planning from a chore into something exciting again.</li>
                     </ul>
                   </div>
-                  
                   <div className="persona-column">
-                    <h5 className="persona-column-title">Pain points:</h5>
+                    <h5 className="persona-column-title">Pain Points</h5>
                     <ul className="persona-list">
-                      <li>Worries about disappointing friends with her choices.</li>
-                      <li>Gets overwhelmed by too many options and ends up choosing nothing.</li>
-                      <li>Wants hidden gems and curated experiences, but finding them takes too much research.</li>
+                      <li>Spends too much time scrolling Google, Yelp, and TikTok without making a choice.</li>
+                      <li>Gets overwhelmed by too many options and ends up doing nothing or going to the same place.</li>
+                      <li>Generic recommendations don't match her vibe — she wants hidden gems, not overhyped spots.</li>
+                      <li>Reviews focus on food and service, but she cares just as much about ambiance.</li>
                     </ul>
                   </div>
+                </div>
+
+                <div className="picki-persona-scenario">
+                  <h5 className="persona-column-title">Needs</h5>
+                  <p className="picki-persona-scenario-text">
+                    Amy needs an app that quickly surfaces curated plans without overwhelming her with choices. As a designer, she values a sleek, minimal UI — the experience itself should feel as considered as the places it recommends.
+                  </p>
+                </div>
+
+                <div className="picki-persona-tech-row">
+                  <h5 className="persona-column-title">Technology</h5>
+                  <p className="picki-persona-tech-text">Smartphone (iPhone) · Instagram · TikTok · Pinterest · Google Maps · Yelp</p>
                 </div>
               </div>
             </div>
@@ -225,6 +185,7 @@ function PickiCaseStudy() {
   </div>
 </div>
            {/* Usability Tests Section */}
+<div className="testing-implementations-group">
 <div id="testing" className="content-section">
   <h2 className="cs-section-heading">Usability Tests</h2>
   
@@ -387,6 +348,7 @@ function PickiCaseStudy() {
       </p>
     </div>
   </div>
+</div>
 </div>
             {/* Design Section */}
 <div id="design" className="content-section">

@@ -25,7 +25,8 @@ function ScaffoldCaseStudy() {
     heroImage: "/images/scaffold-hero.png",
     heroClassName: "scaffold-hero",
     demoUrl: "https://scaffold-theta.vercel.app/",
-    demoLabel: "Try the Demo"
+    demoLabel: "Try the Demo",
+    repoUrl: "https://github.com/shxxw88/scaffold-demo?tab=readme-ov-file"
   };
 
 
