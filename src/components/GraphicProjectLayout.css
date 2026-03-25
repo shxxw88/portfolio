@@ -60,6 +60,20 @@
   opacity: 0.7;
 }
 
+.gp-back-link .arrow {
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  font-size: 13px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.gp-back-link:hover .arrow {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
 /* Hero Image - Full width, natural height */
 .gp-hero-image {
   width: 100vw;
@@ -399,11 +413,20 @@
 
   .can-item:nth-child(2) {
     margin-top: 0;
+    padding-top: 0;
   }
 
   .can-item:nth-child(3) {
     grid-column: auto;
     margin-top: 0;
+  }
+
+  .coffee-icons-track img {
+    height: 100px;
+  }
+
+  .gp-hero-image {
+    overflow: hidden;
   }
 }
 
@@ -422,6 +445,8 @@
 @media (max-width: 768px) {
   .menu-grid {
     grid-template-columns: 1fr;
+    margin: 1rem 0;
+    padding: 3rem 1.5rem;
   }
   
   .menu-page-tall,

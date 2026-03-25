@@ -1111,3 +1111,34 @@
     padding: 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .content-main {
+    gap: 4rem;
+  }
+
+  .phone-video-container {
+    max-width: 160px;
+  }
+
+  .scaffold-persona-card {
+    padding: 1.25rem;
+  }
+
+  .persona-cards-grid {
+    gap: 1rem;
+  }
+
+  .insights-stats,
+  .outcomes-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .marketing-grid-brochure img {
+    height: 200px;
+  }
+
+  .outcomes-photos img {
+    height: 180px;
+  }
+}

@@ -132,7 +132,7 @@ export default function GamesPage() {
                         onClick={() => bringToFront(puzzleIdx)}
                       />
                     )}
-                    <PuzzleCard {...puzzle} isActive={isFront} />
+                    <PuzzleCard {...puzzle} isActive={isFront} isMobile={isMobile} />
                   </motion.div>
                 )
               })}

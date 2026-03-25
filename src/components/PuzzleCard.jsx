@@ -38,7 +38,7 @@ function formatTime(s) {
 }
 
 // --- component ---
-export default function PuzzleCard({ title, difficulty, grid, theme, isActive = false }) {
+export default function PuzzleCard({ title, difficulty, grid, theme, isActive = false, isMobile = false }) {
   const rows = grid.length
   const cols = grid[0].length
   const { rowClues, colClues } = getClues(grid)
@@ -48,12 +48,17 @@ export default function PuzzleCard({ title, difficulty, grid, theme, isActive = 
   // Card is 630×420px (3:2 landscape). Left panel: 180px + 32px×2 padding = 244px.
   // Right panel: 630-244-1 = 385px, padding 24px×2 = 337px available width.
   // Height: 420px - 36px×2 padding - 4px col-clue margin = 344px available.
+  // On mobile (≤900px): card reflows vertically, width = min(560, 100vw-3rem), right padding 24px×2.
   // Row clue: 14px per digit + 3px gap. Col clue: 14px per line.
   const rowClueW = maxRowClueLen * 14 + Math.max(0, maxRowClueLen - 1) * 3
   const colClueH = maxColClueLen * 14
+  const availW = isMobile
+    ? Math.max(180, Math.min(560, window.innerWidth - 48) - 48)
+    : 337
+  const availH = isMobile ? 400 : 344
   const cellSize = Math.min(
-    Math.floor((344 - colClueH) / rows),
-    Math.floor(337 / cols),
+    Math.floor((availH - colClueH) / rows),
+    Math.floor((availW - rowClueW - 4) / cols),
     30
   )
 

@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import './Header.css';
 
 export default function Header() {
   const [heroHeight, setHeroHeight] = useState(window.innerHeight);
   const [activeSection, setActiveSection] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+  const menuRef = useRef(null);
   const location = useLocation();
   const { scrollY } = useScroll();
 
@@ -13,6 +16,24 @@ export default function Header() {
   useEffect(() => {
     const hero = document.querySelector('.hero');
     if (hero) setHeroHeight(hero.offsetHeight);
+  }, []);
+
+  // Track mobile breakpoint
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Close menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   // Active section detection
@@ -67,39 +88,51 @@ export default function Header() {
     document.querySelector('.featured-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const navLinks = (onClickExtra) => (
+    <>
+      <a href="#works" className={`nav-link ${activeSection === 'works' ? 'active' : ''}`} onClick={(e) => { scrollToWorks(e); onClickExtra?.(); }}>Works</a>
+      <a href="/about" className={`nav-link ${location.pathname === '/about' && activeSection !== 'contact' ? 'active' : ''}`} onClick={onClickExtra}>About</a>
+      <a href="/puzzle" className={`nav-link ${location.pathname === '/puzzle' ? 'active' : ''}`} onClick={onClickExtra}>Puzzle</a>
+      <a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={(e) => { scrollToFooter(e); onClickExtra?.(); }}>Contact</a>
+    </>
+  );
+
   return (
     <motion.header
-      className="header"
-      style={{ top: isAbout ? 32 : navY }}
+      className={`header ${isMobile ? 'header--mobile' : ''}`}
+      style={{ top: (isAbout || isMobile) ? 32 : navY }}
     >
+      {/* Desktop nav */}
       <nav className="nav">
-        <a
-          href="#works"
-          className={`nav-link ${activeSection === 'works' ? 'active' : ''}`}
-          onClick={scrollToWorks}
-        >
-          Works
-        </a>
-        <a
-          href="/about"
-          className={`nav-link ${location.pathname === '/about' && activeSection !== 'contact' ? 'active' : ''}`}
-        >
-          About
-        </a>
-        <a
-          href="/puzzle"
-          className={`nav-link ${location.pathname === '/puzzle' ? 'active' : ''}`}
-        >
-          Puzzle
-        </a>
-        <a
-          href="#contact"
-          className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-          onClick={scrollToFooter}
-        >
-          Contact
-        </a>
+        {navLinks()}
       </nav>
+
+      {/* Mobile hamburger */}
+      <div className="mobile-nav" ref={menuRef}>
+        <button
+          className="hamburger-btn"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+        >
+          <span className={`hamburger-icon ${menuOpen ? 'open' : ''}`}>
+            <span /><span /><span />
+          </span>
+        </button>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              className="nav-dropdown"
+              initial={{ opacity: 0, y: -8, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.18, ease: 'easeOut' }}
+            >
+              {navLinks(() => setMenuOpen(false))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.header>
   );
 }

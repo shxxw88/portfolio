@@ -213,11 +213,26 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 820px) {
+.postcard-card {
+  width: min(760px, calc(100vw - 4rem));
+  height: calc(min(760px, calc(100vw - 4rem)) * 0.678);
+}
+
+@media (max-width: 480px) {
   .postcard-card {
-    width: calc(100vw - 2rem);
-    height: calc((100vw - 2rem) * 0.678);
+    width: 92vw;
+    height: 62vh;
   }
+}
+
+.postcard-flip-hint {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: 1rem;
 }
 
 @keyframes fadeIn {

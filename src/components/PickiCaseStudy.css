@@ -764,14 +764,33 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .design-video-item:last-child {
     grid-column: auto;
     max-width: 100%;
   }
-  
+
   .design-video-container {
-    max-width: 280px;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .content-main {
+    gap: 5rem;
+  }
+
+  .testing-implementations-group {
+    gap: 2.5rem;
+  }
+
+  .persona-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .userflow-list {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
 
@@ -849,6 +868,22 @@
 @media (max-width: 480px) {
   .iterations-images {
     grid-template-columns: 1fr;
+  }
+
+  .design-video-container {
+    max-width: 220px;
+  }
+
+  .content-main {
+    gap: 4rem;
+  }
+
+  .persona-card {
+    padding: 1.25rem;
+  }
+
+  .testing-priorities {
+    gap: 0.75rem;
   }
 }
 
