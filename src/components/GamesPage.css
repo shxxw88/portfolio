@@ -54,7 +54,7 @@
 }
 
 /* Drop shadow on every puzzle card */
-.games-card-wrap .puzzle-card {
+.games-card-wrap {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(0, 0, 0, 0.07);
 }
 
@@ -333,12 +333,12 @@
     height: auto;
   }
 
-  .games-stack--mobile .games-card-wrap {
+  .games-card-wrap--stacked {
     position: relative;
     margin-bottom: -28px;
   }
 
-  .games-stack--mobile .games-card-wrap:last-child {
+  .games-card-wrap--stacked:last-child {
     margin-bottom: 60px;
   }
 }

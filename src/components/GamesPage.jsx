@@ -93,7 +93,7 @@ export default function GamesPage() {
                 <ul className="games-info__rules">
                   <li>The numbers along each row and column are your clues.</li>
                   <li>Each number tells you how many cells to fill and in what order.</li>
-                  <li><strong>3 2</strong> means a group of 3, a gap, then a group of 2, with a gap in between.</li>
+                  <li><strong>3 2</strong> means a group of 3, then a group of 2, with a gap in between.</li>
                   <li><strong>Left click</strong> fills a cell. <strong>Right click</strong> places a x to mark a cell you want to skip.</li>
                   <li>Use logic until every row and column matches its clues.</li>
                   <li>Stuck? Hit <strong>Hint</strong> to reveal one cell.</li>
@@ -115,7 +115,7 @@ export default function GamesPage() {
                 return (
                   <motion.div
                     key={puzzle.id}
-                    className="games-card-wrap"
+                    className={`games-card-wrap${isMobile ? ' games-card-wrap--stacked' : ''}`}
                     style={{ zIndex: zMap[puzzleIdx] }}
                     animate={{
                       rotate: isFront ? pose.rotate * 0.4 : pose.rotate,

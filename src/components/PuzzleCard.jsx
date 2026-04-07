@@ -75,25 +75,21 @@ export default function PuzzleCard({ title, difficulty, grid, theme, isActive = 
     return () => clearInterval(id)
   }, [won, isActive])
 
-  // win check
+  // win check + confetti on solve
   useEffect(() => {
     const solved = grid.every((row, r) =>
       row.every((cell, c) =>
         cell === 1 ? cells[r][c] === 'filled' : cells[r][c] !== 'filled'
       )
     )
-    if (solved) setWon(true)
-  }, [cells, grid])
-
-  // confetti on solve — fire from both sides for full-screen coverage
-  useEffect(() => {
-    if (!won) return
+    if (!solved) return
+    setWon(true)
     const colors = [theme.accent, theme.fill, '#ffffff']
     const opts = { particleCount: 80, spread: 90, colors }
     confetti({ ...opts, origin: { x: 0.1, y: 0.5 }, angle: 60  })
     confetti({ ...opts, origin: { x: 0.9, y: 0.5 }, angle: 120 })
     confetti({ ...opts, origin: { x: 0.5, y: 0.8 }, angle: 90  })
-  }, [won])
+  }, [cells, grid, theme])
 
   function handleClick(r, c) {
     if (won) return
@@ -167,8 +163,8 @@ export default function PuzzleCard({ title, difficulty, grid, theme, isActive = 
         '--pc-row-clue-w':     `${rowClueW}px`,
       }}
     >
-      {/* LEFT PANEL */}
-      <div className="pc-left">
+      {/* INFO PANEL */}
+      <div className="pc-info">
         <h2 className="pc-title">{title}</h2>
 
         <div className="pc-stars">
@@ -191,8 +187,8 @@ export default function PuzzleCard({ title, difficulty, grid, theme, isActive = 
       {/* DIVIDER */}
       <div className="pc-divider" />
 
-      {/* RIGHT PANEL — grid */}
-      <div className="pc-right">
+      {/* BOARD PANEL — grid */}
+      <div className="pc-board">
         <div className="pc-grid-wrap">
 
           {/* Column clues */}

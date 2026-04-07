@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.2s;
+  font-family: 'DM Mono', monospace;
 }
 
 /* per-card postcard border */
@@ -32,8 +33,8 @@
   50%       { opacity: 0.3; }
 }
 
-/* ---- LEFT ---- */
-.pc-left {
+/* ---- INFO ---- */
+.pc-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +47,6 @@
 }
 
 .pc-title {
-  font-family: 'DM Mono', monospace;
   font-size: 13px;
   font-weight: 500;
   color: var(--pc-text);
@@ -71,7 +71,6 @@
 }
 
 .pc-diff {
-  font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.12em;
   color: var(--pc-text);
@@ -81,7 +80,6 @@
 }
 
 .pc-timer {
-  font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.12em;
   color: var(--pc-text);
@@ -104,7 +102,6 @@
   color: var(--pc-bg);
   border: none;
   border-radius: 2px;
-  font-family: 'DM Mono', monospace;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -128,7 +125,6 @@
 }
 
 .pc-solved {
-  font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.15em;
   color: var(--pc-text);
@@ -152,8 +148,8 @@
   z-index: 1;
 }
 
-/* ---- RIGHT ---- */
-.pc-right {
+/* ---- BOARD ---- */
+.pc-board {
   flex: 1;
   display: flex;
   align-items: center;
@@ -189,7 +185,6 @@
 }
 
 .pc-col-clue span {
-  font-family: 'DM Mono', monospace;
   font-size: 10px;
   color: var(--pc-text);
   opacity: 0.65;
@@ -222,7 +217,6 @@
 }
 
 .pc-row-clue span {
-  font-family: 'DM Mono', monospace;
   font-size: 10px;
   color: var(--pc-text);
   opacity: 0.65;
@@ -265,7 +259,6 @@
 }
 
 .pc-cell-x {
-  font-family: 'DM Mono', monospace;
   font-size: 14px;
   color: var(--pc-text);
   opacity: 0.5;
@@ -282,7 +275,7 @@
   }
 
   /* Grid panel comes first */
-  .pc-right {
+  .pc-board {
     order: -1;
     padding: 28px 24px 16px;
     width: 100%;
@@ -298,7 +291,7 @@
   }
 
   /* Controls panel below, centered */
-  .pc-left {
+  .pc-info {
     flex-direction: column;
     align-items: center;
     min-width: unset;
