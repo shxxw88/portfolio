@@ -72,6 +72,15 @@ export default function FeaturedWorks() {
       link: '/design/iceland-guide',
       noCaption: true
     },
+    {
+      id: 6,
+      title: 'VCH Parenting Skills',
+      description: 'Refining the digital learning experience for Vancouver Coastal Health\'s parenting education program through UI component improvements and visual design.',
+      skills: ['UX/UI Design', 'Visual Design', 'Brand Identity'],
+      image: '/images/vch-cover.png',
+      category: 'UX/UI',
+      link: '/design/parenting-skills',
+    }
   ];
 
   const filteredProjects = projects.filter(p => p.category === activeFilter);

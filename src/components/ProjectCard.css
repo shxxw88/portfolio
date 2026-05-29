@@ -164,7 +164,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,30 +178,12 @@
 }
 
 .overlay-text {
-  color: white; /* White text */
+  color: white;
   font-size: 1rem;
   font-weight: 500;
   display: block; /* Show the text */
 }
 
-/* Remove green overlay effect */
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: transparent; /* Changed from green */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none; /* Don't interfere with clicks */
-}
-
-.overlay-text {
-  display: none; /* Hide the overlay text */
-}
 
 .image-placeholder {
   width: 100%;

@@ -30,9 +30,6 @@ export default function ProjectCard({ project }) {
                 alt={project.title}
                 className="project-img"
               />
-              <div className="image-overlay">
-                <span className="overlay-text">View project →</span>
-              </div>
             </div>
           </div>
         </Link>
