@@ -24,6 +24,15 @@ export default function FeaturedWorks() {
 
   const projects = [
     {
+      id: 1,
+      title: 'Scaffold',
+      description: 'Reducing financial barriers to trades training by centralizing fragmented grant databases and matching BC apprentices to relevant funding opportunities.',
+      skills: ['Project Management', 'UX/UI Design', 'Front-end development'],
+      image: '/images/scaffold-cover.png',
+      category: 'UX/UI',
+      link: '/case-study/scaffold'
+    },
+    {
       id: 6,
       title: 'VCH Parenting Skills',
       description: 'Refining the digital learning experience for Vancouver Coastal Health\'s parenting education program through UI component improvements and visual design.',
@@ -32,15 +41,6 @@ export default function FeaturedWorks() {
       category: 'UX/UI',
       link: '/design/parenting-skills',
       linkLabel: 'VIEW PROJECT',
-    },
-    {
-      id: 1,
-      title: 'Scaffold',
-      description: 'Reducing financial barriers to trades training by centralizing fragmented grant databases and matching BC apprentices to relevant funding opportunities.',
-      skills: ['Project Management', 'UX/UI Design', 'Front-end development'],
-      image: '/images/scaffold-cover.png',
-      category: 'UX/UI',
-      link: '/case-study/scaffold'
     },
     {
       id: 2,
