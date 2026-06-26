@@ -6,6 +6,7 @@ export default function ProjectCard({ project }) {
     const routes = {
       'Scaffold': '/case-study/scaffold',
       'Picki': '/case-study/picki',
+      'VCH Parenting Skills': '/design/parenting-skills',
       'Aurore Menu Design': '/design/aurore-menu',
       'Daily Coffee Project': '/design/daily-coffee',
       'Iceland Guide': '/design/iceland-guide'
@@ -65,7 +66,7 @@ export default function ProjectCard({ project }) {
 
           {hasRoute ? (
             <Link to={caseStudyRoute} className="project-link">
-              VIEW CASE STUDY <span className="arrow">→</span>
+              {project.linkLabel || 'VIEW CASE STUDY'} <span className="arrow">→</span>
             </Link>
           ) : (
             <span className="project-link disabled">

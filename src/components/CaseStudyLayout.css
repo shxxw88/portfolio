@@ -103,6 +103,18 @@
   margin-bottom: 1rem;
 }
 
+/* Disclaimer */
+.cs-disclaimer {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.12);
+  background: #f9f9f9;
+  border-radius: 0 4px 4px 0;
+}
+
 /* Demo button */
 .cs-demo-button {
   display: inline-flex;

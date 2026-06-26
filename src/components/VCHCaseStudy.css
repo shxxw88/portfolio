@@ -1,0 +1,239 @@
+/* ================================================================
+   HERO LAYOUT OVERRIDE
+   ================================================================ */
+
+.vch-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 8rem;
+  padding: 0 2rem;
+  align-items: flex-start;
+}
+
+.vch-hero .hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.vch-hero .hero-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.vch-hero .image-placeholder {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  background-color: transparent !important;
+  background: none !important;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.vch-hero .image-placeholder img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* ================================================================
+   CONTENT TYPOGRAPHY
+   ================================================================ */
+
+.vch-subsection-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+
+.vch-body-text {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.vch-body-text + .vch-body-text {
+  margin-top: 1rem;
+}
+
+/* ================================================================
+   SUBSECTIONS WITHIN 03
+   ================================================================ */
+
+.vch-subsection {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ================================================================
+   HERO COVER — FULL BLEED SELECTED IMAGE
+   ================================================================ */
+
+.vch-full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 6rem 0 3rem;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  background: #e8e8e4;
+}
+
+.vch-full-bleed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vch-divider-note {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  text-align: center;
+  margin: 1rem 0 0.75rem;
+}
+
+.vch-explorations-img {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vch-explorations-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================================================================
+   ILLUSTRATIONS — SEPARATE BACKGROUNDS
+   ================================================================ */
+
+.vch-illus-video-wrap {
+  background: #F9F9F9;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.vch-illus-video {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  box-shadow: -266px 875px 250px 0 rgba(171, 171, 171, 0.00), -170px 560px 234px 0 rgba(171, 171, 171, 0.00), -96px 315px 198px 0 rgba(171, 171, 171, 0.02), -43px 140px 146px 0 rgba(171, 171, 171, 0.04), -11px 35px 80px 0 rgba(171, 171, 171, 0.05);
+}
+
+.vch-illus-drawings-wrap {
+  background: #F9F9F9;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.vch-drawing {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: -266px 875px 250px 0 rgba(171, 171, 171, 0.00), -170px 560px 234px 0 rgba(171, 171, 171, 0.00), -96px 315px 198px 0 rgba(171, 171, 171, 0.02), -43px 140px 146px 0 rgba(171, 171, 171, 0.04), -11px 35px 80px 0 rgba(171, 171, 171, 0.05);
+}
+
+/* ================================================================
+   UI REFINEMENTS — IMAGE
+   ================================================================ */
+
+.vch-ui-image {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1.75rem;
+}
+
+.vch-ui-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================================================================
+   OUTCOME & REFLECTION
+   ================================================================ */
+
+.vch-reflection {
+  margin-top: 1rem;
+}
+
+
+
+.vch-outcome-card {
+  background: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+.vch-outcome-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+}
+
+.vch-outcome-text {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.vch-outcome-text strong {
+  font-weight: 600;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  .vch-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .vch-illus-video {
+    width: 100%;
+  }
+
+  .vch-illus-drawings-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .vch-var-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop.jsx'; // Import the new compon
 // Case Study imports (UX/UI Projects)
 import ScaffoldCaseStudy from './components/ScaffoldCaseStudy.jsx';
 import PickiCaseStudy from './components/PickiCaseStudy.jsx';
+import VCHCaseStudy from './components/VCHCaseStudy.jsx';
 
 // Games
 import GamesPage from './components/GamesPage.jsx';
@@ -33,6 +34,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         {/* Case Study Routes */}
         <Route path="/case-study/scaffold" element={<ScaffoldCaseStudy />} />
         <Route path="/case-study/picki" element={<PickiCaseStudy />} />
+        <Route path="/design/parenting-skills" element={<VCHCaseStudy />} />
         
         {/* Graphic Design Project Routes */}
         <Route path="/design/aurore-menu" element={<AuroreMenuProject />} />

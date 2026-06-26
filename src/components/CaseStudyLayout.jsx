@@ -14,6 +14,7 @@ function CaseStudyLayout({
   demoUrl,
   demoLabel = "View Demo →",
   repoUrl,
+  disclaimer,
   children
 }) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -64,6 +65,9 @@ function CaseStudyLayout({
             </div>
           )}
 
+          {disclaimer && (
+            <div className="cs-disclaimer">{disclaimer}</div>
+          )}
 
           <hr className="cs-hero-divider" />
 
@@ -106,7 +110,7 @@ function CaseStudyLayout({
               </a>
             )}
           </div>
-        
+
         </div>
 
         {/* Hero Image */}
